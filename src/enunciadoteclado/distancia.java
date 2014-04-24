@@ -12,6 +12,11 @@ package enunciadoteclado;
  */
 public class distancia {
     
+//  atributos
     private int distancia;
     
+//  metodos    
+    int calcularDistancia(int x, int y, int X, int Y) {
+        
+    }
 }
