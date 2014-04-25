@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+//import java.lang.System;    //importar la clase System
 package enunciadoteclado;
 
 /**

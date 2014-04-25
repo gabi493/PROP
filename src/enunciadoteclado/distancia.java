@@ -12,11 +12,23 @@ package enunciadoteclado;
  */
 public class distancia {
     
-//  atributos
+//  Atributos 
     private int distancia;
+    private int tam;
     
-//  metodos    
-    int calcularDistancia(int x, int y, int X, int Y) {
-        
+//  Metodos    
+    public void setDistancia(int d) {
+        distancia = d;
     }
+    
+    /**
+     * 
+     * @return
+     */
+    public int getDistancia() {
+        return distancia;
+    }
+//    public int calcularDistancia(int x, int y, int X, int Y) {
+//        
+//    }
 }

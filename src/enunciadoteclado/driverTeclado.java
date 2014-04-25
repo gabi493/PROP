@@ -8,11 +8,8 @@ package enunciadoteclado;
 
 /**
  *
- * @author gabriel
+ * @author gabrielcarrillolopez
  */
-public class posicion {
-    
-    private int fila;
-    private int columna;
+public class driverTeclado {
     
 }
