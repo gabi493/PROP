@@ -21,10 +21,6 @@ public class distancia {
         distancia = d;
     }
     
-    /**
-     * 
-     * @return
-     */
     public int getDistancia() {
         return distancia;
     }
