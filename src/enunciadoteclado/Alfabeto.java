@@ -1,4 +1,4 @@
-package teclado;
+package enunciadoteclado;
 
 import java.util.ArrayList;
 
@@ -53,7 +53,7 @@ public class Alfabeto {
         this.alfabeto = original.alfabeto;
     }
     /**
-     * Consultora d'un simbol. Devuelve el símbolo de la posición pos.
+     * Consultora d'un simbol a partir de posición. Devuelve el símbolo de la posición pos.
      * @param pos.
      * @return 
      * @throws IllegalArgumentException.
@@ -65,7 +65,16 @@ public class Alfabeto {
     }
     
     /**
-     * Consultora d'una posició. Retorna la posición del símbolo s.
+     * Booleano de un simbolo. True si el simbolo esta en el alfabeto. False si no esta.
+     * @param s.
+     * @return
+     */
+    public boolean BoolSimbolo (Simbolo s) {
+        return this.alfabeto.contains(s);
+    }
+    
+    /**
+     * Consultora d'una posició a partir de un simbolo. Retorna la posición del símbolo s.
      * @param s.
      * @return  
      * @throws IllegalArgumentException.
