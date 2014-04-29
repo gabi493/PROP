@@ -21,7 +21,7 @@ public class tecla {
     public tecla() {}			    //constructor por defecto
     
     /**
-     * Creadora tecla
+     * Creadora por defecto de tecla
      * @param n:    nombre tecla
      * @param x:    numero de fila
      * @param y:    numero de columna

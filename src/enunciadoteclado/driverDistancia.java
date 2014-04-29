@@ -51,16 +51,16 @@ public class driverDistancia {
                         case '2':
                             dist = new distancia(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2]));
                             break;
-                        case '3':
+                        case '3':   //setDistancia
                             dist.setDistancia(Integer.parseInt(palabras[1]));
                             break;
-                        case '4':
+                        case '4':   //getDistancia
                             System.out.println("Distancia = " + dist.getDistancia());
                             break;
-                        case '5':
+                        case '5':   //setTamano
                             dist.setTamano(Integer.parseInt(palabras[1]));
                             break;
-                        case '6':
+                        case '6':   //getTamano
                             System.out.println("Tamano = " + dist.getTamano());
                             break;
                         case '0':
