@@ -41,7 +41,7 @@ public class estadisticas extends afinidad {
      * @param letra2
      * @return
      */
-    public double consultar (Simbolo letra1,Simbolo letra2){
+    public double consultar (simbolo letra1,simbolo letra2){
        //int i = letra1.posicion_alfabet();
       // int j = letra2.posicion_alfabet();
        // return consultar_afinidad(i,j);
