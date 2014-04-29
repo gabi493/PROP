@@ -15,10 +15,10 @@ import java.io.InputStreamReader;
  */
 public class driverAlfabeto {
     public static void main (String[] args) {
-        String nombreclase = "Alfabeto";
-        System.out.print("Driver" + nombreclase + "ejemplo con alfabeto cast");
+        String nombreclase = "alfabeto";
+        System.out.print("Driver" + nombreclase + ".");
         
-        Alfabeto alf = new Alfabeto();
+        alfabeto alf = new alfabeto();
         String aux;
         char dr;
         
@@ -28,14 +28,14 @@ public class driverAlfabeto {
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
-                System.out.println("\t 1) Alfabeto()");
-                System.out.println("\t 2) Alfabeto(String idioma, int n)");
-                System.out.println("\t 3) Alfabeto(Alfabeto original)");
-                System.out.println("\t 4) Simbolo ConsultarSimbolo(int pos)");
-                System.out.println("\t 5) boolean BoolSimbolo (Simbolo s)");
-                System.out.println("\t 6) int ConsultarPosicion(Simbolo s)");
-                System.out.println("\t 7) AnadirSimbolo (Simbolo newsimbolo)");
-                System.out.println("\t 8) EscribirAlfabeto()");
+                System.out.println("\t 1) alfabeto()");
+                System.out.println("\t 2) alfabeto(String idioma, int n)");
+                System.out.println("\t 3) alfabeto(alfabeto original)");
+                System.out.println("\t 4) simbolo Consultarsimbolo(int pos)");
+                System.out.println("\t 5) boolean Boolsimbolo (simbolo s)");
+                System.out.println("\t 6) int ConsultarPosicion(simbolo s)");
+                System.out.println("\t 7) Anadirsimbolo (simbolo newsimbolo)");
+                System.out.println("\t 8) Escribiralfabeto()");
                 System.out.println("\t 0) Salir");
                 
                 String linea;
@@ -50,41 +50,41 @@ public class driverAlfabeto {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            alf = new Alfabeto();
+                            alf = new alfabeto();
                             break;
                         case "2":
-                            alf = new Alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
+                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
                             break;
                         case "3":
-                            alf = new Alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
-                            Alfabeto copia = new Alfabeto(alf);
+                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
+                            alfabeto copia = new alfabeto(alf);
                             break;
                         case "4": 
-                            Simbolo c = alf.ConsultarSimbolo(Integer.parseInt(palabras[1]));
+                            simbolo c = alf.consultarSimbolo(Integer.parseInt(palabras[1]));
                             System.out.println("Caracter que contiene la posicion " + palabras[1] + ": " + c.Info() + ".");
                             break;
                         case "5":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            Simbolo e = new Simbolo(dr);
-                            alf.BoolSimbolo(e);                            
-                            System.out.println("Boolean is :" + alf.BoolSimbolo(e));
+                            simbolo e = new simbolo(dr);
+                            alf.boolSimbolo(e);                            
+                            System.out.println("Boolean is :" + alf.boolSimbolo(e));
                             break;
                         case "6":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            Simbolo e1 = new Simbolo(dr);
-                            int pos = alf.ConsultarPosicion(e1);
+                            simbolo e1 = new simbolo(dr);
+                            int pos = alf.consultarPosicion(e1);
                             System.out.println("Posicio " + pos);
                             break;
                         case "7":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            Simbolo add = new Simbolo(dr);
-                            alf.AnadirSimbolo(add);
+                            simbolo add = new simbolo(dr);
+                            alf.anadirSimbolo(add);
                             break;
                         case "8":                            
-                            alf.EscribirAlfabeto();
+                            alf.escribirAlfabeto();
                             break;
                         case "0":
                             out = true;
