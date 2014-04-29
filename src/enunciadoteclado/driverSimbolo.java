@@ -17,10 +17,10 @@ import java.io.IOException;
 public class driverSimbolo {
     
     public static void main (String[] args) {
-        String nombreclase = "Simbolo";
-        System.out.print("Driver" + nombreclase + "ejemplo con el simbolo c");
+        String nombreclase = "simbolo";
+        System.out.print("Driver" + nombreclase + ".");
         
-        Simbolo c = new Simbolo();
+        simbolo c = new simbolo();
         char dr; 
         String aux;     
         
@@ -31,9 +31,9 @@ public class driverSimbolo {
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
-                System.out.println("\t 1) Simbolo()");
-                System.out.println("\t 2) Simbolo(char newc)");
-                System.out.println("\t 3) Simbolo(Simbolo original)");
+                System.out.println("\t 1) simbolo()");
+                System.out.println("\t 2) simbolo(char newc)");
+                System.out.println("\t 3) simbolo(simbolo original)");
                 System.out.println("\t 4) char Info()");
                 System.out.println("\t 5) void ModificarCaracter(char newchar)");
                 System.out.println("\t 0) Salir");
@@ -50,18 +50,18 @@ public class driverSimbolo {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            c = new Simbolo();
+                            c = new simbolo();
                             break;
                         case "2":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            Simbolo d = new Simbolo(dr);    
+                            simbolo d = new simbolo(dr);    
                             break;
                         case "3":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            Simbolo auxi = new Simbolo(dr);
-                            Simbolo e = new Simbolo(c);
+                            simbolo auxi = new simbolo(dr);
+                            simbolo e = new simbolo(auxi);
                             break;
                         case "4": 
                             System.out.println("Caracter que contiene el simbolo: " + c.Info() + ".");
