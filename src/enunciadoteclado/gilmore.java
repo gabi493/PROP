@@ -6,7 +6,7 @@ package enunciadoteclado;
 
 /**
  *
- * @author alejandro.del.amo.gonzalez
+ * @author alex
  */
 using System;
 using System.Collections.Generic;

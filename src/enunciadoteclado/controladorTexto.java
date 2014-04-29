@@ -59,7 +59,7 @@ public class controladorTexto {
             br.close();
         }
     }
-    public void leer_par_de_letras(estadisticas e) throws IOException {
+    public void leerParDeLetras(estadisticas e,alfabeto c) throws IOException {
         if(archivo == null){
            throw new IllegalArgumentException("Error: No tienes ningun archivo abierto.");
         }
@@ -74,7 +74,7 @@ public class controladorTexto {
         while(caract1 != -1 && caract2 != -1) {
                 simbolo a = new simbolo((char)caract1);
                 simbolo b = new simbolo((char)caract2);
-                e.insertar_estadistica(a,b,1);
+                e.insertarEstadistica(a,b,1,c);
                 caract2 = caract1;
                 caract2 = fr.read();  
             }

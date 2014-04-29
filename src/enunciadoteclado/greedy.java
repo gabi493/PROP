@@ -7,40 +7,43 @@ import static java.lang.Double.POSITIVE_INFINITY;
 import java.util.*;
 /**
 *
-* @author Sergio
+* @author alex
 */
 public class greedy {
+    
     /**
-* @param M Grafo completo.
-*/
+    * @param M Grafo completo.
+    */  
     private float[][] M = new float[0][0];
+    
     /**
-* @param PrimerVertice Vertice por el que empezamos.
-*/
+    * @param PrimerVertice Vertice por el que empezamos.
+    */
+    
     private Integer PrimerVertice = 0;
     
     /**
-* Constructor que recibe M y asigna un vertice de inicio aleatorio.
-* @param M Matriz del grafo completo que contiene los pesos de las aristas.
-*/
+    * Constructor que recibe M y asigna un vertice de inicio aleatorio.
+    * @param M Matriz del grafo completo que contiene los pesos de las aristas.
+    */
     public greedy(float[][] M){
         this.M = M;
         Random gen = new Random(System.currentTimeMillis());
         this.PrimerVertice = Math.abs(gen.nextInt() % M[0].length);
     }
     /**
-* Constructor que recibe M y el vertice por el cual se empieza el recorrido.
-* @param M Matriz del grafo completo que contiene los pesos de las aristas.
-* @param PrimerVertice Vertice por el cual empezamos la busqueda.
-*/
+    * Constructor que recibe M y el vertice por el cual se empieza el recorrido.
+    * @param M Matriz del grafo completo que contiene los pesos de las aristas.
+    * @param PrimerVertice Vertice por el cual empezamos la busqueda.
+    */
     public greedy(float[][]M, Integer PrimerVertice){
         this.M = M;
         this.PrimerVertice = PrimerVertice;
     }
     /**
-*
-* @return Devuelve una permutacion obtenida siguiendo el algoritmo greedy.
-*/
+    *
+    * @return Devuelve una permutacion obtenida siguiendo el algoritmo greedy.
+    */
     Integer[] solve(){
         Integer[] ret = new Integer[ M[0].length ];
         Boolean[] vis = new Boolean[ M[0].length ];
@@ -66,9 +69,9 @@ public class greedy {
         return ret;
     }
     /**
-* Setter para PrimerVertice
-* @param n PrimerVertice = v
-*/
+    * Setter para PrimerVertice
+    * @param n PrimerVertice = v
+    */
     void setPrimerVertice(Integer n){
         this.PrimerVertice = n;
     }
