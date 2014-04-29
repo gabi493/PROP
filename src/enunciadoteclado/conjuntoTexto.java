@@ -30,7 +30,7 @@ public class conjuntoTexto {
      *
      * @param text 
      */
-    public void insertar_texto(texto text) {
+    public void insertarTexto(texto text) {
         this.conjunto.add(text);
         ++numero_textos;
     }
@@ -39,7 +39,7 @@ public class conjuntoTexto {
      *
      * @throws java.io.IOException
      */
-    public void leer_textos() throws IOException{
+    public void leerTextos() throws IOException{
         controladorTexto Ct = new controladorTexto();
         for(int i=0; i < conjunto.size();++i){
             Ct.abrirTexto(conjunto.get(i).Titulo + ".txt");
@@ -53,7 +53,7 @@ public class conjuntoTexto {
      *
      * @param text
      */
-    public void borrar_texto(texto text) {
+    public void borrarTexto(texto text) {
         int n = conjunto.size();
         ArrayList<texto> textos = new ArrayList<texto>(n-1);
         for(int i=0; i < n; ++i) {
