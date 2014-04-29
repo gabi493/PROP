@@ -9,7 +9,7 @@ import java.util.*;
 *
 * @author Sergio
 */
-public class Greedy {
+public class greedy {
     /**
 * @param M Grafo completo.
 */
@@ -23,7 +23,7 @@ public class Greedy {
 * Constructor que recibe M y asigna un vertice de inicio aleatorio.
 * @param M Matriz del grafo completo que contiene los pesos de las aristas.
 */
-    public Greedy(float[][] M){
+    public greedy(float[][] M){
         this.M = M;
         Random gen = new Random(System.currentTimeMillis());
         this.PrimerVertice = Math.abs(gen.nextInt() % M[0].length);
@@ -33,7 +33,7 @@ public class Greedy {
 * @param M Matriz del grafo completo que contiene los pesos de las aristas.
 * @param PrimerVertice Vertice por el cual empezamos la busqueda.
 */
-    public Greedy(float[][]M, Integer PrimerVertice){
+    public greedy(float[][]M, Integer PrimerVertice){
         this.M = M;
         this.PrimerVertice = PrimerVertice;
     }

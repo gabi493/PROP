@@ -1,3 +1,4 @@
+package enunciadoteclado;
 import java.io.IOException;
 import java.util.LinkedList ;
 import java.util.ArrayList;
@@ -12,15 +13,15 @@ import java.util.ArrayList;
  *
  * @author alex
  */
-public class conjunto_texto {
-    public ArrayList<Texto> conjunto;
-    int numero_textos;
+public class conjuntoTexto {
+    private ArrayList<texto> conjunto;
+    private int numero_textos;
     
     /**
      *
      */
-    public conjunto_texto() {
-        conjunto = new ArrayList<Texto>();
+    public conjuntoTexto() {
+        this.conjunto = new ArrayList<texto>();
         this.numero_textos = 0;
         
     }
@@ -29,7 +30,7 @@ public class conjunto_texto {
      *
      * @param text 
      */
-    public void insertar_texto(Texto text) {
+    public void insertar_texto(texto text) {
         this.conjunto.add(text);
         ++numero_textos;
     }
@@ -39,10 +40,12 @@ public class conjunto_texto {
      * @throws java.io.IOException
      */
     public void leer_textos() throws IOException{
-        ControladorTexto Ct = new ControladorTexto();
-        for(int i=0; i < this.conjunto.size();++i){
+        controladorTexto Ct = new controladorTexto();
+        for(int i=0; i < conjunto.size();++i){
             Ct.abrirTexto(conjunto.get(i).Titulo + ".txt");
             Ct.LeerTexto();
+           
+            
         }
     }
 
@@ -50,9 +53,9 @@ public class conjunto_texto {
      *
      * @param text
      */
-    public void borrar_texto(Texto text) {
+    public void borrar_texto(texto text) {
         int n = conjunto.size();
-        ArrayList<Texto> textos = new ArrayList<Texto>(n-1);
+        ArrayList<texto> textos = new ArrayList<texto>(n-1);
         for(int i=0; i < n; ++i) {
             if(conjunto.get(i) != text) {
                textos.add(conjunto.get(i));

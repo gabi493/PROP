@@ -11,7 +11,7 @@ package enunciadoteclado;
  *
  * @author gabriel
  */
-public class EnunciadoTeclado {
+public class enunciadoTeclado {
 
     /**
      * @param args the command line arguments

@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package enunciadoteclado;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,25 +17,27 @@ import java.util.Random;
  *
  * @author alex
  */
-public class ControladorTexto {
+public class controladorTexto {
     File archivo;
     FileReader fr;
     FileWriter fw;
     BufferedReader br;
     
+
     /**
      *
      */
-    public ControladorTexto (){
+    public controladorTexto (){
         archivo = null;
         fr = null;
         br = null;
     }
     
+
     /**
-     *
-     * @param path
-     * @throws java.io.IOException
+     * 
+     * @param path 
+     * @throws IOException 
      */
     public void abrirTexto(String path) throws IOException {
         archivo = new File(path);
@@ -43,6 +46,10 @@ public class ControladorTexto {
         }
         
     }
+    /**
+     *
+     * @throws IOException
+     */
     public void cerrarTexto() throws IOException{
         archivo = null;
         if(null != fr) {
@@ -65,9 +72,9 @@ public class ControladorTexto {
             //Se recorre el fichero hasta encontrar el carácter -1
             //   que marca el final del fichero
         while(caract1 != -1 && caract2 != -1) {
-                Simbol a = new Simbol((char)caract1);
-                Simbol b = new Simbol((char)caract2);
-                e.insertar_estadistica(a, b,1);
+                simbolo a = new simbolo((char)caract1);
+                simbolo b = new simbolo((char)caract2);
+                e.insertar_estadistica(a,b,1);
                 caract2 = caract1;
                 caract2 = fr.read();  
             }

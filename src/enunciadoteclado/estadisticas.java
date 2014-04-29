@@ -29,7 +29,7 @@ public class estadisticas extends afinidad {
      * @param letra2
      * @param similitud
      */
-    public void insertar_estadistica (Simbolo letra1,Simbolo letra2,double similitud) {
+    public void insertar_estadistica (simbolo letra1,simbolo letra2,double similitud) {
       // int i = letra1.posicion_alfabet()
       // int j = letra2.posicion_alfabet();
      //    insertar_afinidad(i,j,1);
