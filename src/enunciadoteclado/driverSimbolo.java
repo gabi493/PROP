@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package enunciadoteclado;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.IOException;
 
 
 
@@ -21,7 +21,10 @@ public class driverSimbolo {
         System.out.print("Driver" + nombreclase + "ejemplo con el simbolo c");
         
         Simbolo c = new Simbolo();
+        char dr; 
+        String aux;     
         
+             
         try{
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
             
@@ -50,17 +53,23 @@ public class driverSimbolo {
                             c = new Simbolo();
                             break;
                         case "2":
-                            c = Simbolo(palabras[1]);
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            Simbolo d = new Simbolo(dr);    
                             break;
                         case "3":
-                            Simbolo d(c);                   
-                            c = d;
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            Simbolo auxi = new Simbolo(dr);
+                            Simbolo e = new Simbolo(c);
                             break;
                         case "4": 
                             System.out.println("Caracter que contiene el simbolo: " + c.Info() + ".");
                             break;
                         case "5":
-                            c.ModificarCaracter(palabras.[1]);
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            c.ModificarCaracter(dr);
                             break;
                         case "0":
                             out = true;
@@ -70,10 +79,14 @@ public class driverSimbolo {
                             break;
                     }
                 } 
-                catch (Exception e) System.out.println(e.getMessage());
+                catch (Exception e) { 
+                    System.out.println(e.getMessage());
+                }
             }
             System.out.println("Fin del driver");
         }
-        catch (Exception e) System.out.println(e.getMessage());
+        catch (Exception e) { 
+            System.out.println(e.getMessage());
+        }
     }
 }
