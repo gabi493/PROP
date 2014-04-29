@@ -18,7 +18,9 @@ public class driverAlfabeto {
         String nombreclase = "Alfabeto";
         System.out.print("Driver" + nombreclase + "ejemplo con alfabeto cast");
         
-        Alfabeto cast = new Alfabeto();
+        Alfabeto alf= new Alfabeto();
+        String aux;
+        char dr;
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -48,35 +50,41 @@ public class driverAlfabeto {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            cast = new Alfabeto();
+                            alf = new Alfabeto();
                             break;
                         case "2":
-                            cast = new Alfabeto((palabras[1]), parseInt(palabras[2])); // ???
+                            alf = new Alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
                             break;
                         case "3":
-                            Alfabeto d(cast);  //  ???
-                            cast = d;
+                            alf = new Alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
+                            Alfabeto copia = new Alfabeto(alf);
                             break;
                         case "4": 
-                            Simbolo c = cast.ConsultarSimbolo(parseInt(palabras[1]));
+                            Simbolo c = alf.ConsultarSimbolo(Integer.parseInt(palabras[1]));
                             System.out.println("Caracter que contiene la posicion " + palabras[1] + ": " + c.Info() + ".");
                             break;
                         case "5":
-                            Simbolo e(palabras[1]);
-                            //cast.BoolSimbolo(e);
-                            System.out.println("Boolean is :" + cast.BoolSimbolo(e));
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            Simbolo e = new Simbolo(dr);
+                            alf.BoolSimbolo(e);                            
+                            System.out.println("Boolean is :" + alf.BoolSimbolo(e));
                             break;
                         case "6":
-                            Simbolo aux(palabras[1]);
-                            int pos = cast.ConsultarPosicion(aux);
-                            System.out.println("Posicio " + aux);
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            Simbolo e1 = new Simbolo(dr);
+                            int pos = alf.ConsultarPosicion(e1);
+                            System.out.println("Posicio " + pos);
                             break;
                         case "7":
-                            Simbolo add(palabras[1]);
-                            cast.AnadirSimbolo(add);
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            Simbolo add = new Simbolo(dr);
+                            alf.AnadirSimbolo(add);
                             break;
                         case "8":                            
-                            cast.EscribirAlfabeto();
+                            alf.EscribirAlfabeto();
                             break;
                         case "0":
                             out = true;
@@ -87,9 +95,13 @@ public class driverAlfabeto {
                     }
                     
                 }
-                catch (Exception e) System.out.println(e.getMessage());
+                catch (Exception e) { 
+                    System.out.println(e.getMessage());
+                }
             } 
         }
-        catch (Exception e) System.out.println(e.getMessage());
+        catch (Exception e) { 
+            System.out.println(e.getMessage());
+        }
     }
 }
