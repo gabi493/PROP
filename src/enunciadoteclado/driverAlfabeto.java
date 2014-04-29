@@ -18,7 +18,7 @@ public class driverAlfabeto {
         String nombreclase = "Alfabeto";
         System.out.print("Driver" + nombreclase + "ejemplo con alfabeto cast");
         
-        Alfabeto alf= new Alfabeto();
+        Alfabeto alf = new Alfabeto();
         String aux;
         char dr;
         

@@ -43,6 +43,8 @@ public class Alfabeto {
         for (int i = 0; i < n; i++) this.alfabeto.add(new Simbolo());
     }
     
+    
+    
     /**
      * Constructora copia. Copia el alfabeto pasado por parametro explicito al parametro implícito.
      * @param original 
