@@ -9,6 +9,12 @@ package enunciadoteclado;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+enum TipoTeclado {
+    rectangular,
+    hexagonal,
+    dosHexagonos,
+}
+
 /**
  *
  * @author gabriel
@@ -18,7 +24,7 @@ public class driverTeclado {
         String nombreclase = "Teclado";
         System.out.print("Driver" + nombreclase + "ejemplo con distancia cast");
         
-        teclado dist = new teclado();
+        teclado tcdo = null;
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
