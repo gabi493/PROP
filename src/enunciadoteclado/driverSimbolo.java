@@ -18,9 +18,9 @@ public class driverSimbolo {
     
     public static void main (String[] args) {
         String nombreclase = "Simbolo";
-        system.out.print("Driver" + nombreclase + "ejemplo con el caracter <k>");
+        System.out.print("Driver" + nombreclase + "ejemplo con el simbolo c");
         
-        char k = 'k';
+        Simbolo c = new Simbolo();
         
         try{
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -29,14 +29,51 @@ public class driverSimbolo {
             while (!out) {
                 System.out.println("Elige una opicion:");
                 System.out.println("\t 1) Simbolo()");
-                System.out.println("\t 2) Simbolo(char c)");
+                System.out.println("\t 2) Simbolo(char newc)");
                 System.out.println("\t 3) Simbolo(Simbolo original)");
                 System.out.println("\t 4) char Info()");
                 System.out.println("\t 5) void ModificarCaracter(char newchar)");
+                System.out.println("\t 0) Salir");
+                
+                String linea;
+                String palabras[];
+                String opcion;
+
+                linea = buffer.readLine();
+                palabras = linea.split(" ");
+                opcion = palabras[0];
+                
+                try {
+                    System.out.println("Opcion " + opcion + " seleccionada.");
+                    switch (opcion) {
+                        case "1": 
+                            c = new Simbolo();
+                            break;
+                        case "2":
+                            c = Simbolo(palabras[1]);
+                            break;
+                        case "3":
+                            Simbolo d(c);                   
+                            c = d;
+                            break;
+                        case "4": 
+                            System.out.println("Caracter que contiene el simbolo: " + c.Info() + ".");
+                            break;
+                        case "5":
+                            c.ModificarCaracter(palabras.[1]);
+                            break;
+                        case "0":
+                            out = true;
+                            break;
+                        default: 
+                            System.out.println("La opcion elegida no existe.");
+                            break;
+                    }
+                } 
+                catch (Exception e) System.out.println(e.getMessage());
             }
+            System.out.println("Fin del driver");
         }
-        catch (Exception e) {
-            
-        }
+        catch (Exception e) System.out.println(e.getMessage());
     }
 }

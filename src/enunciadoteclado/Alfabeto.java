@@ -97,4 +97,8 @@ public class Alfabeto {
         }
         this.alfabeto.add(newsimbolo);
     }
+    
+    public void EscribirAlfabeto() {
+        for (int i = 0; i < numCaracteres; i++) System.out.println (this.alfabeto.get(i).Info() + " ");
+    }
 }
