@@ -11,16 +11,16 @@ package enunciadoteclado;
  * @author gabriel
  */
 
-enum TipoTeclado {
+/*enum TipoTeclado {
     rectangular,
     hexagonal,
     dosHexagonos,
-}
+}*/
 
 public class teclado {
     
 //  Atributos
-    private TipoTeclado formaTeclado;
+    private String formaTeclado;
     private int numFilas;
     private int numCols;
     private boolean teclasDe4Lados;
@@ -28,18 +28,18 @@ public class teclado {
 //  Metodos
     public teclado() {}				     //constructor por defecto
     
-    public teclado(TipoTeclado fT, int nF, int nC, boolean t4) {    //construct
+    public teclado(String fT, int nF, int nC, boolean t4) {    //construct
 	setForma(fT);
 	setNumFilas(nF);
 	setNumCols(nC);
 	setTeclasDe4Lados(t4);
     }
     
-    public void setForma(TipoTeclado tt) {
+    public void setForma(String tt) {
 	formaTeclado = tt;
     }
     
-    public TipoTeclado getForma() {
+    public String getForma() {
 	return formaTeclado;
     }
     

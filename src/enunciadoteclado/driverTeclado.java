@@ -9,11 +9,11 @@ package enunciadoteclado;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-enum TipoTeclado {
+/*enum TipoTeclado {
     rectangular,
     hexagonal,
     dosHexagonos,
-}
+}*/
 
 /**
  *
@@ -24,7 +24,7 @@ public class driverTeclado {
         String nombreclase = "Teclado";
         System.out.print("Driver" + nombreclase + "ejemplo con distancia cast");
         
-        teclado tcdo = null;
+        teclado tcdo = new teclado();
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -60,14 +60,14 @@ public class driverTeclado {
                             break;
                         case "2":
                             int b = Integer.parseInt(palabras[3]);
-                            bool bl;
-                            if (b) bl = true;
+                            Boolean bl;
+                            if (b == '1') bl = true;
                             else bl = false;
-                            TipoTeclado tt = palabras[1];
-                            tcdo = new teclado(tt, Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]), b);
+                            //String tt = palabras[1];
+                            tcdo = new teclado(palabras[1], Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]), bl);
                             break;
                         case "3":   //setForma
-                            TipoTeclado tt = palabras[1];
+                            String tt = palabras[1];
                             tcdo.setForma(tt);
                             break;
                         case "4":   //getForma
@@ -86,10 +86,14 @@ public class driverTeclado {
                             System.out.println("Numero Columnas = " + tcdo.getNumCols());
                             break;
                         case "9":   //setTeclasDe4Lados
-                            tcdo.setTeclasDe4Lados(Integer.parseInt(palabras[1]));
+			    int bb = Integer.parseInt(palabras[3]);
+                            Boolean bbl;
+                            if (bb == '1') bbl = true;
+                            else bbl = false;
+                            tcdo.setTeclasDe4Lados(bbl);
                             break;
                         case "10":   //getTeclasDe4Lados
-                            System.out.println("Tiene teclas de 4 lados? = " + tcdo.setTeclasDe4Lados());
+                            System.out.println("Tiene teclas de 4 lados? = " + tcdo.getTeclasDe4Lados());
                             break;
                         case "0":
                             out = true;
