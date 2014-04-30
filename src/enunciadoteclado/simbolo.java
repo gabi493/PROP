@@ -11,7 +11,11 @@ package enunciadoteclado;
  * @author josep
  */
 public class simbolo {
-    private char caracter;
+    private char caracter; 
+    
+    /**
+     * Constructoras.
+     */
     
     /**
      * Constructora por defecto. Inicializamos a 0 porque no se puede poner
@@ -39,20 +43,27 @@ public class simbolo {
     }
     
     /**
+     * Consultoras.
+     */
+    
+    /**
      * Devuelve la informacion del simbolo.
      * @return 
      */
-    public char Info() throws IllegalArgumentException {
+    public char getInfo() throws IllegalArgumentException {
         if (this.caracter == 0) throw new IllegalArgumentException("Error al consultar la informacion del simbolo: referencia nula");
         return this.caracter;
     }
     
     /**
+     * Modificadoras.
+     */
+    
+    /**
      * Modifica el caracter del simbolo.
      * @param newchar El nuevo caracter asociado al simbolo.
      */
-    public void ModificarCaracter(char newchar) {
+    public void setInfo(char newchar) {
         this.caracter = newchar;
-    }
-    
+    }   
 }

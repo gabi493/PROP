@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 
 /**
- *
  * @author josep
  */
 public class alfabeto {
@@ -17,7 +16,10 @@ public class alfabeto {
     private int numCaracteres;
     private ArrayList<simbolo> alf;
     
-    
+    /**
+     * Creadoras.
+     */
+        
    /**
     * Creadora por defecto. Crea un alfabeto sin ningun simbolo asociado.
     */
@@ -29,24 +31,21 @@ public class alfabeto {
     
     /**
      * Creadora. Crea un alfabeto con el nombre 'idioma', de n simbolos.
-     * @param idioma Nom de l'alfabet
+     * @param idioma Nom de l'alfabet.
      * @param n Número de simbolos del alfabeto. 
      * @throws IllegalArgumentException.
      */
     public alfabeto(String idioma, int n) throws IllegalArgumentException {
         this();
-        if (n < 1) {
-            throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
-        }
+        if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
         this.nombreAlfabeto = idioma;
         this.numCaracteres = n;
+        System.out.println("Introduzca los simbolos que tiene el alfabeto: ");
         for (int i = 0; i < n; i++) this.alf.add(new simbolo());
     }
     
-    
-    
     /**
-     * Constructora copia. Copia el alfabeto pasado por parametro explicito al parametro implícito.
+     * Creadora copia. Copia el alfabeto pasado por parametro explicito al parametro implícito.
      * @param original 
      */
     public alfabeto(alfabeto original) {
@@ -54,20 +53,39 @@ public class alfabeto {
         this.numCaracteres = original.numCaracteres;
         this.alf = original.alf;
     }
+    
     /**
-     * Consultora d'un simbol a partir de posición. Devuelve el símbolo de la posición pos.
+     * Consultoras.
+     */
+        
+    /**
+     * Consultora del nombre del alfabeto del parámetro implícito.
+     */
+    public String getNombreAlfabeto() {
+        return this.nombreAlfabeto;
+    }
+    
+    /**
+     * Consultora del numero de carácteres del alfabeto del parámetro implícito.
+     */
+    public int getNumCaracteres() {
+        return this.numCaracteres;
+    }
+    
+    /**
+     * Consultora de un simbolo a partir de posición. Devuelve el símbolo de la posición pos.
      * @param pos.
      * @return 
      * @throws IllegalArgumentException.
      */
-    public simbolo consultarSimbolo(int pos) {
+    public simbolo getSimbolo(int pos) {
         if (pos < 0) throw new IllegalArgumentException("Error al consultar: n < 1");
         if (pos > numCaracteres) throw new IllegalArgumentException("Error al consultar: pos > numCaracteres");
         return this.alf.get(pos);
     }
     
     /**
-     * Booleano de un simbolo. True si el simbolo esta en el alfabeto. False si no esta.
+     * Consultora de si un simbolo existe. True si el simbolo esta en el alfabeto. False si no esta.
      * @param s.
      * @return
      */
@@ -81,7 +99,7 @@ public class alfabeto {
      * @return  
      * @throws IllegalArgumentException.
      */
-    public int consultarPosicion(simbolo s) {
+    public int getPosicion(simbolo s) {
         for (int i = 0; i < numCaracteres; i++) {
             if (this.alf.contains(s)) return i;
         }
@@ -89,18 +107,43 @@ public class alfabeto {
     }
     
     /**
+     * Modificadoras.
+     */
+    
+    /**
      * Añadir simbolo. Se añade un neuevo simbolo al alfabeto.
      * @param newsimbolo.
      * @throws IllegalArgumentException.
      */
-    public void anadirSimbolo (simbolo newsimbolo) {
-        for (int i = 0; i < numCaracteres; i++) {
-            if (this.alf.contains(newsimbolo)) throw new IllegalArgumentException("Error: El simbolo ya está en el alfabeto.");
-        }
+    public void addSimbolo (simbolo newsimbolo) {
+        if (this.alf.contains(newsimbolo)) throw new IllegalArgumentException("Error: El simbolo ya está en el alfabeto.");
         this.alf.add(newsimbolo);
+        ++numCaracteres;
     }
     
+    /**
+     * Intercambiar simbolos. Se intercambias las posiciones del alfabeto de los dos simbolos pasados 
+     * por parámetro.
+     * @param a
+     * @param b
+     * @throws IllegalArgumentException.
+     */
+    public void swapSimbolos(simbolo a, simbolo b) {
+        if (!alf.contains(a) || !alf.contains(b)) throw new IllegalArgumentException("Error: No se encuentra el simbolo en el alfabeto.");
+        simbolo aux = new simbolo(a);
+        a = b;
+        b = aux;
+    }
+    
+    /**
+     * Escritoras.
+     */
+    
+    /**
+     * Escritura del alfabeto pasado por paramtro implícito.
+     */
+    
     public void escribirAlfabeto() {
-        for (int i = 0; i < numCaracteres; i++) System.out.println (this.alf.get(i).Info() + " ");
+        for (int i = 0; i < numCaracteres; i++) System.out.println (this.alf.get(i).getInfo() + " ");
     }
 }
