@@ -29,10 +29,10 @@ public class estadisticas extends afinidad {
      * @param letra2
      * @param similitud
      */
-    public void insertar_estadistica (simbolo letra1,simbolo letra2,double similitud) {
-      // int i = letra1.posicion_alfabet()
-      // int j = letra2.posicion_alfabet();
-     //    insertar_afinidad(i,j,1);
+    public void insertarEstadistica (simbolo letra1,simbolo letra2,double similitud,alfabeto a) {
+      int i = a.consultarPosicion(letra1);
+      int j = a.consultarPosicion(letra2);
+      insertarAfinidad(i,j,1);
     }
 
     /**
@@ -41,11 +41,11 @@ public class estadisticas extends afinidad {
      * @param letra2
      * @return
      */
-    public double consultar (Simbolo letra1,Simbolo letra2){
-       //int i = letra1.posicion_alfabet();
-      // int j = letra2.posicion_alfabet();
-       // return consultar_afinidad(i,j);
-       return 0;
+    public double consultarEstadistica (simbolo letra1,simbolo letra2,alfabeto a) throws IOException{
+      int i = a.consultarPosicion(letra1);
+      int j = a.consultarPosicion(letra2);
+      return consultarAfinidad(i,j);
+    
     }
     
 }

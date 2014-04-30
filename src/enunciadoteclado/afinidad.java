@@ -29,7 +29,7 @@ public class afinidad {
      * @param j posicion de la matriz de afinidades
      * @param afinidad valor que tomara la posicion [i][j]
      */
-    public void insertar_afinidad(int i,int j,double afinidad) {
+    public void insertarAfinidad(int i,int j,double afinidad) {
         try {
             afinidades[i][j] += afinidad;
             afinidades[j][i] += afinidad;
@@ -46,7 +46,7 @@ public class afinidad {
      * @return el valor que toma de la posicion [i][j] 
      * @throws IOException cuando la matriz no es simetrica
      */
-    public double consultar_afinidad(int i,int j) throws IOException {
+    public double consultarAfinidad(int i,int j) throws IOException {
         if(afinidades[i][j] != afinidades[j][i]){
             throw new IOException("Error:Matrices no simetricas");
         }
