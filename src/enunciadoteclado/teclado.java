@@ -36,6 +36,10 @@ public class teclado {
     }
     
     public void setForma(String tt) {
+        if (tt != "rectangular" || tt != "hexagonal" || tt != "dosHexagonos") {
+            throw new IllegalArgumentException("Error en el nombre del teclado:" + 
+                    " rectangular || hexagonal || dosHexagonos");
+        }
 	formaTeclado = tt;
     }
     
