@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
  *
  * @author josep
  */
-public class driverAlfabeto {
+public class driverControladorAlfabeto {
     public static void main (String[] args) {
         String nombreclase = "alfabeto";
         System.out.print("Driver" + nombreclase + ".");
