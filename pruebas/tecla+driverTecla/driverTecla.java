@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+//package enunciadoteclado;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -38,44 +38,44 @@ public class driverTecla {
                 
                 String linea;
                 String palabras[];
-                int opcion;
+                String opcion;
 
                 linea = buffer.readLine();
                 palabras = linea.split(" ");
-                opcion = Integer.parseInt(palabras[0]);
+                opcion = palabras[0];
                 
                 try {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
-                        case '1':
+                        case "1":
                             tec = new tecla();
                             break;
-                        case '2':
+                        case "2":
                             String aux = palabras[1];
                             char nombre = aux.charAt(0);
                             tec = new tecla(nombre, Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]));
                             break;
-                        case '3':   //setNombre
+                        case "3":   //setNombre
                             String ax = palabras[1];
                             char name = ax.charAt(0);
                             tec.setNombre(name);
                             break;
-                        case '4':   //getNombre
+                        case "4":   //getNombre
                             System.out.println("Nombre tecla = " + tec.getNombre());
                             break;
-                        case '5':   //setFila
+                        case "5":   //setFila
                             tec.setFila(Integer.parseInt(palabras[1]));
                             break;
-                        case '6':   //getFila
+                        case "6":   //getFila
                             System.out.println("Tamano fila = " + tec.getFila());
                             break;
-                        case '7':   //setColumna
+                        case "7":   //setColumna
                             tec.setColumna(Integer.parseInt(palabras[1]));
                             break;
-                        case '8':   //getColumna
-                            System.out.println("Tamano columna = " + tec.getFila());
+                        case "8":   //getColumna
+                            System.out.println("Tamano columna = " + tec.getColumna());
                             break;
-                        case '0':
+                        case "0":
                             out = true;
                             break;
                         default: 

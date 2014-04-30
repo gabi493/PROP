@@ -1,0 +1,138 @@
+DriverTeclaElige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 1 seleccionada.
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 2 seleccionada.
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 4 seleccionada.
+Nombre tecla = x
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 6 seleccionada.
+Tamano fila = 4
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 8 seleccionada.
+Tamano columna = 9
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 3 seleccionada.
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 4 seleccionada.
+Nombre tecla = n
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 5 seleccionada.
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 6 seleccionada.
+Tamano fila = 1
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 7 seleccionada.
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 8 seleccionada.
+Tamano columna = 2
+Elige una opicion:
+	 1) tecla()
+	 2) tecla(nombre, fila, columna
+	 3) setNombre(nombre)
+	 4) getNombre()
+	 5) setFila(fila)
+	 6) getFila()
+	 7) setColumna(columna)
+	 8) getColumna()
+	 0) Salir
+Opcion 0 seleccionada.
