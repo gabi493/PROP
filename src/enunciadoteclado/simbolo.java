@@ -14,6 +14,10 @@ public class simbolo {
     private char caracter; 
     
     /**
+     * Constructoras.
+     */
+    
+    /**
      * Constructora por defecto. Inicializamos a 0 porque no se puede poner
      * un char a null.
      */
@@ -39,6 +43,10 @@ public class simbolo {
     }
     
     /**
+     * Consultoras.
+     */
+    
+    /**
      * Devuelve la informacion del simbolo.
      * @return 
      */
@@ -48,11 +56,14 @@ public class simbolo {
     }
     
     /**
+     * Modificadoras.
+     */
+    
+    /**
      * Modifica el caracter del simbolo.
      * @param newchar El nuevo caracter asociado al simbolo.
      */
     public void setInfo(char newchar) {
         this.caracter = newchar;
-    }
-    
+    }   
 }
