@@ -16,7 +16,8 @@ public class distancia {
     private int matriz[][];
     private int numeroFilas;
     private int numeroColumnas;
-    
+    private int numeroPosiciones;
+    private String formaTeclado;
 //  Metodos    
 
     /** Creadora por defecto de distancia
@@ -26,17 +27,23 @@ public class distancia {
         int matriz[][] = new int[0][0];
         numeroFilas = 0;
         numeroColumnas = 0;
+        numeroPosiciones = 0;
+        formaTeclado = "";
     }
     
     /**
      * distancia.   Creadora de la matriz de distancias con nF filas y nC columnas
      * @param nF:   numero de filas de la matriz
      * @param nC:   numero de columnas de la matriz
+     * @param nP:   numero de posiciones de la matriz
+     * @param fT:   forma del teclado
      */
-    public distancia(int nF, int nC){
+    public distancia(int nF, int nC, int nP, String fT){
         setNumeroFilas(nF);
         setNumeroColumnas(nC);
-        setMatriz(nF, nC);
+        setNumeroPosiciones(nP);
+        setFormaTeclado(fT);
+        setMatriz(nF, nC, nP);
     }
     
     /**
@@ -45,7 +52,7 @@ public class distancia {
      */
     public void setNumeroFilas(int nF) {
 	if (nF < 0) {
-            throw new IllegalArgumentException("Error al asignar la distancia: numeroFilas < 0");
+            throw new IllegalArgumentException("Error al asignar las filas: numeroFilas < 0");
         }
         numeroFilas = nF;
     }
@@ -64,7 +71,7 @@ public class distancia {
      */
     public void setNumeroColumnas(int nC) {
 	if (nC < 0) {
-            throw new IllegalArgumentException("Error al asignar la distancia: numeroColumnas < 0");
+            throw new IllegalArgumentException("Error al asignar las columnas: numeroColumnas < 0");
         }
         numeroColumnas = nC;
     }
@@ -78,11 +85,28 @@ public class distancia {
     }
     
     /**
+     * setNumeroPosiciones. Asigna el numero de posiciones de la matriz
+     * @param nP            numero de posiciones de la matriz
+     */
+    public void setNumeroPosiciones(int nP) {
+	if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
+            throw new IllegalArgumentException("Error al asignar las posiciones: numeroPosiciones < 0 || numeroPosiciones > numeroFilas*numeroColumnas");
+        }
+        numeroPosiciones = nP;
+    }
+    
+    public int getNumeroPosiciones(int nP) {
+        return getPosicionMatriz(nP);
+    }
+    
+    
+    /**
      * setMatriz.   Declara una matriz de tamano [nF][nC]
      * @param nF:   numero de filas de la matriz
      * @param nC:   numero de columnas de la matriz
+     * @param nP:   numero de parametros de ma matriz
      */
-    public void setMatriz(int nF, int nC) {
+    public void setMatriz(int nF, int nC, int nP) {
 	if (nF < 0) {
             throw new IllegalArgumentException("Error al asignar el numero de filas: numeroFilas < 0");
         }
@@ -91,6 +115,7 @@ public class distancia {
         }
         setNumeroFilas(nF);
         setNumeroColumnas(nC);
+        setNumeroPosiciones(nP);
         int matriz[][] = new int[nF][nC];
     }
     
@@ -111,14 +136,29 @@ public class distancia {
     }
     
     public int getPosicionMatriz(int pos) {
-        String forma = teclado.getForma();
-        
-        if (teclado)
-        int numF = getNumeroFilas();
-        int numC = getNumeroColumnas();
-        int f = pos%numC;
-        int c = pos/numC;
+        int numF, numC, f, c;
+        if (getFormaTeclado() == "rectangular") {
+            numF = getNumeroFilas();
+            numC = getNumeroColumnas();
+            f = pos%numC;
+            c = pos/numC;
+        }
+        else if (getFormaTeclado() == "hexagonal") {
+            
+        }
+        else if (getFormaTeclado() == "dosHexagonos") {
+            
+        }
         return matriz[f][c];
+    }
+
+    private void setFormaTeclado(String fT) {
+                if (fT != "rectangular" || fT != "hexagonal" || fT != "dosHexagonos") {
+            throw new IllegalArgumentException("Error en el nombre del teclado:" + 
+                    " rectangular || hexagonal || dosHexagonos");
+        }
+	formaTeclado = fT;
+
     }
     
 }
