@@ -85,14 +85,13 @@ public class alfabeto {
     /**
      * Consultora de si un simbolo existe. True si el simbolo esta en el alfabeto. False si no esta.
      * @param s.
-     * @return
      * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
         for (int i = 0; i < numCaracteres; i++) {
             return s.getInfo() == this.alf.get(i).getInfo();
         }
-        throw new IllegalArgumentException("Error: El simbolo no está en el alfabeto.");
+        return false;
     }
     
     /**
@@ -103,7 +102,7 @@ public class alfabeto {
      */
     public int getPosicion(simbolo s) {
         for (int i = 0; i < numCaracteres; i++) {
-            if (this.alf.contains(s)) return i;
+            if (this.alf.get(i).getInfo() == s.getInfo()) return i;
         }
         throw new IllegalArgumentException("Error: El simbolo no está en el alfabeto.");
     }
@@ -134,10 +133,10 @@ public class alfabeto {
      * @param b
      * @throws IllegalArgumentException.
      */
-    public void swapSimbolos(simbolo a, simbolo b) {
-        simbolo aux = new simbolo(a);
-        a = b;
-        b = aux;
+    public void swapSimbolos(simbolo a, simbolo b) {      
+            simbolo aux = new simbolo(a);
+            a = b;
+            b = aux;
     }
     
     /**
@@ -147,7 +146,6 @@ public class alfabeto {
     /**
      * Escritura del alfabeto pasado por paramtro implícito.
      */
-    
     public void escribirAlfabeto() {
         for (int i = 0; i < numCaracteres; i++) System.out.println (this.alf.get(i).getInfo() + " ");
     }
