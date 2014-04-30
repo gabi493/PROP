@@ -20,7 +20,7 @@ public class driverSimbolo {
         String nombreclase = "simbolo";
         System.out.print("Driver" + nombreclase + ".");
         
-        simbolo c = new simbolo();
+        //simbolo c = new simbolo();
         char dr; 
         String aux;     
         
@@ -50,26 +50,35 @@ public class driverSimbolo {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            c = new simbolo();
+                            simbolo c = new simbolo();
                             break;
                         case "2":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            simbolo d = new simbolo(dr);    
+                            simbolo d = new simbolo(dr);  
+                            System.out.println("Se ha creado el simbolo que contiene "+ d.getInfo());
                             break;
                         case "3":
                             aux = palabras[1];
                             dr = aux.charAt(0);
                             simbolo auxi = new simbolo(dr);
                             simbolo e = new simbolo(auxi);
+                            System.out.println("Simbolo original: " + auxi.getInfo());
+                            System.out.println("Simbolo copia: " + e.getInfo());
                             break;
                         case "4": 
-                            System.out.println("Caracter que contiene el simbolo: " + c.Info() + ".");
-                            break;
-                        case "5":
                             aux = palabras[1];
                             dr = aux.charAt(0);
-                            c.ModificarCaracter(dr);
+                            simbolo f = new simbolo(dr);
+                            System.out.println("Caracter que contiene el simbolo: " + f.getInfo() + ".");
+                            break;
+                        case "5":
+                            simbolo prueba = new simbolo('p');
+                            System.out.println("Contenido del simbolo original: " + prueba.getInfo());
+                            aux = palabras[1];
+                            dr = aux.charAt(0);
+                            prueba.setInfo(dr);
+                            System.out.println("Contenido del simbolo modificado: " + prueba.getInfo());
                             break;
                         case "0":
                             out = true;

@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
  *
  * @author josep
  */
-public class driverAlfabeto {
+public class driverControladorAlfabeto {
     public static void main (String[] args) {
         String nombreclase = "alfabeto";
         System.out.print("Driver" + nombreclase + ".");
@@ -60,8 +60,8 @@ public class driverAlfabeto {
                             alfabeto copia = new alfabeto(alf);
                             break;
                         case "4": 
-                            simbolo c = alf.consultarSimbolo(Integer.parseInt(palabras[1]));
-                            System.out.println("Caracter que contiene la posicion " + palabras[1] + ": " + c.Info() + ".");
+                            simbolo c = alf.getSimbolo(Integer.parseInt(palabras[1]));
+                            System.out.println("Caracter que contiene la posicion " + palabras[1] + ": " + c.getInfo() + ".");
                             break;
                         case "5":
                             aux = palabras[1];
@@ -74,14 +74,14 @@ public class driverAlfabeto {
                             aux = palabras[1];
                             dr = aux.charAt(0);
                             simbolo e1 = new simbolo(dr);
-                            int pos = alf.consultarPosicion(e1);
+                            int pos = alf.getPosicion(e1);
                             System.out.println("Posicio " + pos);
                             break;
                         case "7":
                             aux = palabras[1];
                             dr = aux.charAt(0);
                             simbolo add = new simbolo(dr);
-                            alf.anadirSimbolo(add);
+                            alf.addSimbolo(add);
                             break;
                         case "8":                            
                             alf.escribirAlfabeto();
