@@ -1,4 +1,3 @@
-package prueba;
 
 
 /*
@@ -7,7 +6,7 @@ package prueba;
  */
 
 
-import prueba.NodeComparador;
+
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Comparator;
@@ -22,15 +21,7 @@ public class BranchBound {
     private int[][] distancia;
     public  Node mejorSolucion;
     private Node solucionParcial;
-    int mejorCost;
-    
-    class Node {
-         ArrayList<Integer> teclasPendientes;
-         ArrayList<Integer> teclasAssignadas;
-         int cost;
-    }
-    
-    
+    double  mejorCost;
     
     public BranchBound() {
         mejorCost = Integer.MAX_VALUE;
@@ -42,21 +33,31 @@ public class BranchBound {
     }
     
     public BranchBound(int[][] estadistica, int[][] distancia) {
-        mejorCost = Integer.MAX_VALUE;
-        mejorSolucion.cost = 0;
-        mejorSolucion.teclasAssignadas = new ArrayList<Integer> ();
-        mejorSolucion.teclasPendientes = new ArrayList<Integer> (estadistica[0].length);
-        anadirPendientes();
-        nodes = new PriorityQueue<Node> (1,new NodeComparador());
-        nodes.add(mejorSolucion);
         this.distancia = distancia;
         this.estadistica = estadistica;
+        mejorCost = Integer.MAX_VALUE;
+        mejorSolucion = new Node ();
+        mejorSolucion.cost = 0;
+        mejorSolucion.teclasAssignadas = new ArrayList<> ();
+        mejorSolucion.teclasPendientes = new ArrayList<> (estadistica[0].length);
+        System.out.println ("Mida teclas Pendientes"+mejorSolucion.teclasPendientes.size());
+        anadirPendientes();
+        nodes = new PriorityQueue<> (1,new NodeComparador());
+        nodes.add(mejorSolucion);
+        if(nodes.isEmpty()) System.out.println ("Esta vacio");
+
         solve(0);
+        for (int i = 0; i < mejorSolucion.teclasAssignadas.size(); i++) {
+          System.out.println ("La mejor solucion es "+ i +"  "+mejorSolucion.teclasAssignadas.get(i));
+        }
+        
     }
     
     public void anadirPendientes(){
-        for(int i=0; i < mejorSolucion.teclasPendientes.size(); ++i) {
+        System.out.println ("Entro");
+        for(int i=0; i < estadistica.length; ++i) {
             mejorSolucion.teclasPendientes.add(i);
+            
         }
     }
     public void calcularCost(Node b, int n) {
@@ -65,34 +66,61 @@ public class BranchBound {
         }
     }
     public void assignarTecla(Node b, int n) {
-       int x = b.teclasPendientes.get(n);
-       b.teclasPendientes.remove(n);
-       b.teclasAssignadas.add(x);
+       if(n < b.teclasPendientes.size()) {
+           int x = b.teclasPendientes.get(n); 
+           System.out.println ("Valor de x: "+ x);
+           b.teclasPendientes.remove(n);
+           b.teclasAssignadas.add(x);
+       }
     }
     
     public void solve(int n) {
-        Node a = nodes.remove();
-        if(esSolucion(a.teclasAssignadas)) {
-            if(esMejor(a.cost)) {
-                mejorSolucion = a;
-            }          
-        }
+        Node a = nodes.poll();
+        if(a == null) System.out.println ("Es nullo ");
         else {
-            int i = 0;
-            int mida = a.teclasPendientes.size();
-            while(mida > 0) {
-                Node b = new Node();
-                b.teclasAssignadas = a.teclasAssignadas;
-                b.teclasPendientes = a.teclasPendientes;
-                b.cost = a.cost;
-                assignarTecla(b,i);
-                calcularCost(b,n);
-                if(b.cost < mejorCost) {
-                    nodes.add(b);
+            System.out.println ("No es nullo ");
+            int x = a.teclasAssignadas.size();
+            int c = estadistica.length;
+            if(x == c) {
+                for (int i = 0; i < a.teclasAssignadas.size(); i++) {
+                    System.out.print(a.teclasAssignadas.get(i) + " ");
                 }
-                ++i;
-                --mida;
+                System.out.println("");
+                if(esMejor(a.cost)) {
+                    mejorSolucion = a;
+                }          
             }
+            else {
+                System.out.println ("Else");
+                int i = 0;
+                int mida = a.teclasPendientes.size();
+                while(mida > 0) {
+                    System.out.println ("Dentro del while ");
+                    System.out.println ("Creo un node ");
+                    Node b = a;s
+                    System.out.println ("Asigno tecla ");
+                    assignarTecla(b,i);
+                    System.out.println ("Calculo coste");
+                    calcularCost(b,n);
+                    for (int k = 0; k < b.teclasAssignadas.size(); k++) {
+                         System.out.print(b.teclasAssignadas.get(k) + " ");
+                    }
+                    System.out.println("");
+                    if(b.cost < mejorCost) {
+                        nodes.add(b);
+                        for (int k = 0; k < b.teclasAssignadas.size(); k++) {
+                         System.out.print(b.teclasAssignadas.get(k) + " ");
+                        }
+                        System.out.println("");
+                        
+                       
+                    }
+                    ++i;
+                    --mida;
+                }
+               
+            }
+            System.out.println("La recursiva");
             solve(n+1);
         }
   
@@ -107,9 +135,12 @@ public class BranchBound {
     
     
     public boolean esSolucion(ArrayList<Integer> a) {
+        System.out.println ("Sale");
         return (a.size() == (estadistica.length-1));
+        
     }
-    public boolean esMejor(Integer a) {
+    public boolean esMejor(double a) {
+        System.out.println ("Entro esMejor");
         if(mejorSolucion == null || (a < mejorCost)) return true;
         else return false; 
     }
