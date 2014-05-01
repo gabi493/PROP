@@ -18,6 +18,7 @@ public class distancia {
     private int numeroColumnas;
     private int numeroPosiciones;
     private String formaTeclado;
+    private int primerasPosicionesForma[];
 //  Metodos    
 
     /** Creadora por defecto de distancia
@@ -29,6 +30,7 @@ public class distancia {
         numeroColumnas = 0;
         numeroPosiciones = 0;
         formaTeclado = "";
+	int primerasPosicionesForma[] = new int primerasPosicionesForma[0]
     }
     
     /**
@@ -38,13 +40,38 @@ public class distancia {
      * @param nP:   numero de posiciones de la matriz
      * @param fT:   forma del teclado
      */
-    public distancia(int nF, int nC, int nP, String fT){
+    public distancia(String fT, int nF, int nC, int nP){
+	setFormaTeclado(fT);
         setNumeroFilas(nF);
         setNumeroColumnas(nC);
         setNumeroPosiciones(nP);
-        setFormaTeclado(fT);
+	int primerasPosicionesForma[] = new int primerasPosicionesForma[nF]
+	setPrimeraPosicionForma(nF);
         setMatriz(nF, nC, nP);
     }
+    
+    
+        /**
+     * setFormaTeclado.	Asigna una forma al teclado
+     * @param fT:	forma del teclado
+     */
+    public void setFormaTeclado(String fT) {
+        if (!(fT).equals("rectangular") && !(fT).equals("hexagonal") && !(fT).equals("dosHexagonos")) {
+            throw new IllegalArgumentException("Error en el nombre del teclado:" + 
+                    " rectangular || hexagonal || dosHexagonos");
+        }
+	formaTeclado = fT;
+    }
+    
+    
+    /**
+     * getFormaTeclado.	Obtiene la forma del teclado
+     * @return		Devuelve la forma del teclado
+     */
+    public String getFormaTeclado() {
+            return formaTeclado;
+    }
+    
     
     /**
      * setNumeroFilas.  Asigna el numero de filas de la matriz
@@ -57,6 +84,7 @@ public class distancia {
         numeroFilas = nF;
     }
     
+    
     /**
      * getNumeroFilas.	Obtiene el numero de filas de la matriz
      * @return:		Devuelve el numero de filas de la matriz
@@ -64,6 +92,7 @@ public class distancia {
     public int getNumeroFilas() {
         return numeroFilas;
     }
+    
     
         /**
      * setNumeroColumnas.   Asigna el numero de columnas de la matriz
@@ -76,6 +105,7 @@ public class distancia {
         numeroColumnas = nC;
     }
     
+    
     /**
      * getNumeroColumnas.   Obtiene el numero de columnas de la matriz
      * @return:             Devuelve el numero de columnas de la matriz
@@ -83,6 +113,7 @@ public class distancia {
     public int getNumeroColumnas() {
         return numeroColumnas;
     }
+    
     
     /**
      * setNumeroPosiciones. Asigna el numero de posiciones de la matriz
@@ -95,8 +126,29 @@ public class distancia {
         numeroPosiciones = nP;
     }
     
-    public int getNumeroPosiciones(int nP) {
-        return getPosicionMatriz(nP);
+    
+    /**
+     * getNumeroPosiciones. Obtiene el numero de posiciones de la matriz
+     * @return		    Devuelve el numero de posiciones de la matriz
+     */
+    public int getNumeroPosiciones() {
+        return numeroPosiciones;
+    }
+    
+    
+    public void setPrimeraPosicionForma(int numeroFila, int posicion) {
+	if (numeroFila < 0 || numeroFila > getNumeroFilas()) {
+            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: nF < 0 || nF > numeroFilas");
+        }
+	if (posicion < 0 || posicion > getNumeroColumnas()) {
+            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: pos < 0 || pos > numeroColumnas");
+        }
+	primerasPosicionesForma[numeroFila] = posicion;
+    }
+    
+    
+    public int getPrimeraPosicionForma(int numeroFila) {
+	return primerasPosicionesForma[numeroFila];
     }
     
     
@@ -119,6 +171,7 @@ public class distancia {
         int matriz[][] = new int[nF][nC];
     }
     
+    
     /**
      * setRellenarMatriz.   Asigna un valor a la posicion [fila][columna] de la matriz
      * @param fila:         numero de filas de la matriz
@@ -135,6 +188,12 @@ public class distancia {
         matriz[fila][columna] = valor;
     }
     
+    
+    /**
+     * getPosicion. Obtiene la posicion 
+     * @param pos
+     * @return
+     */
     public int getPosicionMatriz(int pos) {
         int numF, numC, f, c;
         if (getFormaTeclado() == "rectangular") {
@@ -152,15 +211,6 @@ public class distancia {
         return matriz[f][c];
     }
 
-    private void setFormaTeclado(String fT) {
-                if (fT != "rectangular" || fT != "hexagonal" || fT != "dosHexagonos") {
-            throw new IllegalArgumentException("Error en el nombre del teclado:" + 
-                    " rectangular || hexagonal || dosHexagonos");
-        }
-	formaTeclado = fT;
-
-    }
-    
 }
 
 
