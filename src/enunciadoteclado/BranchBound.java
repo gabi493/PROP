@@ -18,23 +18,7 @@ public class BranchBound {
     private int[][] distancia;
     private Node mejorSolucion;
     private Node solucionParcial;
-    
-    
-    
-    public BranchBound() {
-        mejorSolucion.cost = Integer.MAX_VALUE;
-        mejorSolucion.teclasAssignadas = new ArrayList<Integer> ();
-        mejorSolucion.teclasPendientes = new ArrayList<Integer> ();
-        nodes = new PriorityQueue<Node> ();
-    }
-    
-    public BranchBound(int[][] estadistica, int[][] distancia) {
-        mejorSolucion.cost = Integer.MAX_VALUE;
-        mejorSolucion.teclasAssignadas = new ArrayList<Integer> ();
-        mejorSolucion.teclasPendientes = new ArrayList<Integer> ();
-        nodes = new PriorityQueue<Node> ();
-        this.distancia = distancia;
-    }
+    int mejorCost;
     
     class Node {
          ArrayList<Integer> teclasPendientes;
@@ -44,44 +28,85 @@ public class BranchBound {
     
     
     
-    public ArrayList<Integer> solve(int n) {
-        
-        if(esSolucion()) {
-            if(esMejor()) {
-                mejorSolucion = solucionParcial;
+    public BranchBound() {
+        mejorCost = Integer.MAX_VALUE;
+        mejorSolucion.cost = 0;
+        mejorSolucion.teclasAssignadas = new ArrayList<Integer> ();
+        mejorSolucion.teclasPendientes = new ArrayList<Integer> ();
+        nodes = new PriorityQueue<Node> (1,new NodeComparador());
+        nodes.add(mejorSolucion);
+    }
+    
+    public BranchBound(int[][] estadistica, int[][] distancia) {
+        mejorCost = Integer.MAX_VALUE;
+        mejorSolucion.cost = 0;
+        mejorSolucion.teclasAssignadas = new ArrayList<Integer> ();
+        mejorSolucion.teclasPendientes = new ArrayList<Integer> (estadistica[0].length);
+        añadirPendientes();
+        nodes = new PriorityQueue<Node> (1,new NodeComparador());
+        nodes.add(mejorSolucion);
+        this.distancia = distancia;
+        this.estadistica = estadistica;
+        solve(0);
+    }
+    
+    public void añadirPendientes(){
+        for(int i=0; i < mejorSolucion.teclasPendientes.size(); ++i) {
+            mejorSolucion.teclasPendientes.add(i);
+        }
+    }
+    public void calcularCost(Node b, int n) {
+        for(int i=0; i < n;++i) {
+            b.cost += estadistica[b.teclasAssignadas.get(i)][b.teclasAssignadas.get(n)]*distancia[i][n];
+        }
+    }
+    public void assignarTecla(Node b, int n) {
+       int x = b.teclasPendientes.get(n);
+       b.teclasPendientes.remove(n);
+       b.teclasAssignadas.add(x);
+    }
+    
+    public void solve(int n) {
+        Node a = nodes.remove();
+        if(esSolucion(a.teclasAssignadas)) {
+            if(esMejor(a.cost)) {
+                mejorSolucion = a;
             }          
         }
         else {
-            
-            
-        }
-        
-        
-        
-        Comparator<Node> comparator = new NodeComparador();
-        nodes = new PriorityQueue<Node>(0,comparator);
-        for(int i=0; i < estadistica.length; ++i) {
-            Node a = new Node();
-            a.añadirAssignacion(i);
-            for(int j = 0; j < estadistica.length; ++j) {
-                if(i != j) a.añadirPendientes(j);
+            int i = 0;
+            int mida = a.teclasPendientes.size();
+            while(mida > 0) {
+                Node b = new Node();
+                b.teclasAssignadas = a.teclasAssignadas;
+                b.teclasPendientes = a.teclasPendientes;
+                b.cost = a.cost;
+                assignarTecla(b,i);
+                calcularCost(b,n);
+                if(b.cost < mejorCost) {
+                    nodes.add(b);
+                }
+                ++i;
+                --mida;
             }
-            nodes.add(a);
+            solve(n+1);
         }
-        
-
-        return mejorSolucion.teclasAssignadas;
-        
+  
     }
-    public void calcularCoste(Node a) {
+    
         
-        
+    /**
+     *
+     * @param b
+     * @param n
+     */
+    
+    
+    public boolean esSolucion(ArrayList<Integer> a) {
+        return (a.size() == (estadistica.length-1));
     }
-    public boolean esSolucion() {
-        return (solucionParcial.teclasAssignadas.size() == (estadistica.length-1));
-    }
-    public boolean esMejor() {
-        if(mejorSolucion == null || (solucionParcial.cost < mejorSolucion.cost)) return true;
+    public boolean esMejor(Integer a) {
+        if(mejorSolucion == null || (a < mejorCost)) return true;
         else return false; 
     }
     

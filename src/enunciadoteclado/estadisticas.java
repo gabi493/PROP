@@ -30,8 +30,8 @@ public class estadisticas extends afinidad {
      * @param similitud
      */
     public void insertarEstadistica (simbolo letra1,simbolo letra2,double similitud,alfabeto a) {
-      int i = a.consultarPosicion(letra1);
-      int j = a.consultarPosicion(letra2);
+      int i = a.getPosicion(letra1);
+      int j = a.getPosicion(letra2);
       insertarAfinidad(i,j,1);
     }
 
@@ -42,8 +42,8 @@ public class estadisticas extends afinidad {
      * @return
      */
     public double consultarEstadistica (simbolo letra1,simbolo letra2,alfabeto a) throws IOException{
-      int i = a.consultarPosicion(letra1);
-      int j = a.consultarPosicion(letra2);
+      int i = a.getPosicion(letra1);
+      int j = a.getPosicion(letra2);
       return consultarAfinidad(i,j);
     
     }
