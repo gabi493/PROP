@@ -1,15 +1,18 @@
+package prueba;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package enunciadoteclado;
+
 
 /**
  *
  * @author alejandro.del.amo.gonzalez
  */
-import enunciadoteclado.BranchBound.Node;
+
 import java.util.Comparator;
+import prueba.BranchBound.Node;
 
 public class NodeComparador implements Comparator<Node>
 {

@@ -1,9 +1,13 @@
+package prueba;
+
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package enunciadoteclado;
 
+
+import prueba.NodeComparador;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Comparator;
@@ -16,7 +20,7 @@ public class BranchBound {
     private PriorityQueue<Node> nodes;
     private int[][] estadistica;
     private int[][] distancia;
-    private Node mejorSolucion;
+    public  Node mejorSolucion;
     private Node solucionParcial;
     int mejorCost;
     
@@ -42,7 +46,7 @@ public class BranchBound {
         mejorSolucion.cost = 0;
         mejorSolucion.teclasAssignadas = new ArrayList<Integer> ();
         mejorSolucion.teclasPendientes = new ArrayList<Integer> (estadistica[0].length);
-        añadirPendientes();
+        anadirPendientes();
         nodes = new PriorityQueue<Node> (1,new NodeComparador());
         nodes.add(mejorSolucion);
         this.distancia = distancia;
@@ -50,7 +54,7 @@ public class BranchBound {
         solve(0);
     }
     
-    public void añadirPendientes(){
+    public void anadirPendientes(){
         for(int i=0; i < mejorSolucion.teclasPendientes.size(); ++i) {
             mejorSolucion.teclasPendientes.add(i);
         }
