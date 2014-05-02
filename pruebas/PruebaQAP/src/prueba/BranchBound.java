@@ -119,7 +119,8 @@ public class BranchBound {
                                   System.out.print("Teclas asignadas: " + aux[k] + " ");
                             }
                             System.out.println("");
-                            Vector<Integer> h1 = v1;
+                            Vector<Integer> h1 = new Vector<Integer>();
+                            for(int m = 0; m < v1.size();++m) h1.add(v1.get(m));
                             h1.remove(0);
                             for (int m = 0; m < h1.size(); m++) {
                                   System.out.print("Teclas pendientes: " + h1.get(m)+ " ");
