@@ -32,8 +32,7 @@ public class driverControladorAlfabeto {
                 System.out.println("\t 2) alfabeto(String idioma, int n)");
                 System.out.println("\t 3) alfabeto(alfabeto original)");
                 System.out.println("\t 4) addSimbolo (simbolo newsimbolo)");
-                System.out.println("\t 5) swapSimbolo (simbolo a, simbolo b)");
-                System.out.println("\t 6) escribirAlfabeto()");
+                System.out.println("\t 5) escribirAlfabeto()");
                 System.out.println("\t 0) Salir");
                 
                 String linea;
@@ -58,7 +57,6 @@ public class driverControladorAlfabeto {
                             }
                             break;
                         case "3":
-                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
                             alfabeto copia = new alfabeto(alf);
                             System.out.println("La copia del alfabeto es: ");
                             copia.escribirAlfabeto();
@@ -68,13 +66,6 @@ public class driverControladorAlfabeto {
                             alf.addSimbolo(add);
                             break;
                         case "5":
-                            simbolo e = new simbolo(palabras[1].charAt(0));
-                            simbolo e1 = new simbolo(palabras[2].charAt(0));
-                            System.out.println("Simbolos iniciales: " + e.getInfo() + " " + e1.getInfo());
-                            alf.swapSimbolos(e, e1);;
-                            System.out.println("Simbolos finales: " + e.getInfo() + " " + e1.getInfo());
-                            break;
-                        case "6":
                             alf.escribirAlfabeto();
                             break;
                         case "0":

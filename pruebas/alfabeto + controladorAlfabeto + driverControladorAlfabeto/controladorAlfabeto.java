@@ -55,16 +55,7 @@ public class controladorAlfabeto {
     public void addSimbolo (simbolo newsimbolo) {
         alfabetoControlador.addSimbolo(newsimbolo);
     }
-    
-    /**
-     * Intercambiar posicion de simbolos. 
-     * @param a
-     * @param b
-     */
-    public void swapSimbolos(simbolo a, simbolo b) {
-        alfabetoControlador.swapSimbolos(a, b);        
-    }
-    
+        
     /**
      * Escritoras.
      */
