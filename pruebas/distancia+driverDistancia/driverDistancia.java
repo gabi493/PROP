@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+//package enunciadoteclado;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -25,7 +25,7 @@ public class driverDistancia {
             
             boolean out = false; 
             while (!out) {
-                System.out.println("Elige una opicion:");
+            /*    System.out.println("Elige una opicion:");
                 System.out.println("\t 1) distancia()");
                 System.out.println("\t 2) distancia(formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones)");
                 System.out.println("\t 3) setFormaTeclado(formaTeclado)");
@@ -41,7 +41,8 @@ public class driverDistancia {
 		System.out.println("\t 13) setDistanciaMatriz(posicionA, posicionB, distancia)");
 		System.out.println("\t 14) getDistanciaMatriz(posicionA, posicionB)");
                 System.out.println("\t 0) Salir");
-                
+            */    
+		System.out.println();
                 String linea;
                 String palabras[];
                 String opcion;
@@ -86,7 +87,7 @@ public class driverDistancia {
                             System.out.println("Numero de posiciones = " + dist.getNumeroPosiciones());
                             break;
 			case "11":   //setPrimeraPosicionForma
-                            dist.setPrimeraPosicionForma(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2]));
+			    dist.setPrimeraPosicionForma(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2]));
                             break;
                         case "12":   //getPrimeraPosicionForma
                             System.out.println("Primera posicion fila[" + Integer.parseInt(palabras[1]) + "] = " + dist.getPrimeraPosicionForma(Integer.parseInt(palabras[1])));

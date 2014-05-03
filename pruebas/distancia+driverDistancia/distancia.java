@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+//package enunciadoteclado;
 
 /**
  *
@@ -25,12 +25,12 @@ public class distancia {
      *
      */
         public distancia() {
-        int matrizDistancias[][] = new int[0][0];
+        matrizDistancias = new int[0][0];
         numeroFilas = 0;
         numeroColumnas = 0;
         numeroPosiciones = 0;
         formaTeclado = "";
-	int primerasPosicionesForma[] = new int[0];
+	primerasPosicionesForma = new int[0];
     }
     
     /**
@@ -141,10 +141,10 @@ public class distancia {
      */
     public void setPrimeraPosicionForma(int numeroFila, int posicion) {
 	if (numeroFila < 0 || numeroFila > getNumeroFilas() - 1) {
-            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: nF < 0 || nF > numeroFilas");
+            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: nF < 0 || nF > numeroFilas -> " + (getNumeroFilas() - 1));
         }
-	if (posicion < 0 || posicion > getNumeroColumnas() - 1) {
-            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: pos < 0 || pos > numeroColumnas");
+	if (posicion < 0 || posicion > getNumeroPosiciones() - 1) {
+            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: pos < 0 || pos > numeroPosiciones -> " + (getNumeroPosiciones() - 1));
         }
 	primerasPosicionesForma[numeroFila] = posicion;
     }
