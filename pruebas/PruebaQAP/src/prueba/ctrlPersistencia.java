@@ -1,4 +1,4 @@
-package prueba;
+
 
 import java.io.*;
 import java.io.File;
@@ -12,19 +12,19 @@ import java.util.Scanner;
 
 public class ctrlPersistencia {
 
-    private static int tam;
-    private static int[][] afin;
-    private static int[][] dist;
+    private int tam;
+    private int[][] afin;
+    private int[][] dist;
 
-    public static int getTam() {
+    public int getTam() {
         return tam;
     }
 
-    public static int[][] getAfin() {
+    public int[][] getAfin() {
         return afin;
     }
 
-    public static int[][] getDist() {
+    public int[][] getDist() {
         return dist;
     }
 
@@ -35,6 +35,7 @@ public class ctrlPersistencia {
     public void leerJuegoDePrueba(String ruta) {
         ruta += ".dat";     // anado la extension a la ruta para leer
         try {
+            
             Scanner sc = new Scanner(new File(ruta));
             tam = sc.nextInt();
             afin = new int[tam][tam];
