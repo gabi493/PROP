@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+//package enunciadoteclado;
 
 /**
  *
@@ -24,14 +24,7 @@ public class distancia {
     /** Creadora por defecto de distancia
      *
      */
-        public distancia() {
-        int matrizDistancias[][] = new int[0][0];
-        numeroFilas = 0;
-        numeroColumnas = 0;
-        numeroPosiciones = 0;
-        formaTeclado = "";
-	int primerasPosicionesForma[] = new int[0];
-    }
+        public distancia() {}
     
     /**
      * distancia.   Creadora de la matriz de distancias con nF filas y nC columnas
@@ -41,12 +34,12 @@ public class distancia {
      * @param fT:   forma del teclado
      */
     public distancia(String fT, int nF, int nC, int nP){
-	setFormaTeclado(fT);
+	matrizDistancias = new int[nP][nP];
+	primerasPosicionesForma = new int[nF];
+        setFormaTeclado(fT);
         setNumeroFilas(nF);
         setNumeroColumnas(nC);
         setNumeroPosiciones(nP);
-	int primerasPosicionesForma[] = new int[nF];
-	int matrizDistancias[][] = new int[nP][nP];
     }
     
     
@@ -141,10 +134,10 @@ public class distancia {
      */
     public void setPrimeraPosicionForma(int numeroFila, int posicion) {
 	if (numeroFila < 0 || numeroFila > getNumeroFilas() - 1) {
-            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: nF < 0 || nF > numeroFilas");
+            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: nF < 0 || nF > numeroFilas -> " + (getNumeroFilas() - 1));
         }
-	if (posicion < 0 || posicion > getNumeroColumnas() - 1) {
-            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: pos < 0 || pos > numeroColumnas");
+	if (posicion < 0 || posicion > getNumeroPosiciones() - 1) {
+            throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: pos < 0 || pos > numeroPosiciones -> " + (getNumeroPosiciones() - 1));
         }
 	primerasPosicionesForma[numeroFila] = posicion;
     }

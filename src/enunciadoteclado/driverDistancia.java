@@ -38,10 +38,14 @@ public class driverDistancia {
 		System.out.println("\t 10) getNumeroPosiciones()");
 		System.out.println("\t 11) setPrimeraPosicionForma(numeroFila, posicion)");
 		System.out.println("\t 12) getPrimeraPosicionForma(numeroFila)");
-		System.out.println("\t 13) setDistanciaMatriz(posicionA, posicionB, distancia)");
-		System.out.println("\t 14) getDistanciaMatriz(posicionA, posicionB)");
+		System.out.println("\t 13) setTodasPrimerasPosicionesForma(v[numeroColumnas] = {...})");
+		System.out.println("\t 14) getTodasPrimerasPosicionesForma()");
+		System.out.println("\t 15) setDistanciaMatriz(posicionA, posicionB, distancia)");
+		System.out.println("\t 16) getDistanciaMatriz(posicionA, posicionB)");
+		System.out.println("\t 17) setTodasDistanciasMatriz(v[numeroPosiciones] = [...])");
+		System.out.println("\t 18) getTodasDistanciasMatriz()");
                 System.out.println("\t 0) Salir");
-                
+              
                 String linea;
                 String palabras[];
                 String opcion;
@@ -115,7 +119,7 @@ public class driverDistancia {
 			    int p = dist.getNumeroPosiciones();
 			    for (int j = 0; j < p; ++j) {
 				for (int k = 0; k < p; ++k) {
-				    dist.setDistanciaMatriz(j, k, Integer.parseInt(palabras[j*k + k]));
+				    dist.setDistanciaMatriz(j, k, Integer.parseInt(palabras[j*p + k + 1]));
 				}
 			    }
                             break;
@@ -124,7 +128,7 @@ public class driverDistancia {
 			    System.out.println("Distancias matriz: ");
 			    for (int j = 0; j < np; ++j) {
 				for (int k = 0; k < np; ++k) {
-				    System.out.print(dist.getDistanciaMatriz(j, k) + " ");
+				    System.out.print( dist.getDistanciaMatriz(j, k) + " ");
 				}
 				System.out.println();
 			    }

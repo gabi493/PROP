@@ -25,7 +25,7 @@ public class driverDistancia {
             
             boolean out = false; 
             while (!out) {
-            /*    System.out.println("Elige una opicion:");
+/*                System.out.println("Elige una opicion:");
                 System.out.println("\t 1) distancia()");
                 System.out.println("\t 2) distancia(formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones)");
                 System.out.println("\t 3) setFormaTeclado(formaTeclado)");
@@ -38,11 +38,16 @@ public class driverDistancia {
 		System.out.println("\t 10) getNumeroPosiciones()");
 		System.out.println("\t 11) setPrimeraPosicionForma(numeroFila, posicion)");
 		System.out.println("\t 12) getPrimeraPosicionForma(numeroFila)");
-		System.out.println("\t 13) setDistanciaMatriz(posicionA, posicionB, distancia)");
-		System.out.println("\t 14) getDistanciaMatriz(posicionA, posicionB)");
+		System.out.println("\t 13) setTodasPrimerasPosicionesForma(v[numeroColumnas] = {...})");
+		System.out.println("\t 14) getTodasPrimerasPosicionesForma()");
+		System.out.println("\t 15) setDistanciaMatriz(posicionA, posicionB, distancia)");
+		System.out.println("\t 16) getDistanciaMatriz(posicionA, posicionB)");
+		System.out.println("\t 17) setTodasDistanciasMatriz(v[numeroPosiciones] = [...])");
+		System.out.println("\t 18) getTodasDistanciasMatriz()");
                 System.out.println("\t 0) Salir");
-            */    
+  */
 		System.out.println();
+              
                 String linea;
                 String palabras[];
                 String opcion;
@@ -87,7 +92,7 @@ public class driverDistancia {
                             System.out.println("Numero de posiciones = " + dist.getNumeroPosiciones());
                             break;
 			case "11":   //setPrimeraPosicionForma
-			    dist.setPrimeraPosicionForma(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2]));
+                            dist.setPrimeraPosicionForma(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2]));
                             break;
                         case "12":   //getPrimeraPosicionForma
                             System.out.println("Primera posicion fila[" + Integer.parseInt(palabras[1]) + "] = " + dist.getPrimeraPosicionForma(Integer.parseInt(palabras[1])));
@@ -116,7 +121,7 @@ public class driverDistancia {
 			    int p = dist.getNumeroPosiciones();
 			    for (int j = 0; j < p; ++j) {
 				for (int k = 0; k < p; ++k) {
-				    dist.setDistanciaMatriz(j, k, Integer.parseInt(palabras[j*k + k]));
+				    dist.setDistanciaMatriz(j, k, Integer.parseInt(palabras[j*p + k + 1]));
 				}
 			    }
                             break;
@@ -125,7 +130,7 @@ public class driverDistancia {
 			    System.out.println("Distancias matriz: ");
 			    for (int j = 0; j < np; ++j) {
 				for (int k = 0; k < np; ++k) {
-				    System.out.print(dist.getDistanciaMatriz(j, k) + " ");
+				    System.out.print( dist.getDistanciaMatriz(j, k) + " ");
 				}
 				System.out.println();
 			    }

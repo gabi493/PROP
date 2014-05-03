@@ -24,14 +24,7 @@ public class distancia {
     /** Creadora por defecto de distancia
      *
      */
-        public distancia() {
-        matrizDistancias = new int[0][0];
-        numeroFilas = 0;
-        numeroColumnas = 0;
-        numeroPosiciones = 0;
-        formaTeclado = "";
-	primerasPosicionesForma = new int[0];
-    }
+        public distancia() {}
     
     /**
      * distancia.   Creadora de la matriz de distancias con nF filas y nC columnas
@@ -41,12 +34,12 @@ public class distancia {
      * @param fT:   forma del teclado
      */
     public distancia(String fT, int nF, int nC, int nP){
-	setFormaTeclado(fT);
+	matrizDistancias = new int[nP][nP];
+	primerasPosicionesForma = new int[nF];
+        setFormaTeclado(fT);
         setNumeroFilas(nF);
         setNumeroColumnas(nC);
         setNumeroPosiciones(nP);
-	int primerasPosicionesForma[] = new int[nF];
-	int matrizDistancias[][] = new int[nP][nP];
     }
     
     
