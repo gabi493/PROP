@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+//package enunciadoteclado;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -25,7 +25,7 @@ public class driverDistancia {
             
             boolean out = false; 
             while (!out) {
-                System.out.println("Elige una opicion:");
+/*                System.out.println("Elige una opicion:");
                 System.out.println("\t 1) distancia()");
                 System.out.println("\t 2) distancia(formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones)");
                 System.out.println("\t 3) setFormaTeclado(formaTeclado)");
@@ -45,6 +45,8 @@ public class driverDistancia {
 		System.out.println("\t 17) setTodasDistanciasMatriz(v[numeroPosiciones] = [...])");
 		System.out.println("\t 18) getTodasDistanciasMatriz()");
                 System.out.println("\t 0) Salir");
+  */
+		System.out.println();
               
                 String linea;
                 String palabras[];
