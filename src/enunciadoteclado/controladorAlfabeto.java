@@ -58,15 +58,6 @@ public class controladorAlfabeto {
     }
     
     /**
-     * Intercambiar posicion de simbolos. 
-     * @param a
-     * @param b
-     */
-    public void swapSimbolos(simbolo a, simbolo b) {
-        alfabetoControlador.swapSimbolos(a, b);        
-    }
-    
-    /**
      * Escritoras.
      */
     

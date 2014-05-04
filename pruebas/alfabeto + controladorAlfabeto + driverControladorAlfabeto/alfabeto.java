@@ -116,26 +116,13 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public void addSimbolo (simbolo newsimbolo) {
-        for (int i = 0; i < numCaracteres; i++) {
+        /*for (int i = 0; i < numCaracteres; i++) {
             if (newsimbolo.getInfo() == this.alf.get(i).getInfo()) {
                 throw new IllegalArgumentException("Error: El simbolo ya está en el alfabeto.");
             }
-        }
+        }*/
         this.alf.add(newsimbolo);
         ++numCaracteres;
-    }
-    
-    /**
-     * Intercambiar simbolos. Se intercambias las posiciones del alfabeto de los dos simbolos pasados 
-     * por parámetro.
-     * @param a
-     * @param b
-     * @throws IllegalArgumentException.
-     */
-    public void swapSimbolos(simbolo a, simbolo b) {      
-            simbolo aux = new simbolo(a);
-            a = b;
-            b = aux;
     }
     
     /**
