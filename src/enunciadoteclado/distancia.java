@@ -10,7 +10,7 @@
  *
  * @author gabriel
  */
-public class distancia {
+public class distancia extends distanciaCluster{
     
 //  Atributos 
     private int matrizDistancias[][];
