@@ -21,11 +21,10 @@ public class Node {
     int etapa = 0;
     
    
-    public Node(Vector<Integer> teclasPendientes,int[] teclasAssignadas,double cost,int etapa) {
+    public Node(Vector<Integer> teclasPendientes,int[] teclasAssignadas,double cost) {
         this.teclasPendientes = teclasPendientes;
         this.teclasAssignadas = teclasAssignadas;
         this.cost = cost;
-        this.etapa = etapa;
         
     }
     public Node(Node b) {
