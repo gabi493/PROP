@@ -193,22 +193,3 @@ public class distancia {
     }
 
 }
-
-
-
-/*  ****************************DriverDistancia********************************
-    import java.io.BufferedReader;
-    import java.io.InputStreamReader;
-
-    public void setPosicionMatriz(int nF, int nC) {
-        String linea;
-        int palabras[];
-                
-        for (int i = 0; i < nF; ++i) {
-            linea = buffer.readLine();
-            for (int j = 0; j < nC; ++j) {
-                matriz[i][j] = Integer.parseInt(palabras[j]);
-            }
-        }
-    }
-*/
