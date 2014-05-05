@@ -1,10 +1,13 @@
-all: tecla
+all: tecla driverTecla exe
 
-tecla.class: *.java
-	   javac *.java
-	  
-tecla: tecla.class
-	  java driverTecla < driverTecla.in
-	  
+tecla: tecla
+	javac tecla.java
+
+driverTecla: driverTecla
+	javac driverTecla.java
+
+exe: driverTecla
+	java driverTecla < driverTecla.in > driverTecla.out
+
 clean:
-	  rm *.class
+	rm -f *.class

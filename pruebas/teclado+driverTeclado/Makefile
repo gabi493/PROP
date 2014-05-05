@@ -1,10 +1,13 @@
-all: teclado
+all: teclado driverTeclado exe
 
-teclado.class: *.java
-	   javac *.java
-	  
-teclado: teclado.class
-	  java driverTeclado < driverTeclado.in
-	  
+teclado: teclado
+	javac teclado.java
+
+driverTeclado: driverTeclado
+	javac driverTeclado.java
+
+exe: driverTeclado
+	java driverTeclado < driverTeclado.in > driverTeclado.out
+
 clean:
-	  rm *.class
+	rm -f *.class
