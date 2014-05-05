@@ -9,16 +9,17 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+
 /**
  *
  * @author gabriel
  */
-public class driverTecla {
-    public static void main (String[] args) {
-        String nombreclase = "Tecla";
+public class driverTexto {
+	public static void main (String[] args) {
+        String nombreclase = "Texto";
         System.out.print("Driver" + nombreclase);
         
-        tecla tec = new tecla();
+        texto text = new texto();
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -26,16 +27,16 @@ public class driverTecla {
             boolean out = false; 
             while (!out) {
 			/*	System.out.println("Elige una opicion:");
-				System.out.println("\t 1) tecla()");
-				System.out.println("\t 2) tecla(nombre, fila, columna");
-				System.out.println("\t 3) setNombre(nombre)");
-				System.out.println("\t 4) getNombre()");
-				System.out.println("\t 5) setFila(fila)");
-				System.out.println("\t 6) getFila()");
-				System.out.println("\t 7) setColumna(columna)");
-				System.out.println("\t 8) getColumna()");
+				System.out.println("\t 1) texto()");
+				System.out.println("\t 2) texto(idioma, titulo, numeroCaracteres)");
+				System.out.println("\t 3) setIdioma(idioma)");
+				System.out.println("\t 4) getIdioma()");
+				System.out.println("\t 5) setTitulo(titulo)");
+				System.out.println("\t 6) getTitulo()");
+				System.out.println("\t 7) setNumeroCaracteres(numeroCaracteres)");
+				System.out.println("\t 8) getNumeroCaracteres()");
 				System.out.println("\t 0) Salir");
-				*/
+			*/
 				System.out.println();
 				
                 String linea;
@@ -45,39 +46,35 @@ public class driverTecla {
                 linea = buffer.readLine();
                 palabras = linea.split(" ");
                 opcion = palabras[0];
-                
+		                
                 try {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
-                        case "1":
-                            tec = new tecla();
+                        case "1": 
+                            text = new texto();
                             break;
                         case "2":
-                            String aux = palabras[1];
-                            char nombre = aux.charAt(0);
-                            tec = new tecla(nombre, Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]));
+                            text = new texto(palabras[1], palabras[2], Integer.parseInt(palabras[3]));
                             break;
-                        case "3":   //setNombre
-                            String ax = palabras[1];
-                            char name = ax.charAt(0);
-                            tec.setNombre(name);
+                        case "3":   //setIdioma
+                            text.setIdioma(palabras[1]);
                             break;
-                        case "4":   //getNombre
-                            System.out.println("Nombre tecla = " + tec.getNombre());
+                        case "4":   //getIdioma
+                            System.out.println("Idioma del texto = " + text.getIdioma());
                             break;
-                        case "5":   //setFila
-                            tec.setFila(Integer.parseInt(palabras[1]));
+                        case "5":   //setTitulo
+                            text.setTitulo(palabras[1]);
                             break;
-                        case "6":   //getFila
-                            System.out.println("Tamano fila = " + tec.getFila());
+                        case "6":   //getTitulo
+                            System.out.println("Titulo del texto = " + text.getTitulo());
                             break;
-                        case "7":   //setColumna
-                            tec.setColumna(Integer.parseInt(palabras[1]));
+						case "7":   //setNumeroCaracteres
+                            text.setNumeroCaracteres(Integer.parseInt(palabras[1]));
                             break;
-                        case "8":   //getColumna
-                            System.out.println("Tamano columna = " + tec.getColumna());
+                        case "8":   //getNumeroCaracteres
+                            System.out.println("Numero de caracteres del texto = " + text.getNumeroCaracteres());
                             break;
-                        case "0":
+						case "0":
                             out = true;
                             break;
                         default: 

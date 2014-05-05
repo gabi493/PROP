@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+//package enunciadoteclado;
 
 /*import java.io.BufferedReader;
 import java.io.BufferedWriter;

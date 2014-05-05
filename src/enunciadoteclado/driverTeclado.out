@@ -1,205 +1,46 @@
-DriverTecladoejemplo con distancia castElige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+DriverTecladoejemplo con distancia cast
 Opcion 1 seleccionada.
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 2 seleccionada.
-forma = hexagonal numeroFilas = 4 numeroColumnas = 10 teclas4Lados = false
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 4 seleccionada.
 Forma = hexagonal
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 6 seleccionada.
 Numero Filas = 4
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 8 seleccionada.
 Numero Columnas = 10
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 10 seleccionada.
 Tiene teclas de 4 lados? = false
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
+Opcion 12 seleccionada.
+Numero de Posiciones = 40
+
 Opcion 3 seleccionada.
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 4 seleccionada.
 Forma = rectangular
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 5 seleccionada.
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 6 seleccionada.
 Numero Filas = 3
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 7 seleccionada.
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 8 seleccionada.
 Numero Columnas = 9
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 9 seleccionada.
-3
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+
 Opcion 10 seleccionada.
-Tiene teclas de 4 lados? = false
-Elige una opicion:
-	 1) teclado()
-	 2) teclado(formaTeclado, numeroFilas, numeroColumnas, teclas4Lados)
-	 3) setForma(tipoTeclado)
-	 4) getForma()
-	 5) setNumFilas(tamano)
-	 6) getNumFilas()
-	 7) setNumCols(tamano)
-	 8) getNumCols()
-	 9) setTeclasDe4Lados(b)
-	 10) getTeclasDe4Lados()
-	 0) Salir
+Tiene teclas de 4 lados? = true
+
+Opcion 11 seleccionada.
+
+Opcion 12 seleccionada.
+Numero de Posiciones = 27
+
 Opcion 0 seleccionada.
