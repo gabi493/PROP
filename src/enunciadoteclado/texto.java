@@ -1,11 +1,12 @@
-package enunciadoteclado;
-
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.io.BufferedReader;
+
+package enunciadoteclado;
+
+/*import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,67 +15,98 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Random;
+*/
+
 /**
  *
- * @author alex
+ * @author alex + gabriel
  */
 public class texto {
 
-    String Idioma;
-    String Titulo;
-    int numero_caracteres;
+    String idioma;
+    String titulo;
+    int numeroCaracteres;
     
     /**
      *
      */
     public texto(){
-        this.Idioma  = null;
-	this.Titulo = null;
-        this.numero_caracteres = 0;
+		this.idioma  = null;
+		this.titulo = null;
+		this.numeroCaracteres = 0;
     }
     
     /**
      *
-     * @param Idioma
-     * @param Titulo
-     * @param n_caracteres
+     * @param idioma
+     * @param titulo
+     * @param numeroCaracteres
      */
-    public texto(String Idioma,String Titulo,int n_caracteres) {
-        this.Idioma = Idioma;
-        this.Titulo = Titulo;
-        this.numero_caracteres = n_caracteres;
+    public texto(String idi, String tit, int nC) {
+        idioma = idi;
+        titulo = tit;
+        numeroCaracteres = nC;
     }
 
+	/**
+	 *
+	 * @param i
+	 */
+	public void setIdioma(String i) {
+		if (i.length() < 1) {
+			throw new IllegalArgumentException("Error en el nombre del idioma: length() < 1");
+		}
+		idioma = i;
+	}
+	
+	
     /**
      *
      * @return
      */
-    public String consultar_idioma(){
-        return this.Idioma;
+    public String getIdioma(){
+        return idioma;
     }
 
+	/**
+	 *
+	 * @param t
+	 */
+	public void setTitulo(String t) {
+		if (t.length() < 1) {
+			throw new IllegalArgumentException("Error en el titulo: length() < 1");
+		}
+		titulo = t;
+	}
+	
+	
     /**
      *
      * @return
      */
-    public String consular_titulo() {
-        return this.Titulo;
+    public String getTitulo() {
+        return titulo;
     }
 
+	/**
+	 *
+	 * @param n
+	 */
+	public void setNumeroCaracteres(int n) {
+		if (n < 1) {
+			throw new IllegalArgumentException("Error en el numero de caracteres: numeroCaracteres < 1");
+		}
+		numeroCaracteres = n;
+	}
+	
+	
     /**
      *
      * @return
      */
-    public int consultar_numero_de_caracteres(){
-        return this.numero_caracteres;
-    }
-    
-    
-    
-    
-    
-    
-    
+    public int getNumeroCaracteres(){
+        return numeroCaracteres;
+    } 
     
     
 }

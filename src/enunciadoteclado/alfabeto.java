@@ -40,8 +40,6 @@ public class alfabeto {
         if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
         this.nombreAlfabeto = idioma;
         this.numCaracteres = n;
-        System.out.println("Introduzca los simbolos que tiene el alfabeto: ");
-        for (int i = 0; i < n; i++) this.alf.add(new simbolo());
     }
     
     /**
@@ -87,10 +85,13 @@ public class alfabeto {
     /**
      * Consultora de si un simbolo existe. True si el simbolo esta en el alfabeto. False si no esta.
      * @param s.
-     * @return
+     * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
-        return this.alf.contains(s);
+        for (int i = 0; i < numCaracteres; i++) {
+            return s.getInfo() == this.alf.get(i).getInfo();
+        }
+        return false;
     }
     
     /**
@@ -101,7 +102,7 @@ public class alfabeto {
      */
     public int getPosicion(simbolo s) {
         for (int i = 0; i < numCaracteres; i++) {
-            if (this.alf.contains(s)) return i;
+            if (this.alf.get(i).getInfo() == s.getInfo()) return i;
         }
         throw new IllegalArgumentException("Error: El simbolo no está en el alfabeto.");
     }
@@ -116,25 +117,15 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public void addSimbolo (simbolo newsimbolo) {
-        if (this.alf.contains(newsimbolo)) throw new IllegalArgumentException("Error: El simbolo ya está en el alfabeto.");
+        /*for (int i = 0; i < numCaracteres; i++) {
+            if (newsimbolo.getInfo() == this.alf.get(i).getInfo()) {
+                throw new IllegalArgumentException("Error: El simbolo ya está en el alfabeto.");
+            }
+        }*/
         this.alf.add(newsimbolo);
         ++numCaracteres;
     }
-    
-    /**
-     * Intercambiar simbolos. Se intercambias las posiciones del alfabeto de los dos simbolos pasados 
-     * por parámetro.
-     * @param a
-     * @param b
-     * @throws IllegalArgumentException.
-     */
-    public void swapSimbolos(simbolo a, simbolo b) {
-        if (!alf.contains(a) || !alf.contains(b)) throw new IllegalArgumentException("Error: No se encuentra el simbolo en el alfabeto.");
-        simbolo aux = new simbolo(a);
-        a = b;
-        b = aux;
-    }
-    
+       
     /**
      * Escritoras.
      */
@@ -142,7 +133,6 @@ public class alfabeto {
     /**
      * Escritura del alfabeto pasado por paramtro implícito.
      */
-    
     public void escribirAlfabeto() {
         for (int i = 0; i < numCaracteres; i++) System.out.println (this.alf.get(i).getInfo() + " ");
     }

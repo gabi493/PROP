@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
  * @author josep
  */
 public class driverControladorAlfabeto {
+    
     public static void main (String[] args) {
         String nombreclase = "alfabeto";
         System.out.print("Driver" + nombreclase + ".");
@@ -32,8 +33,7 @@ public class driverControladorAlfabeto {
                 System.out.println("\t 2) alfabeto(String idioma, int n)");
                 System.out.println("\t 3) alfabeto(alfabeto original)");
                 System.out.println("\t 4) addSimbolo (simbolo newsimbolo)");
-                System.out.println("\t 5) swapSimbolo (simbolo a, simbolo b)");
-                System.out.println("\t 6) escribirAlfabeto()");
+                System.out.println("\t 5) escribirAlfabeto()");
                 System.out.println("\t 0) Salir");
                 
                 String linea;
@@ -52,6 +52,10 @@ public class driverControladorAlfabeto {
                             break;
                         case "2":
                             alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
+                            for (int i = 0; i < Integer.parseInt(palabras[2]); i++) {                                
+                                simbolo a = new simbolo(palabras[i+3].charAt(0));
+                                alf.addSimbolo(a);
+                            }
                             break;
                         case "3":
                             alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
@@ -60,25 +64,10 @@ public class driverControladorAlfabeto {
                             copia.escribirAlfabeto();
                             break;
                         case "4": 
-                            aux = palabras[1];
-                            dr = aux.charAt(0);
-                            simbolo add = new simbolo(dr);
+                            simbolo add = new simbolo(palabras[1].charAt(0));
                             alf.addSimbolo(add);
                             break;
                         case "5":
-                            aux = palabras[1];
-                            dr = aux.charAt(0);
-                            simbolo e = new simbolo(dr);
-                            
-                            String aux1 = palabras[2];
-                            char dr1 = aux1.charAt(0);
-                            simbolo e1 = new simbolo(dr1);
-                            
-                            System.out.println("Simbolos iniciales: " + e.getInfo() + " " + e1.getInfo());
-                            alf.swapSimbolos(e, e1);;
-                            System.out.println("Simbolos finales: " + e.getInfo() + " " + e1.getInfo());
-                            break;
-                        case "6":
                             alf.escribirAlfabeto();
                             break;
                         case "0":
