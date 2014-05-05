@@ -28,16 +28,16 @@ public class texto {
     int numeroCaracteres;
     
     /**
-     *
+     * Creadora por defecto.
      */
     public texto(){
-		this.idioma  = null;
-		this.titulo = null;
-		this.numeroCaracteres = 0;
+	this.idioma  = null;
+	this.titulo = null;
+	this.numeroCaracteres = 0;
     }
     
     /**
-     *
+     * Creadora.
      * @param idioma
      * @param titulo
      * @param numeroCaracteres
@@ -48,18 +48,17 @@ public class texto {
         numeroCaracteres = nC;
     }
 
-	/**
-	 *
-	 * @param i
-	 */
-	public void setIdioma(String i) {
-		if (i.length() < 1) {
-			throw new IllegalArgumentException("Error en el nombre del idioma: length() < 1");
-		}
-		idioma = i;
+    /**
+    *
+    * @param i
+    */
+    public void setIdioma(String i) {
+    	if (i.length() < 1) {
+		throw new IllegalArgumentException("Error en el nombre del idioma: length() < 1");
 	}
-	
-	
+	idioma = i;
+    }
+		
     /**
      *
      * @return
@@ -68,18 +67,17 @@ public class texto {
         return idioma;
     }
 
-	/**
-	 *
-	 * @param t
-	 */
-	public void setTitulo(String t) {
-		if (t.length() < 1) {
-			throw new IllegalArgumentException("Error en el titulo: length() < 1");
-		}
-		titulo = t;
+    /**
+    *
+    * @param t
+    */
+    public void setTitulo(String t) {
+	if (t.length() < 1) {
+		throw new IllegalArgumentException("Error en el titulo: length() < 1");
 	}
-	
-	
+	titulo = t;
+    }
+    
     /**
      *
      * @return
@@ -88,18 +86,17 @@ public class texto {
         return titulo;
     }
 
-	/**
-	 *
-	 * @param n
-	 */
-	public void setNumeroCaracteres(int n) {
-		if (n < 1) {
-			throw new IllegalArgumentException("Error en el numero de caracteres: numeroCaracteres < 1");
-		}
-		numeroCaracteres = n;
+    /**
+    *
+    * @param n
+    */
+    public void setNumeroCaracteres(int n) {
+	if (n < 1) {
+		throw new IllegalArgumentException("Error en el numero de caracteres: numeroCaracteres < 1");
 	}
-	
-	
+        numeroCaracteres = n;
+    }
+		
     /**
      *
      * @return
@@ -107,6 +104,5 @@ public class texto {
     public int getNumeroCaracteres(){
         return numeroCaracteres;
     } 
-    
     
 }

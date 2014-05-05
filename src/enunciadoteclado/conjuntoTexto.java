@@ -11,23 +11,63 @@ import java.util.ArrayList;
 
 /**
  *
- * @author alex
+ * @author alex + josep
  */
 public class conjuntoTexto {
     private ArrayList<texto> conjunto;
     private int numero_textos;
     
     /**
-     *
+     * Creadoras.
      */
+    
+    /**
+     * Creadora por defecto. Crea un conjunto de textos vacío.
+     */
+    
     public conjuntoTexto() {
         this.conjunto = new ArrayList<texto>();
-        this.numero_textos = 0;
-        
+        this.numero_textos = 0;   
     }
     
     /**
-     *
+     * Consultoras.
+     */
+    
+    /**
+     * Consultar número de textos.
+     */
+    public int getSizeConjunto() {
+        return numero_textos;
+    }
+    
+    /**
+     * Consultar un texto. Se consulta un texto a partir de un índice.
+     * @param i
+     * @throws IllegalArgumentException.
+     */
+    public texto getTextoI(int i) {
+        return this.conjunto.get(i);
+    }
+    
+    /**
+     * Leer textos. Se leen todos los textos del conjunto.
+     * @throws java.io.IOException
+     */
+    public void leerTextos() throws IOException{
+        controladorTexto Ct = new controladorTexto();
+        for(int i=0; i < conjunto.size();++i){
+            Ct.abrirTexto(conjunto.get(i).titulo + ".txt");
+            Ct.LeerTexto();    
+        }
+    }
+    
+    /**
+     * Modificadoras.
+     */
+    
+    /**
+     * Insertar un texto. Se inserta un nuevo texto en el conjunto.
      * @param text 
      */
     public void insertarTexto(texto text) {
@@ -36,21 +76,7 @@ public class conjuntoTexto {
     }
 
     /**
-     *
-     * @throws java.io.IOException
-     */
-    public void leerTextos() throws IOException{
-        controladorTexto Ct = new controladorTexto();
-        for(int i=0; i < conjunto.size();++i){
-            Ct.abrirTexto(conjunto.get(i).Titulo + ".txt");
-            Ct.LeerTexto();
-           
-            
-        }
-    }
-
-    /**
-     *
+     * Borrar texto.
      * @param text
      */
     public void borrarTexto(texto text) {

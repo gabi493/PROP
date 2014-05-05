@@ -19,8 +19,8 @@ public class distancia extends distanciaCluster {
 	
 //  Metodos    
 
-    /** Creadora por defecto de distancia
-     *
+    /** 
+     * Creadora por defecto de distancia.
      */
         public distancia() {}
     
@@ -28,7 +28,7 @@ public class distancia extends distanciaCluster {
      * distancia.   Creadora de la matriz de distancias con nF filas, nC columnas, nP posiciones y forma fT
      * @param nF:   numero de filas de la matriz
      * @param fT:   forma del teclado
-	 * @param nC:   numero de columnas de la matriz
+     * @param nC:   numero de columnas de la matriz
      * @param nP:   numero de posiciones de la matriz
      */
     public distancia(String fT, int nF, int nC, int nP){
@@ -38,7 +38,7 @@ public class distancia extends distanciaCluster {
     }
     
     
-        /**
+    /**
      * setFormaTeclado.	Asigna una forma al teclado
      * @param fT:	forma del teclado
      */
