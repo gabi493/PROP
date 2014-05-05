@@ -17,6 +17,7 @@ public class distanciaCluster {
     private int numeroFilas;
     private int numeroColumnas;
     private int numeroPosiciones;
+	
 //  Metodos    
 
     /** Creadora por defecto de distancia
@@ -25,7 +26,7 @@ public class distanciaCluster {
         public distanciaCluster() {}
     
     /**
-     * distancia.   Creadora de la matriz de distancias con nF filas y nC columnas
+     * distancia.   Creadora de la matriz de distancias con nF filas, nC columnas y nP posiciones
      * @param nF:   numero de filas de la matriz
      * @param nC:   numero de columnas de la matriz
      * @param nP:   numero de posiciones de la matriz
@@ -43,7 +44,7 @@ public class distanciaCluster {
      * @param nF        numero de filas de la matriz
      */
     public void setNumeroFilas(int nF) {
-	if (nF < 0) {
+		if (nF < 0) {
             throw new IllegalArgumentException("Error al asignar las filas: numeroFilas < 0");
         }
         numeroFilas = nF;
@@ -64,10 +65,10 @@ public class distanciaCluster {
      * @param nC            numero de columnas de la matriz
      */
     public void setNumeroColumnas(int nC) {
-	if (nC < 0) {
-            throw new IllegalArgumentException("Error al asignar las columnas: numeroColumnas < 0");
-        }
-        numeroColumnas = nC;
+		if (nC < 0) {
+			throw new IllegalArgumentException("Error al asignar las columnas: numeroColumnas < 0");
+		}
+		numeroColumnas = nC;
     }
     
     
@@ -85,7 +86,7 @@ public class distanciaCluster {
      * @param nP            numero de posiciones de la matriz
      */
     public void setNumeroPosiciones(int nP) {
-	if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
+		if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
             throw new IllegalArgumentException("Error al asignar las posiciones: numeroPosiciones < 0 || numeroPosiciones > numeroFilas*numeroColumnas");
         }
         numeroPosiciones = nP;
@@ -107,23 +108,23 @@ public class distanciaCluster {
      * @param distancia:    distancia entre las posiciones
      */
     public void setDistanciaMatriz(int posicionA, int posicionB, int distancia) {
-	if (posicionA < 0) {
-            throw new IllegalArgumentException("Error al asignar la posicionA: posicionA < 0");
-        }
-	if (posicionA > (getNumeroPosiciones() - 1)) {
-            throw new IllegalArgumentException("Error al asignar la posicionA: posicionA > numeroPosiciones");
-        }
-        if (posicionB < 0) {
-            throw new IllegalArgumentException("Error al asignar la posicionB: posicionB < 0");
-        }
-	if (posicionB > (getNumeroPosiciones() - 1)) {
-            throw new IllegalArgumentException("Error al asignar la posicionB: posicionB > numeroPosiciones");
-        }
-	if (distancia < 0) {
-            throw new IllegalArgumentException("Error al asignar la distancia: distancia < 0");
-        }
-        matrizDistancias[posicionA][posicionB] = distancia;
-	matrizDistancias[posicionB][posicionA] = distancia;
+		if (posicionA < 0) {
+			throw new IllegalArgumentException("Error al asignar la posicionA: posicionA < 0");
+		}
+		if (posicionA > (getNumeroPosiciones() - 1)) {
+			throw new IllegalArgumentException("Error al asignar la posicionA: posicionA > numeroPosiciones");
+		}
+		if (posicionB < 0) {
+			throw new IllegalArgumentException("Error al asignar la posicionB: posicionB < 0");
+		}
+		if (posicionB > (getNumeroPosiciones() - 1)) {
+			throw new IllegalArgumentException("Error al asignar la posicionB: posicionB > numeroPosiciones");
+		}
+		if (distancia < 0) {
+			throw new IllegalArgumentException("Error al asignar la distancia: distancia < 0");
+		}
+		matrizDistancias[posicionA][posicionB] = distancia;
+		matrizDistancias[posicionB][posicionA] = distancia;
     }
     
     /**
@@ -133,7 +134,7 @@ public class distanciaCluster {
      * @return		    Devielve la distancia entre dos posiciones de la matriz de distancias
      */
     public int getDistanciaMatriz(int posicionA, int posicionB) {
-	return matrizDistancias[posicionA][posicionB];
+		return matrizDistancias[posicionA][posicionB];
     }
 
 }
