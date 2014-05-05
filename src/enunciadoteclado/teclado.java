@@ -30,11 +30,11 @@ public class teclado {
     public teclado() {}				     //constructor por defecto
     
     public teclado(String fT, int nF, int nC, int nP, boolean t4) {    //construct
-	setForma(fT);
-	setNumeroFilas(nF);
-	setNumeroColumnas(nC);
-        setNumeroPosiciones(nP);
-	setTeclasDe4Lados(t4);
+		setForma(fT);
+		setNumeroFilas(nF);
+		setNumeroColumnas(nC);
+		setNumeroPosiciones(nP);
+		setTeclasDe4Lados(t4);
     }
     
     /**
@@ -54,7 +54,7 @@ public class teclado {
      * @return      Devuelve la forma del teclado
      */
     public String getForma() {
-	return formaTeclado;
+		return formaTeclado;
     }
     
     /**
@@ -62,7 +62,7 @@ public class teclado {
      * @param nf    numero de filas del teclado
      */
     public void setNumeroFilas(int nf) {
-	numFilas = nf;
+		numFilas = nf;
     }
     
     /**
@@ -70,7 +70,7 @@ public class teclado {
      * @return      Devuelve el numero de filas del teclado
      */
     public int getNumeroFilas() {
-	return numFilas;
+		return numFilas;
     }
     
     /**
@@ -78,7 +78,7 @@ public class teclado {
      * @param nc    numero de columnas del teclado
      */
     public void setNumeroColumnas(int nc) {
-	numCols = nc;
+		numCols = nc;
     }
     
     /**
@@ -86,7 +86,7 @@ public class teclado {
      * @return      numero de columnas del teclado
      */
     public int getNumeroColumnas() {
-	return numCols;
+		return numCols;
     }
     
     /**
@@ -94,7 +94,7 @@ public class teclado {
      * @param b             b = 1: 4 lados. b = 0: 6 lados
      */
     public void setTeclasDe4Lados(boolean b) {
-	teclasDe4Lados = b;
+		teclasDe4Lados = b;
     }
     
     /**
@@ -102,7 +102,7 @@ public class teclado {
      * @return              Devuelve el numero de lados de las teclas del teclado
      */
     public boolean getTeclasDe4Lados() {
-	return teclasDe4Lados;
+		return teclasDe4Lados;
     }
 
     /**
@@ -110,7 +110,7 @@ public class teclado {
      * @param nP            numero de posiciones de la matriz
      */
     public void setNumeroPosiciones(int nP) {
-	if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
+		if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
             throw new IllegalArgumentException("Error al asignar las posiciones: numeroPosiciones < 0 || numeroPosiciones > numeroFilas*numeroColumnas");
         }
         numeroPosiciones = nP;

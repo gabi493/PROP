@@ -45,7 +45,9 @@ public class driverDistancia {
 				System.out.println("\t 17) setTodasDistanciasMatriz(v[numeroPosiciones] = [...])");
 				System.out.println("\t 18) getTodasDistanciasMatriz()");
                 System.out.println("\t 0) Salir");
-              
+
+				System.out.println();
+				
                 String linea;
                 String palabras[];
                 String opcion;
