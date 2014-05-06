@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package enunciadoteclado;
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,6 +19,7 @@ import java.util.Random;
  * @author alex
  */
 public class controladorTexto {
+    String ruta;
     File archivo;
     FileReader fr;
     FileWriter fw;
@@ -28,6 +30,7 @@ public class controladorTexto {
      *
      */
     public controladorTexto (){
+        ruta = null;
         archivo = null;
         fr = null;
         br = null;
@@ -40,8 +43,8 @@ public class controladorTexto {
      * @throws IOException 
      */
     public void abrirTexto(String nombre) throws IOException {
-        
         archivo = new File(nombre);
+        ruta = archivo.getAbsolutePath();
         if(!archivo.exists()){
             throw new IOException ("Error: Texto no existe");
         }
@@ -53,6 +56,7 @@ public class controladorTexto {
      */
     public void cerrarTexto() throws IOException{
         archivo = null;
+        ruta = null;
         if(null != fr) {
             fr.close();
         }
@@ -101,6 +105,7 @@ public class controladorTexto {
     
      public void EcribirTexto(String SCadena){
         try {
+            
             //Escribe en el fichero la cardena que recibe la funcion. la cadena "\r\n" significa salto de linea
              //Si no Existe el fichero lo crea
             //Abre un Flujo de escritura,sobre el fichero con codificacion utf-8. Ademas   en
@@ -158,30 +163,48 @@ public class controladorTexto {
         }
     }
     public void LeerTexto(){
-    try {
-       /*Si existe el fichero*/
-       if(!archivo.exists()){
-           System.out.println("Fichero No Existe");
-       }else{
-           try ( /*Abre un flujo de lectura a el fichero*/ 
-               BufferedReader Flee = new BufferedReader(new FileReader(archivo))) {
-               String linia = Flee.readLine();
-               linia = Flee.readLine();
-               String Slinea;
-               System.out.println("**********Leyendo Fichero***********");
-               /*Lee el fichero line a linea hasta llegar a la ultima*/
-               while((Slinea=Flee.readLine())!=null) {
-                   /*Imprime la linea leida*/
-                   System.out.println(Slinea);
-               }              
-               System.out.println("*********Fin Leer Fichero**********");
+        try {
+           /*Si existe el fichero*/
+           if(!archivo.exists()){
+               System.out.println("Fichero No Existe");
+           }else{
+               try ( /*Abre un flujo de lectura a el fichero*/ 
+                   BufferedReader Flee = new BufferedReader(new FileReader(archivo))) {
+                   String linia = Flee.readLine();
+                   linia = Flee.readLine();
+                   String Slinea;
+                   System.out.println("**********Leyendo Fichero***********");
+                   /*Lee el fichero line a linea hasta llegar a la ultima*/
+                   while((Slinea=Flee.readLine())!=null) {
+                       /*Imprime la linea leida*/
+                       System.out.println(Slinea);
+                   }              
+                   System.out.println("*********Fin Leer Fichero**********");
+               }
            }
-       }
-   } catch (IOException ex) {
-       /*Captura un posible error y le imprime en pantalla*/ 
-        System.out.println(ex.getMessage());
-   }
- }
+        } catch (IOException ex) {
+            /*Captura un posible error y le imprime en pantalla*/ 
+             System.out.println(ex.getMessage());
+        }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public String getRuta(){
+        return ruta;
+    }
+    public String getTitulo() throws IOException {
+        BufferedReader Flee = new BufferedReader(new FileReader(archivo));
+        return Flee.readLine();
+    }
+    public String getIdioma() throws IOException {
+        BufferedReader Flee = new BufferedReader(new FileReader(archivo));
+        Flee.readLine();
+        return Flee.readLine();
+    }
+ 
     
 }
 
