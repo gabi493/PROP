@@ -40,6 +40,7 @@ public class controladorTexto {
      * @throws IOException 
      */
     public void abrirTexto(String nombre) throws IOException {
+        
         archivo = new File(nombre);
         if(!archivo.exists()){
             throw new IOException ("Error: Texto no existe");
@@ -73,8 +74,16 @@ public class controladorTexto {
             //   que marca el final del fichero
         while(caract1 != -1 && caract2 != -1) {
                 simbolo a = new simbolo((char)caract1);
+                while(!c.boolSimbolo(a) && caract1 != -1) {
+                    caract1 = fr.read();
+                }
+                int i = c.getPosicion(a);
                 simbolo b = new simbolo((char)caract2);
-                e.insertarEstadistica(a,b,1,c);
+                while(!c.boolSimbolo(b) && caract2 != -1) {
+                    caract2 = fr.read();
+                }
+                int j = c.getPosicion(b);
+                e.insertarEstadistica(i,j,1);
                 caract2 = caract1;
                 caract2 = fr.read();  
             }
