@@ -103,7 +103,7 @@ public class controladorTexto {
 
         }
     
-     public void EcribirTexto(String SCadena){
+     public void escribirTexto(String SCadena){
         try {
             
             //Escribe en el fichero la cardena que recibe la funcion. la cadena "\r\n" significa salto de linea
@@ -121,7 +121,7 @@ public class controladorTexto {
             }
         
     } 
-     public void ModificarTexto(String Satigualinea,String Snuevalinea){        
+     public void modificarTexto(String Satigualinea,String Snuevalinea){        
         /*Obtengo un numero aleatorio*/
         Random numaleatorio= new Random(3816L); 
         /*Creo un nombre para el nuevo fichero apartir del
@@ -141,10 +141,10 @@ public class controladorTexto {
                         *para modificar*/
                         if (Slinea.toUpperCase().trim().equals(Satigualinea.toUpperCase().trim())) {
                             /*Escribo la nueva linea en vez de la que tenia*/
-                            this.EcribirTexto(Snuevalinea);
+                            this.escribirTexto(Snuevalinea);
                         }else{
                             /*Escribo la linea antigua*/
-                            this.EcribirTexto(Satigualinea);
+                            this.escribirTexto(Satigualinea);
                         }
                     }             
                     /*Obtengo el nombre del fichero inicial*/
@@ -162,7 +162,7 @@ public class controladorTexto {
              System.out.println(ex.getMessage());
         }
     }
-    public void LeerTexto(){
+    public void leerTexto(){
         try {
            /*Si existe el fichero*/
            if(!archivo.exists()){
