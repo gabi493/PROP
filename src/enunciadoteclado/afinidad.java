@@ -15,6 +15,10 @@ import java.io.IOException;
 public class afinidad {
     public double[][] afinidades;
     
+    
+    public afinidad() {
+        afinidades = null;
+    }
     /**Constructora por defecto
      *
      * @param mida Mida que tendra la matriz de afinidades
