@@ -1,6 +1,5 @@
 package enunciadoteclado;
 
-
 import java.io.IOException;
 
 /*
@@ -41,7 +40,7 @@ public class estadisticas extends afinidad {
      * @param similitud
      */
     public void insertarEstadistica (int i,int j,double similitud) {
-      insertarAfinidad(i,j,1);
+      insertarAfinidad(i,j,similitud);
     }
 
     /**
@@ -62,8 +61,9 @@ public class estadisticas extends afinidad {
     public void leerMatriz() throws IOException {
         for(int i=0; i < mida; ++i) {
             for (int j=0; j < mida; ++j) {
-                System.out.print (consultarEstadistica(i,j) + " ");
+                System.out.print (consultarEstadistica(i,j) + "  ");
             }
+	    System.out.println();
         }
     }
     
