@@ -15,6 +15,12 @@ import java.io.IOException;
  */
 public class estadisticas extends afinidad {
 
+    
+    public estadisticas() {
+        super();
+    }
+    
+    
     /**
      *
      * @param mida
