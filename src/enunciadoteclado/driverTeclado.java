@@ -31,7 +31,7 @@ public class driverTeclado {
             
             boolean out = false; 
             while (!out) {
-			/*	System.out.println("Elige una opicion:");
+				System.out.println("Elige una opicion:");
 				System.out.println("\t 1) teclado()");
 				System.out.println("\t 2) teclado(formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones, teclas4Lados)");
 				System.out.println("\t 3) setForma(tipoTeclado)");
@@ -45,7 +45,7 @@ public class driverTeclado {
 				System.out.println("\t 11) setNumeroPosiciones(numeroPosiciones)");
 				System.out.println("\t 12) getNumeroPosiciones()");
 				System.out.println("\t 0) Salir");
-				*/
+				
 				
 				System.out.println();
 				
