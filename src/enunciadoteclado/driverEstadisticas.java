@@ -45,16 +45,16 @@ public class driverEstadisticas {
                             estadisticas e = new estadisticas(mida);
                             break;
                         case "2":
-                            simbolo letra1 = new simbolo(palabras[1].charAt(0));
-                            simbolo letra2 = new simbolo(palabras[2].charAt(0));
+                            int i = Integer.parseInt(palabras[1]);
+                            int j = Integer.parseInt(palabras[2]);
                             int similitud = Integer.parseInt(palabras[3]);
-                            e.insertarEstadistica(letra1, letra2, similitud);
+                            e.insertarEstadistica(i, j, similitud);
                             System.out.println("Se han añadido las nuevas estadisticas en la matriz.");
                             break;
                         case "3":
-                            letra1 = new simbolo(palabras[1].charAt(0));
-                            letra2 = new simbolo(palabras[2].charAt(0));
-                            double est = e.consultarEstadistica(letra1, letra2);
+                            int i2 = Integer.parseInt(palabras[1]);
+                            int j2 = Integer.parseInt(palabras[2]);
+                            double est = e.consultarEstadistica(i2, j2);
                             System.out.println("La afinidad entre estas dos letras es " + est);
                             break;
                         case "0":
