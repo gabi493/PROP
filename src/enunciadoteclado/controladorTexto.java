@@ -36,13 +36,13 @@ public class controladorTexto {
 
     /**
      * 
-     * @param path 
+     * @param nombre
      * @throws IOException 
      */
-    public void abrirTexto(String path) throws IOException {
-        archivo = new File(path);
+    public void abrirTexto(String nombre) throws IOException {
+        archivo = new File(nombre);
         if(!archivo.exists()){
-            archivo.createNewFile();
+            throw new IOException ("Error: Texto no existe");
         }
         
     }
