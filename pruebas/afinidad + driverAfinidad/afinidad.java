@@ -59,7 +59,7 @@ public class afinidad {
     public void escribirMatriz() {
         for (int i = 0; i < afinidades.length; i++) {
             for (int j = 0; j < afinidades.length; j++) {
-                System.out.print(consultarAfinidad(i, j) + " ");
+                System.out.print(consultarAfinidad(i, j) + "  ");
             }
         System.out.println();
         }

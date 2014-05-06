@@ -22,7 +22,6 @@ public class estadisticas extends afinidad {
      */
     public estadisticas() {
         super();
-        mida = 0;
     }
     
     

@@ -20,8 +20,6 @@ public class driverControladorAlfabeto {
         System.out.print("Driver" + nombreclase + ".");
         
         alfabeto alf = new alfabeto();
-        String aux;
-        char dr;
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));

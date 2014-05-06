@@ -25,8 +25,8 @@ public class driverEstadisticas {
             while (!out) {
                 System.out.println("Elige una opicion:");
                 System.out.println("\t 1) estadisticas(int mida)()");
-                System.out.println("\t 2) insertarEstadistica (simbolo letra1,simbolo letra2,double similitud,alfabeto a)");
-                System.out.println("\t 3) consultarEstadistica (simbolo letra1,simbolo letra2,alfabeto a)");
+                System.out.println("\t 2) insertarEstadistica (int i, int j, double similitud)");
+                System.out.println("\t 3) consultarEstadistica (int i, int j)");
                 System.out.println("\t 0) Salir");
                 
                 String linea;
@@ -37,25 +37,28 @@ public class driverEstadisticas {
                 palabras = linea.split(" ");
                 opcion = palabras[0];
                 
+                estadisticas es = new estadisticas(0);
+                
                 try {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            int mida = Integer.parseInt(palabras[1]);
-                            estadisticas e = new estadisticas(mida);
+                            es = new estadisticas(Integer.parseInt(palabras[1]));
                             break;
                         case "2":
                             int i = Integer.parseInt(palabras[1]);
                             int j = Integer.parseInt(palabras[2]);
                             int similitud = Integer.parseInt(palabras[3]);
-                            e.insertarEstadistica(i, j, similitud);
+                            es.insertarEstadistica(i, j, similitud);
                             System.out.println("Se han añadido las nuevas estadisticas en la matriz.");
+                            es.leerMatriz();
                             break;
                         case "3":
                             int i2 = Integer.parseInt(palabras[1]);
                             int j2 = Integer.parseInt(palabras[2]);
-                            double est = e.consultarEstadistica(i2, j2);
+                            double est = es.consultarEstadistica(i2, j2);
                             System.out.println("La afinidad entre estas dos letras es " + est);
+                            es.leerMatriz();
                             break;
                         case "0":
                             out = true;

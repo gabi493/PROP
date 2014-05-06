@@ -22,10 +22,10 @@ Elige una opicion:
 	 5) escribirMatriz()
 	 0) Salir
 Opcion 5 seleccionada.
-0.0 0.0 0.0 0.0 
-0.0 0.0 0.0 0.0 
-0.0 0.0 0.0 0.0 
-0.0 0.0 0.0 0.0 
+0.0  0.0  0.0  0.0  
+0.0  0.0  0.0  0.0  
+0.0  0.0  0.0  0.0  
+0.0  0.0  0.0  0.0  
 Elige una opicion:
 	 1)afinidad()
 	 2) afinidad(int mida)
@@ -42,10 +42,10 @@ Elige una opicion:
 	 5) escribirMatriz()
 	 0) Salir
 Opcion 5 seleccionada.
-0.0 0.0 0.0 0.0 
-0.0 0.0 13.0 0.0 
-0.0 13.0 0.0 0.0 
-0.0 0.0 0.0 0.0 
+0.0  0.0  0.0  0.0  
+0.0  0.0  13.0  0.0  
+0.0  13.0  0.0  0.0  
+0.0  0.0  0.0  0.0  
 Elige una opicion:
 	 1)afinidad()
 	 2) afinidad(int mida)
@@ -55,10 +55,10 @@ Elige una opicion:
 	 0) Salir
 Opcion 4 seleccionada.
 L'afinitat és de 13.0
-0.0 0.0 0.0 0.0 
-0.0 0.0 13.0 0.0 
-0.0 13.0 0.0 0.0 
-0.0 0.0 0.0 0.0 
+0.0  0.0  0.0  0.0  
+0.0  0.0  13.0  0.0  
+0.0  13.0  0.0  0.0  
+0.0  0.0  0.0  0.0  
 Elige una opicion:
 	 1)afinidad()
 	 2) afinidad(int mida)
@@ -67,10 +67,10 @@ Elige una opicion:
 	 5) escribirMatriz()
 	 0) Salir
 Opcion 5 seleccionada.
-0.0 0.0 0.0 0.0 
-0.0 0.0 13.0 0.0 
-0.0 13.0 0.0 0.0 
-0.0 0.0 0.0 0.0 
+0.0  0.0  0.0  0.0  
+0.0  0.0  13.0  0.0  
+0.0  13.0  0.0  0.0  
+0.0  0.0  0.0  0.0  
 Elige una opicion:
 	 1)afinidad()
 	 2) afinidad(int mida)
