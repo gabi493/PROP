@@ -73,19 +73,28 @@ public class controladorTexto {
             //Se recorre el fichero hasta encontrar el carácter -1
             //   que marca el final del fichero
         while(caract1 != -1 && caract2 != -1) {
-                simbolo a = new simbolo((char)caract1);
-                while(!c.boolSimbolo(a) && caract1 != -1) {
-                    caract1 = fr.read();
+            simbolo a = new simbolo((char)caract1);
+            simbolo b = new simbolo((char)caract2);
+            if(!c.boolSimbolo(a)) {
+                if(c.boolSimbolo(b)) a = b;
+                else {
+                    while(!c.boolSimbolo(a) && caract1 != -1) {
+                        caract1 = fr.read();
+                        a = new simbolo((char)caract1);
+                    }
                 }
-                int i = c.getPosicion(a);
-                simbolo b = new simbolo((char)caract2);
+            }
+            if(!c.boolSimbolo(b)) {
                 while(!c.boolSimbolo(b) && caract2 != -1) {
                     caract2 = fr.read();
-                }
-                int j = c.getPosicion(b);
-                e.insertarEstadistica(i,j,1);
-                caract2 = caract1;
-                caract2 = fr.read();  
+                    b = new simbolo((char)caract2);
+                }  
+            }  
+            int i = c.getPosicion(a);
+            int j = c.getPosicion(b);
+            e.insertarEstadistica(i,j,1);
+            caract2 = caract1;
+            caract2 = fr.read();  
             }
 
         }
