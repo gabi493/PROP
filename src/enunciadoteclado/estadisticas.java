@@ -17,6 +17,9 @@ public class estadisticas extends afinidad {
     
     int mida;
     
+    /**
+     *
+     */
     public estadisticas() {
         super();
         mida = 0;
@@ -52,6 +55,11 @@ public class estadisticas extends afinidad {
       return consultarAfinidad(i,j);
     
     }
+
+    /**
+     *
+     * @throws IOException
+     */
     public void leerMatriz() throws IOException {
         for(int i=0; i < mida; ++i) {
             for (int j=0; j < mida; ++j) {
