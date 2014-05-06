@@ -8,10 +8,10 @@ import java.util.*;
  * @author gbaker
  */
 public class hungaro{
+    
 
 
-
-    public int[][] assignaciones(float[][] matrix) {
+    public int[][] assignaciones(int[][] matrix) {
 
 
         // subtract minumum value from rows and columns to create lots of zeroes
@@ -90,7 +90,7 @@ public class hungaro{
      *
      * @return the next step to perform
      */
-    private void reduce_matriz(float[][] matrix) {
+    private void reduce_matriz(int[][] matrix) {
 
         for (int i = 0; i < matrix.length; i++) {
 
@@ -138,7 +138,7 @@ public class hungaro{
      * @param coveredCols
      * @return the next step to perform
      */
-    private void inicio(float costMatrix[][], int[] starsByRow, int[] starsByCol) {
+    private void inicio(int costMatrix[][], int[] starsByRow, int[] starsByCol) {
 
 
         int [] rowHasStarredZero = new int[costMatrix.length];
@@ -178,7 +178,7 @@ public class hungaro{
      * @param coveredCols
      * @return
      */
-    private int[] primera_solucion_sin_ceros(float matrix[][], int[] primesByRow,
+    private int[] primera_solucion_sin_ceros(int matrix[][], int[] primesByRow,
                                        int[] coveredRows, int[] coveredCols) {
 
 
@@ -242,7 +242,7 @@ public class hungaro{
     }
 
 
-    private void haz_zeros(float[][] matrix, int[] coveredRows, int[] coveredCols) {
+    private void haz_zeros(int [][] matrix, int[] coveredRows, int[] coveredCols) {
 
         // find the minimum uncovered value
         float minUncoveredValue = Float.MAX_VALUE;
