@@ -1,0 +1,55 @@
+Reparto del trabajo:
+
+•	Gabriel Carrillo:
+		Clases:					
+			distancia.java
+			distanciaCluster.java
+			enunciadoTeclado.java
+			tecla.java
+			teclado.java
+			texto.java
+		Drivers:					
+			driverDistancia.java
+			driverDistanciaCluster.java
+			driverTecla.java
+			driverTeclado.java
+			driverTexto.java
+		Juegos de pruebas: 			
+			driverDistancia.in
+			driverDistanciaCluster.in
+			driverTecla.in
+			driverTeclado.in
+			driverTexto.in
+	
+•	Alejandro del Amo:
+		Clases:					
+			afinidad.java
+			algoritmos.java
+			conjuntoTexto.java
+			estadisticas.java
+			gilmore.java
+			greedy.java
+			texto.java
+		Drivers:					
+			driverAfinidad.java
+			driverEstadistica.java
+		Controladores:				
+			controladorTexto.java
+		Juegos de Pruebas:			
+			driverEstadistica.in
+	
+•	Josep Mercadal:
+		Clases:					
+			alfabeto.java
+			algoritmos.java
+			simbolo.java
+		Drivers:					
+			driverControladorAlfabeto.java
+			driverSimbolo.java
+		Controladores:				
+			controladorAlfabeto.java
+		Juegos de Pruebas:			
+			driverControladorAlfabeto.in
+			driverSimbolo.in
+			driverControladorConjuntoTexto.in
+ 
