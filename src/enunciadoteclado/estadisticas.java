@@ -14,10 +14,12 @@ import java.io.IOException;
  * @author alex
  */
 public class estadisticas extends afinidad {
-
+    
+    int mida;
     
     public estadisticas() {
         super();
+        mida = 0;
     }
     
     
@@ -27,6 +29,7 @@ public class estadisticas extends afinidad {
      */
     public estadisticas(int mida) {
         super(mida);
+        this.mida = mida;
     }
   
     /**
@@ -48,6 +51,13 @@ public class estadisticas extends afinidad {
     public double consultarEstadistica (int i,int j) throws IOException{
       return consultarAfinidad(i,j);
     
+    }
+    public void leerMatriz() throws IOException {
+        for(int i=0; i < mida; ++i) {
+            for (int j=0; j < mida; ++j) {
+                System.out.print (consultarEstadistica(i,j) + " ");
+            }
+        }
     }
     
 }
