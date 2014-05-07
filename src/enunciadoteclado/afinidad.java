@@ -16,9 +16,7 @@ public class afinidad {
     public double[][] afinidades;
     
     
-    public afinidad() {
-        afinidades = null;
-    }
+   
     /**Constructora por defecto
      *
      * @param mida Mida que tendra la matriz de afinidades
@@ -34,15 +32,10 @@ public class afinidad {
      * @param afinidad valor que tomara la posicion [i][j]
      */
     public void insertarAfinidad(int i,int j,double afinidad) {
-        try {
             afinidades[i][j] += afinidad;
             afinidades[j][i] += afinidad;
-        }
-        catch(Exception e)  {
-            System.out.println("Error:Posicion erronia");
-        }
-    
     }
+    
     /**Consula la afinidad de una posicion de la matriz 
      *
      * @param i posicion de la matriz de afinidades
