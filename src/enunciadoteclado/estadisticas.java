@@ -1,9 +1,9 @@
-package enunciadoteclado;
 
 
 
 
-import enunciadoteclado.afinidad;
+
+
 import java.io.IOException;
 
 /*
