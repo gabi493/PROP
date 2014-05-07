@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 public class driverTeclado {
     public static void main (String[] args) {
         String nombreclase = "Teclado";
-        System.out.print("Driver" + nombreclase + "ejemplo con distancia cast");
+        System.out.print("Driver" + nombreclase);
         
         teclado tcdo = new teclado();
         

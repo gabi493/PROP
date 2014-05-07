@@ -62,6 +62,9 @@ public class teclado {
 	 * @param nf    numero de filas del teclado
 	 */
 	public void setNumeroFilas(int nf) {
+		if (nf < 0) {
+			throw new IllegalArgumentException("Error en el numero de filas del teclado: numeroFilas < 0");
+		}
 		numFilas = nf;
 	}
 
@@ -78,6 +81,9 @@ public class teclado {
 	 * @param nc    numero de columnas del teclado
 	 */
 	public void setNumeroColumnas(int nc) {
+		if (nc < 0) {
+			throw new IllegalArgumentException("Error en el numero de columnas del teclado: numeroColumnas < 0");
+		}
 		numCols = nc;
 	}
 

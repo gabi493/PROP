@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,25 +12,24 @@ import java.io.InputStreamReader;
  *
  * @author josep
  */
-public class driverControladorAlfabeto {
-    
+public class driverAfinidad {
     public static void main (String[] args) {
-        String nombreclase = "alfabeto";
-        System.out.print("Driver" + nombreclase + ".");
+        String nombreclase = "afinidad";
+        System.out.print("Driver " + nombreclase + ".");
         
-        alfabeto alf = new alfabeto();
-        
-        try {
+        afinidad af = new afinidad();
+                     
+        try{
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
             
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
-                System.out.println("\t 1) alfabeto()");
-                System.out.println("\t 2) alfabeto(String idioma, int n)");
-                System.out.println("\t 3) alfabeto(alfabeto original)");
-                System.out.println("\t 4) addSimbolo (simbolo newsimbolo)");
-                System.out.println("\t 5) escribirAlfabeto()");
+                System.out.println("\t 1)afinidad()");
+                System.out.println("\t 2) afinidad(int mida)");
+                System.out.println("\t 3) insertarAfinidad(int i,int j,double afinidad)");
+                System.out.println("\t 4) consultarAfinidad(int i,int j)");
+                System.out.println("\t 5) escribirMatriz()");
                 System.out.println("\t 0) Salir");
                 
                 String linea;
@@ -41,32 +39,30 @@ public class driverControladorAlfabeto {
                 linea = buffer.readLine();
                 palabras = linea.split(" ");
                 opcion = palabras[0];
-                
+                                
                 try {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            alf = new alfabeto();
+                            af = new afinidad();
                             break;
                         case "2":
-                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
-                            for (int i = 0; i < Integer.parseInt(palabras[2]); i++) {                                
-                                simbolo a = new simbolo(palabras[i+3].charAt(0));
-                                alf.addSimbolo(a);
-                            }
+                            int n = Integer.parseInt(palabras[1]);
+                            af = new afinidad(n);
                             break;
                         case "3":
-                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
-                            alfabeto copia = new alfabeto(alf);
-                            System.out.println("La copia del alfabeto es: ");
-                            copia.escribirAlfabeto();
+                            int i = Integer.parseInt(palabras[1]);
+                            int j = Integer.parseInt(palabras[2]);
+                            double k = Double.parseDouble(palabras[3]);
+                            af.insertarAfinidad(i, j, k);
                             break;
-                        case "4": 
-                            simbolo add = new simbolo(palabras[1].charAt(0));
-                            alf.addSimbolo(add);
-                            break;
+                        case "4":
+                            int i2 = Integer.parseInt(palabras[1]);
+                            int j2 = Integer.parseInt(palabras[2]);
+                            double consulta = af.consultarAfinidad(i2, j2);
+                            System.out.println("L'afinitat és de " + consulta);
                         case "5":
-                            alf.escribirAlfabeto();
+                            af.escribirMatriz();
                             break;
                         case "0":
                             out = true;
@@ -75,12 +71,12 @@ public class driverControladorAlfabeto {
                             System.out.println("La opcion elegida no existe.");
                             break;
                     }
-                    
-                }
+                } 
                 catch (Exception e) { 
                     System.out.println(e.getMessage());
                 }
-            } 
+            }
+            System.out.println("Fin del driver");
         }
         catch (Exception e) { 
             System.out.println(e.getMessage());
