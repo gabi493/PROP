@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
  *
  * @author alex
  */
-public class driverControladorTextro {
+public class driverControladorTexto {
     public static void main (String[] args) throws IOException {
         String nombreclase = "ControladorTexto";
         System.out.print("Driver" + nombreclase + ".");
