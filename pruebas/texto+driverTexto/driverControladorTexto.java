@@ -1,45 +1,49 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
-
+import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author gabriel
+ * @author alex
  */
 public class driverControladorTexto {
-	public static void main (String[] args) {
-        String nombreclase = "Texto";
-        System.out.print("Driver" + nombreclase);
+    public static void main (String[] args) throws IOException {
+        String nombreclase = "ControladorTexto";
+        System.out.print("Driver" + nombreclase + ".");
+        controladorTexto ct = new controladorTexto();
+        ct.realizarAccion("abrir", "");
+        /*
         
-        texto text = new texto();
-        
-        try {
+         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-            
             boolean out = false; 
             while (!out) {
-				System.out.println("Elige una opicion:");
-				System.out.println("\t 1) texto()");
-				System.out.println("\t 2) texto(idioma, titulo, numeroCaracteres)");
-				System.out.println("\t 3) setIdioma(idioma)");
-				System.out.println("\t 4) getIdioma()");
-				System.out.println("\t 5) setTitulo(titulo)");
-				System.out.println("\t 6) getTitulo()");
-				System.out.println("\t 7) setNumeroCaracteres(numeroCaracteres)");
-				System.out.println("\t 8) getNumeroCaracteres()");
-                                System.out.println("\t 9) setRuta (String ruta)");
-				System.out.println("\t 10) getRuta()");
-				System.out.println("\t 0) Salir");
-
-				System.out.println();
+                System.out.println("Elige una opicion:");
+                System.out.println("\t 1) controladorTexto()");
+                System.out.println("\t 2) realizarAccion");
+                System.out.println("\t 3) cerrarTexto()");
+                System.out.println("\t 4) leerParDeLetras(estadisticas e,alfabeto c)");
+                System.out.println("\t 5) escribirTexto(String SCadena)");
+                System.out.println("\t 6) modificarTexto(String Satigualinea,String Snuevalinea)");
+                System.out.println("\t 7) leerTexto()");
+                System.out.println("\t 8) getRuta()");
+                System.out.println("\t 9) getTitulo()");
+                System.out.println("\t 10) getIdioma()");
+                System.out.println("\t 0) salir");
+                
 				
                 String linea;
                 String palabras[];
@@ -53,34 +57,35 @@ public class driverControladorTexto {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            text = new texto();
+                            ct = new controladorTexto();
                             break;
                         case "2":
-                            text = new texto(palabras[1],palabras[2], palabras[3], Integer.parseInt(palabras[4]));
+                            ct.abrirTexto(palabras[1]);
                             break;
                         case "3":   //setIdioma
-                            text.setIdioma(palabras[1]);
+                            ct.cerrarTexto();
                             break;
                         case "4":   //getIdioma
-                            System.out.println("Idioma del texto = " + text.getIdioma());
+                            
+                           // ct.leerParDeLetras(estadisticas e,alfabeto c);
                             break;
                         case "5":   //setTitulo
-                            text.setTitulo(palabras[1]);
+                            ct.escribirTexto(palabras[1]);
                             break;
                         case "6":   //getTitulo
-                            System.out.println("Titulo del texto = " + text.getTitulo());
+                            ct.modificarTexto(palabras[1],palabras[2]);
                             break;
 						case "7":   //setNumeroCaracteres
-                            text.setNumeroCaracteres(Integer.parseInt(palabras[1]));
+                            ct.leerTexto();
                             break;
                         case "8":   //getNumeroCaracteres
-                            System.out.println("Numero de caracteres del texto = " + text.getNumeroCaracteres());
+                            System.out.println("La ruta del texto es = " + ct.getRuta());
                             break;
                         case "9":   //getNumeroCaracteres
-                            text.setRuta(palabras[1]);
+                            System.out.println("El titulo del texto es = " + ct.getTitulo());
                             break;   
                         case "10":   //getNumeroCaracteres
-                            System.out.println("La ruta del texto es  = " + text.getRuta());
+                            System.out.println("El idioma del texto es  = " + ct.getIdioma());
                             break;
 			case "0":
                             out = true;
@@ -99,6 +104,6 @@ public class driverControladorTexto {
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 }

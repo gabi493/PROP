@@ -1,37 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-package enunciadoteclado;
 
+import enunciadoteclado.controladorTexto;
+import enunciadoteclado.simbolo;
+import enunciadoteclado.texto;
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
  *
- * @author josep
+ * @author alex
  */
-public class driverControladorConjuntoTexto {
-    public static void main (String[] args) {
-        String nombreclase = "ConjuntoTexto";
+public class driverControladorTextro {
+    public static void main (String[] args) throws IOException {
+        String nombreclase = "ControladorTexto";
         System.out.print("Driver" + nombreclase + ".");
         
-        conjuntoTexto ct = new conjuntoTexto();
-        
-        try {
+        controladorTexto ct = new controladorTexto();
+         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
             
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
-                System.out.println("\t 1) conjuntoTexto()");
-                System.out.println("\t 2) getSizeConjunto()");
-                System.out.println("\t 3) getTextoI(int i)");
-                System.out.println("\t 4) leerTextos()");
-                System.out.println("\t 5) insertarTexto(texto text)");
-                System.out.println("\t 6) borrarTexto(texto text)");
+                System.out.println("\t 1) controladorTexto()");
+                System.out.println("\t 2) abrirTexto(String nombre)");
+                System.out.println("\t 3) cerrarTexto()");
+                System.out.println("\t 4) leerParDeLetras(estadisticas e,alfabeto c)");
+                System.out.println("\t 5) EcribirTexto(String SCadena)");
+                System.out.println("\t 6) ModificarTexto(String Satigualinea,String Snuevalinea)");
+                System.out.println("\t 7) LeerTexto()");
+                System.out.println("\t 8) getRuta()");
+                System.out.println("\t 9) getTitulo()");
+                System.out.println("\t 10) getIdioma()");
                 System.out.println("\t 0) salir");
                 
                 String linea;
@@ -46,7 +49,7 @@ public class driverControladorConjuntoTexto {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            ct = new conjuntoTexto();
+                            ct = new controladortexto();
                             break;
                         case "2":
                             System.out.println("El conjunto contiene " + ct.getSizeConjunto() + " textos.");
@@ -86,3 +89,4 @@ public class driverControladorConjuntoTexto {
     }
     
 }
+    
