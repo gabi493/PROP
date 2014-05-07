@@ -24,7 +24,7 @@ public class driverControladorTeclado {
         String nombreclase = "Teclado";
         System.out.print("Driver" + nombreclase);
         
-        teclado tec = new teclado();
+        teclado tec = null;
         controladorTeclado cTec = new controladorTeclado();
         
         try {
