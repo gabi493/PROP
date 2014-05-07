@@ -88,9 +88,7 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
-        for (int i = 0; i < numCaracteres; i++) {
-            return s.getInfo() == this.alf.get(i).getInfo();
-        }
+        for (int i = 0; i < alf.size(); i++) if (s.getInfo() == alf.get(i).getInfo()) return true;
         return false;
     }
     

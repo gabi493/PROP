@@ -90,14 +90,7 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
-        System.out.println("mirando " + s.getInfo());
-        for (int i = 0; i < alf.size(); i++) {
-            if (s.getInfo() == alf.get(i).getInfo()) {
-                System.out.println("simbolo encontrado!!");
-            }
-            return s.getInfo() == alf.get(i).getInfo();
-        }
-        System.out.println("simbolo no encontrado");
+        for (int i = 0; i < alf.size(); i++) if (s.getInfo() == alf.get(i).getInfo()) return true;
         return false;
     }
     
