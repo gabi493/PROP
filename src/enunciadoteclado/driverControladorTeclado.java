@@ -19,12 +19,12 @@ import java.io.InputStreamReader;
  *
  * @author gabriel
  */
-public class driverTeclado {
+public class driverControladorTeclado {
     public static void main (String[] args) {
-        String nombreclase = "Teclado";
-        System.out.print("Driver" + nombreclase + "ejemplo con distancia cast");
+        String nombreclase = "ControladorTeclado";
+        System.out.print("Driver" + nombreclase);
         
-        teclado tcdo = new teclado();
+        controladorTeclado cTeclado = new controladorTeclado();
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -61,45 +61,39 @@ public class driverTeclado {
 					System.out.println("Opcion " + opcion + " seleccionada.");
 					switch (opcion) {
 						case "1": 
-							tcdo = new teclado();
+							cTeclado = new cTeclado();
 							break;
 						case "2":
 							int b = Integer.parseInt(palabras[3]);
 							boolean bl;
 							if (b == '1') bl = true;
 							else bl = false;
-							tcdo = new teclado(palabras[1], Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]), Integer.parseInt(palabras[4]), bl);
-							//System.out.println("forma = " + palabras[1] + " numeroFilas = " + Integer.parseInt(palabras[2]) + " numeroColumnas = " + Integer.parseInt(palabras[3]) + " teclas4Lados = " + bl);
-							break;
-						case "3":   //setForma
-							tcdo.setForma(palabras[1]);
-							break;
 						case "4":   //getForma
-							System.out.println("Forma = " + tcdo.getForma());
+							System.out.println("Forma = " + cTeclado.getForma());
 							break;
 						case "5":   //setNumFilas
-							tcdo.setNumeroFilas(Integer.parseInt(palabras[1]));
+							cTeclado.setNumeroFilas(Integer.parseInt(palabras[1]));
 							break;
 						case "6":   //getNumFilas
-							System.out.println("Numero Filas = " + tcdo.getNumeroFilas());
+							System.out.println("Numero Filas = " + cTeclado.getNumeroFilas());
 							break;
 						case "7":   //setNumCols
-							tcdo.setNumeroColumnas(Integer.parseInt(palabras[1]));
+							cTeclado.setNumeroColumnas(Integer.parseInt(palabras[1]));
 							break;
 						case "8":   //getNumCols
-							System.out.println("Numero Columnas = " + tcdo.getNumeroColumnas());
+							System.out.println("Numero Columnas = " + cTeclado.getNumeroColumnas());
 							break;
 						case "9":   //setTeclasDe4Lados
-							tcdo.setTeclasDe4Lados(palabras[1].equals("1"));
+							cTeclado.setTeclasDe4Lados(palabras[1].equals("1"));
 							break;
 						case "10":   //getTeclasDe4Lados
-							System.out.println("Tiene teclas de 4 lados? = " + tcdo.getTeclasDe4Lados());
+							System.out.println("Tiene teclas de 4 lados? = " + cTeclado.getTeclasDe4Lados());
 							break;
 						case "11":   //setNumeroPosiciones
-							tcdo.setNumeroPosiciones(Integer.parseInt(palabras[1]));
+							cTeclado.setNumeroPosiciones(Integer.parseInt(palabras[1]));
 							break;
 						case "12":   //getNumeroPosiciones
-							System.out.println("Numero de Posiciones = " + tcdo.getNumeroPosiciones());
+							System.out.println("Numero de Posiciones = " + cTeclado.getNumeroPosiciones());
 							break;
 						case "0":
 							out = true;

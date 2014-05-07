@@ -21,7 +21,7 @@ public class driverEstadisticas {
                      
         try{
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-            
+            estadisticas e = new estadisticas();
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
@@ -38,6 +38,16 @@ public class driverEstadisticas {
                 linea = buffer.readLine();
                 palabras = linea.split(" ");
                 opcion = palabras[0];
+<<<<<<< HEAD
+                e.leerMatriz();
+                try {
+                    System.out.println("Opcion " + opcion + " seleccionada.");
+                    switch (opcion) {
+                        case "1": 
+                            int mida = Integer.parseInt(palabras[1]);
+                            e = new estadisticas(mida);
+                            e.leerMatriz();
+=======
                 
                 
                 try {
@@ -47,21 +57,35 @@ public class driverEstadisticas {
 			    es = new estadisticas();
                         case "2": 
                             es = new estadisticas(Integer.parseInt(palabras[1]));
+>>>>>>> a5d9f8b555bb90998b18c06ce2f57df321c9266d
                             break;
                         case "3":
                             int i = Integer.parseInt(palabras[1]);
                             int j = Integer.parseInt(palabras[2]);
                             int similitud = Integer.parseInt(palabras[3]);
+<<<<<<< HEAD
+                            System.out.println(i);
+                            System.out.println(j);
+                            System.out.println(similitud);
+                            e.insertarEstadistica(i, j, similitud);
+                            System.out.println("Se han añadido las nuevas estadisticas en la matriz.");
+                            e.leerMatriz();
+=======
                             es.insertarEstadistica(i, j, similitud);
                             System.out.println("Se han añadido las nuevas estadisticas en la matriz.");
                             es.leerMatriz();
+>>>>>>> a5d9f8b555bb90998b18c06ce2f57df321c9266d
                             break;
                         case "4":
                             int i2 = Integer.parseInt(palabras[1]);
                             int j2 = Integer.parseInt(palabras[2]);
                             double est = es.consultarEstadistica(i2, j2);
                             System.out.println("La afinidad entre estas dos letras es " + est);
+<<<<<<< HEAD
+                            e.leerMatriz();
+=======
                             es.leerMatriz();
+>>>>>>> a5d9f8b555bb90998b18c06ce2f57df321c9266d
                             break;
                         case "0":
                             out = true;
@@ -69,10 +93,11 @@ public class driverEstadisticas {
                         default: 
                             System.out.println("La opcion elegida no existe.");
                             break;
+                        
                     }
                 } 
-                catch (Exception e) { 
-                    System.out.println(e.getMessage());
+                catch (Exception ex) { 
+                    System.out.println(ex.getMessage());
                 }
             }
             System.out.println("Fin del driver");
