@@ -39,7 +39,7 @@ public class alfabeto {
         this();
         if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
         this.nombreAlfabeto = idioma;
-        this.numCaracteres = n;
+        this.alf = new ArrayList<simbolo>(n);
     }
     
     /**
