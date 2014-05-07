@@ -1,7 +1,4 @@
 
-
-
-
 import java.util.ArrayList;
 
 /*
@@ -41,7 +38,7 @@ public class alfabeto {
         this();
         if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
         this.nombreAlfabeto = idioma;
-        this.alf = new ArrayList<simbolo>(n);
+        this.numCaracteres = n;
     }
     
     /**
@@ -90,7 +87,9 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
-        for (int i = 0; i < alf.size(); i++) if (s.getInfo() == alf.get(i).getInfo()) return true;
+        for (int i = 0; i < numCaracteres; i++) {
+            return s.getInfo() == this.alf.get(i).getInfo();
+        }
         return false;
     }
     

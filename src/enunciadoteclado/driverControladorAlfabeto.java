@@ -19,7 +19,7 @@ public class driverControladorAlfabeto {
         String nombreclase = "alfabeto";
         System.out.print("Driver" + nombreclase + ".");
         
-        alfabeto alf = new alfabeto();
+        controladorAlfabeto calf = new controladorAlfabeto();
         
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -46,27 +46,27 @@ public class driverControladorAlfabeto {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
                         case "1": 
-                            alf = new alfabeto();
+                            calf = new controladorAlfabeto();
                             break;
                         case "2":
-                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
+                            calf = new controladorAlfabeto((palabras[1]), Integer.parseInt(palabras[2]));
                             for (int i = 0; i < Integer.parseInt(palabras[2]); i++) {                                
                                 simbolo a = new simbolo(palabras[i+3].charAt(0));
-                                alf.addSimbolo(a);
+                                calf.addSimbolo(a);
                             }
                             break;
                         case "3":
-                            alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
-                            alfabeto copia = new alfabeto(alf);
+                            alfabeto alf = new alfabeto((palabras[1]), Integer.parseInt(palabras[2]));
+                            controladorAlfabeto copia = new controladorAlfabeto(alf);
                             System.out.println("La copia del alfabeto es: ");
                             copia.escribirAlfabeto();
                             break;
                         case "4": 
                             simbolo add = new simbolo(palabras[1].charAt(0));
-                            alf.addSimbolo(add);
+                            calf.addSimbolo(add);
                             break;
                         case "5":
-                            alf.escribirAlfabeto();
+                            calf.escribirAlfabeto();
                             break;
                         case "0":
                             out = true;
