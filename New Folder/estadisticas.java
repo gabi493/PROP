@@ -1,4 +1,8 @@
-package enunciadoteclado;
+
+
+
+
+
 
 import java.io.IOException;
 
@@ -20,12 +24,8 @@ public class estadisticas extends afinidad {
      *
      */
     public estadisticas() {
-<<<<<<< HEAD
         super(0);
         this.mida = 0;
-=======
-        super();
->>>>>>> a5d9f8b555bb90998b18c06ce2f57df321c9266d
     }
     
     
@@ -45,13 +45,9 @@ public class estadisticas extends afinidad {
      * @param similitud
      */
     public void insertarEstadistica (int i,int j,double similitud) {
-<<<<<<< HEAD
-      System.out.println("Se a insertado en la posicion "+ similitud );
+      System.out.println("Se a insertado en la posicion "+ i + "   " +j );
       insertarAfinidad(i,j,similitud);
       
-=======
-      insertarAfinidad(i,j,similitud);
->>>>>>> a5d9f8b555bb90998b18c06ce2f57df321c9266d
     }
 
     /**
@@ -72,13 +68,9 @@ public class estadisticas extends afinidad {
     public void leerMatriz() throws IOException {
         for(int i=0; i < mida; ++i) {
             for (int j=0; j < mida; ++j) {
-                System.out.print (consultarEstadistica(i,j) + "  ");
+                System.out.print (consultarEstadistica(i,j) + " ");
             }
-<<<<<<< HEAD
             System.out.println("");
-=======
-	    System.out.println();
->>>>>>> a5d9f8b555bb90998b18c06ce2f57df321c9266d
         }
     }
     

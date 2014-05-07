@@ -1,13 +1,11 @@
-package enunciadoteclado;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import enunciadoteclado.estadisticas;
-import enunciadoteclado.simbolo;
-import enunciadoteclado.alfabeto;
+
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -57,6 +55,7 @@ public class controladorTexto {
             chooser.setAcceptAllFileFilterUsed(true);
             //Si seleccionamos algún archivo retornaremos su directorio
             if(accion == "abrir" || accion == "editar" || accion == "seleccionar") {
+
                 if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                     System.out.println("Directorio: " + chooser.getCurrentDirectory().getAbsolutePath());
                     File textoSeleccionado = chooser.getSelectedFile();
@@ -76,12 +75,12 @@ public class controladorTexto {
                             }
                             
                     }
-                    switch( action ){
-                        case OPEN :
+                    switch(accion){
+                        case "abrir" :
                         System.out.println( "DENTRO DE OPCION: OPEN" );
                         desktop.open(textoSeleccionado);
                         break;
-                        case EDIT :
+                        case "editar" :
                         System.out.println( "DENTRO DE OPCION: EDIT" );
                         desktop.edit(textoSeleccionado);
                         break;
@@ -143,37 +142,49 @@ public class controladorTexto {
         fr = new FileReader(archivo);
         BufferedReader in = new BufferedReader(fr);
         String linia = in.readLine();
+        System.out.println("la linia 1 "+ linia);
         linia = in.readLine();
-        int caract1 = fr.read();
-        int caract2 = fr.read();
-            //Se recorre el fichero hasta encontrar el carácter -1
-            //   que marca el final del fichero
-        while(caract1 != -1 && caract2 != -1) {
-            simbolo a = new simbolo((char)caract1);
-            simbolo b = new simbolo((char)caract2);
-            if(!c.boolSimbolo(a)) {
-                if(c.boolSimbolo(b)) a = b;
-                else {
-                    while(!c.boolSimbolo(a) && caract1 != -1) {
-                        caract1 = fr.read();
-                        a = new simbolo((char)caract1);
+        System.out.println("la linia 2 "+ linia);
+       
+        while((linia=in.readLine())!=null) {
+            for(int i=0;i<linia.length()-1;i++) {
+                simbolo a = new simbolo(linia.charAt(i));
+                simbolo b = new simbolo(linia.charAt(i+1));
+                
+                    System.out.println(a.getInfo());
+                    System.out.println(b.getInfo());
+                
+                if(!c.boolSimbolo(a)) {
+                    System.out.println("xivato1" + a.getInfo());
+                    if(c.boolSimbolo(b)) a = b;
+                    else {
+                        while(!c.boolSimbolo(a) && i < linia.length()-1) {
+                            a = new simbolo(linia.charAt(i));
+                            ++i;
+                        }
+                        
                     }
                 }
+                if(!c.boolSimbolo(b)) {
+                    System.out.println("xivato2" + b.getInfo());
+                    while(!c.boolSimbolo(b) && i < linia.length()) {
+                        b = new simbolo(linia.charAt(i));
+                        ++i;
+                    }  
+                }
+                if(i<linia.length()) {
+                    
+                    System.out.println(a.getInfo());
+                    System.out.println(b.getInfo());
+                    int k = c.getPosicion(a);
+                    int j = c.getPosicion(b);
+                    e.insertarEstadistica(k,j,1);
+                }
             }
-            if(!c.boolSimbolo(b)) {
-                while(!c.boolSimbolo(b) && caract2 != -1) {
-                    caract2 = fr.read();
-                    b = new simbolo((char)caract2);
-                }  
-            }  
-            int i = c.getPosicion(a);
-            int j = c.getPosicion(b);
-            e.insertarEstadistica(i,j,1);
-            caract2 = caract1;
-            caract2 = fr.read();  
-            }
+                
 
         }
+    }
     
      public void escribirTexto(String SCadena){
         try {
