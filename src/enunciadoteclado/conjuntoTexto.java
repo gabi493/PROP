@@ -58,7 +58,7 @@ public class conjuntoTexto {
         controladorTexto Ct = new controladorTexto();
         for(int i=0; i < conjunto.size();++i){
             Ct.abrirTexto(conjunto.get(i).titulo + ".txt");
-            Ct.LeerTexto();    
+            Ct.leerTexto();    
         }
     }
     

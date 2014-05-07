@@ -18,7 +18,7 @@ public class driverAfinidad {
         String nombreclase = "afinidad";
         System.out.print("Driver " + nombreclase + ".");
         
-        afinidad af = new afinidad();
+        afinidad af = new afinidad(4);
                      
         try{
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -26,11 +26,10 @@ public class driverAfinidad {
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
-                System.out.println("\t 1)afinidad()");
-                System.out.println("\t 2) afinidad(int mida)");
-                System.out.println("\t 3) insertarAfinidad(int i,int j,double afinidad)");
-                System.out.println("\t 4) consultarAfinidad(int i,int j)");
-                System.out.println("\t 5) escribirMatriz()");
+                System.out.println("\t 1) afinidad(int mida)");
+                System.out.println("\t 2) insertarAfinidad(int i,int j,double afinidad)");
+                System.out.println("\t 3) consultarAfinidad(int i,int j)");
+                System.out.println("\t 4) escribirMatriz()");
                 System.out.println("\t 0) Salir");
                 
                 String linea;
@@ -44,25 +43,22 @@ public class driverAfinidad {
                 try {
                     System.out.println("Opcion " + opcion + " seleccionada.");
                     switch (opcion) {
-                        case "1": 
-                            af = new afinidad();
-                            break;
-                        case "2":
+                        case "1":
                             int n = Integer.parseInt(palabras[1]);
                             af = new afinidad(n);
                             break;
-                        case "3":
+                        case "2":
                             int i = Integer.parseInt(palabras[1]);
                             int j = Integer.parseInt(palabras[2]);
                             double k = Double.parseDouble(palabras[3]);
                             af.insertarAfinidad(i, j, k);
                             break;
-                        case "4":
+                        case "3":
                             int i2 = Integer.parseInt(palabras[1]);
                             int j2 = Integer.parseInt(palabras[2]);
                             double consulta = af.consultarAfinidad(i2, j2);
                             System.out.println("L'afinitat és de " + consulta);
-                        case "5":
+                        case "4":
                             af.escribirMatriz();
                             break;
                         case "0":
