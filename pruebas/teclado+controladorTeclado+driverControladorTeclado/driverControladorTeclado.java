@@ -65,6 +65,7 @@ public class driverControladorTeclado {
 							break;
 						case "2":   //cambiarForma(teclado, tipoTeclado)
 							cTec.cambiarForma(tec, palabras[1]);
+                                                        break;
 						case "3":   //consultarForma(teclado)
 							System.out.println("Forma = " + tec.getForma());
 							break;
