@@ -1,4 +1,4 @@
-PROP
+PROP.   
 ====
 Disseny d’un teclat
 Els teclats usats amb més d’un dit van ser introduïts fa més de 100 anys. El primer teclat, 
