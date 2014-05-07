@@ -1,9 +1,13 @@
+package enunciadoteclado;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package enunciadoteclado;
+import enunciadoteclado.estadisticas;
+import enunciadoteclado.simbolo;
+import enunciadoteclado.alfabeto;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,34 +18,102 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Random;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author alex
  */
 public class controladorTexto {
-    String ruta;
     File archivo;
     FileReader fr;
-    FileWriter fw;
     BufferedReader br;
+    String ruta;
     
-
+    
+        
+  
     /**
      *
      */
     public controladorTexto (){
-        ruta = null;
-        archivo = null;
-        fr = null;
-        br = null;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        ruta = chooser.getCurrentDirectory().getAbsolutePath();
+        ruta += "\\Documentacion\\";
+        System.out.println("Ruta " + ruta);
     }
     
+    
+    public void realizarAccion(String accion,String nombre) throws IOException {
+        JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Textos", "txt");
+            chooser.setFileFilter(filter);
+            chooser.setCurrentDirectory(new java.io.File("."));
+            chooser.setDialogTitle("Abre,edita,lee o crea");
+            //Elegiremos archivos del directorio
+            
+            chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            chooser.setAcceptAllFileFilterUsed(true);
+            //Si seleccionamos algún archivo retornaremos su directorio
+            if(accion == "abrir" || accion == "editar" || accion == "seleccionar") {
+                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    System.out.println("Directorio: " + chooser.getCurrentDirectory().getAbsolutePath());
+                    File textoSeleccionado = chooser.getSelectedFile();
+                    System.out.println(textoSeleccionado);
+                    Desktop desktop = null;
+                    Desktop.Action action = null;
+                    if( Desktop.isDesktopSupported() == true ){
+                            desktop = Desktop.getDesktop();
+                            if(accion.equalsIgnoreCase( "abrir" ) ){
+                                action = Desktop.Action.OPEN;
+                            }
+                            if(accion.equalsIgnoreCase( "seleccionar" ) ){
+                                archivo = textoSeleccionado;
+                            }
+                            else if(accion.equalsIgnoreCase( "editar" ) ){
+                            action = Desktop.Action.EDIT;
+                            }
+                            
+                    }
+                    switch( action ){
+                        case OPEN :
+                        System.out.println( "DENTRO DE OPCION: OPEN" );
+                        desktop.open(textoSeleccionado);
+                        break;
+                        case EDIT :
+                        System.out.println( "DENTRO DE OPCION: EDIT" );
+                        desktop.edit(textoSeleccionado);
+                        break;
+                        
+                        
 
-    /**
-     * 
-     * @param nombre
-     * @throws IOException 
-     */
+                    }
+                }
+                else System.out.println("No seleccion ");
+            
+            }
+            else if(accion == "crear") {
+                String rutaArchivo = ruta + nombre + ".txt";
+                System.out.println("La ruta del archivo es "+ rutaArchivo);
+                File texto = new File(rutaArchivo);
+                if(!texto.exists()) {
+                    if(texto.createNewFile()) System.out.println("Se a creado un texto");
+                    else System.out.println("No se a podido crear el texto");
+                }
+                
+            }
+            else System.out.println("La accion no es possible ");          
+            
+            
+    }
+    
+    
+    
+    
+    
+
+    
     public void abrirTexto(String nombre) throws IOException {
         archivo = new File(nombre);
         ruta = archivo.getAbsolutePath();
@@ -60,7 +132,7 @@ public class controladorTexto {
         if(null != fr) {
             fr.close();
         }
-        if(null != fw) {
+        if(null != br) {
             br.close();
         }
     }

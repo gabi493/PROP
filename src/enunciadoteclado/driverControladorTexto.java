@@ -1,17 +1,20 @@
+package enunciadoteclado;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import enunciadoteclado.controladorTexto;
-import enunciadoteclado.simbolo;
-import enunciadoteclado.texto;
+
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -21,16 +24,17 @@ public class driverControladorTexto {
     public static void main (String[] args) throws IOException {
         String nombreclase = "ControladorTexto";
         System.out.print("Driver" + nombreclase + ".");
-        
         controladorTexto ct = new controladorTexto();
+        ct.realizarAccion("abrir", "");
+        /*
+        
          try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-            
             boolean out = false; 
             while (!out) {
                 System.out.println("Elige una opicion:");
                 System.out.println("\t 1) controladorTexto()");
-                System.out.println("\t 2) abrirTexto(String nombre)");
+                System.out.println("\t 2) realizarAccion");
                 System.out.println("\t 3) cerrarTexto()");
                 System.out.println("\t 4) leerParDeLetras(estadisticas e,alfabeto c)");
                 System.out.println("\t 5) escribirTexto(String SCadena)");
@@ -101,6 +105,6 @@ public class driverControladorTexto {
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 }
