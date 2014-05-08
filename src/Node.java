@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package enunciadoteclado;
 
 import java.util.ArrayList;
 
@@ -36,15 +35,21 @@ public class Node {
         this.teclasAssignadas = a.teclasAssignadas;
         this.cost = a.cost;
     }
+    public void añadirAssignacion(int i) {
+        teclasAssignadas.add(i);
+    }
+    
+    public void añadirPendientes(int i) {
+        teclasPendientes.add(i);
+    }
+    
     public boolean quedanPendientes() {
         return (!teclasPendientes.isEmpty());
     }
     public void modificarCost (int cost){
         this.cost = cost;
     }
-    public void actualizarCost() {
-      //  cost = 
-    } 
+    
     public int consultarCost() {
         return cost;
     }
