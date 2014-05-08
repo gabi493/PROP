@@ -4,9 +4,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import enunciadoteclado.estadisticas;
-import enunciadoteclado.simbolo;
-import enunciadoteclado.alfabeto;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
