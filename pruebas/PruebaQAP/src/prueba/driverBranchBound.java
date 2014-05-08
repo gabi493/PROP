@@ -25,7 +25,7 @@ public class driverBranchBound {
     public static void main (String[] args) {
         String nombreclase = "BrancBound";
         System.out.println("Driver" + nombreclase + ".");
-        int estadisticas[][] = { {0,30,20,10},
+        /*int estadisticas[][] = { {0,30,20,10},
 {30,0,40,20},
 {20,40,0,30},
 {10,20,30,0}};
@@ -44,7 +44,7 @@ public class driverBranchBound {
                                  {0,0,0,0,0,0,0,96,0,0,0,37},
                                  {0,0,0,0,0,0,0,0,29,0,0,0},
                                  {0,0,0,0,0,0,0,0,0,37,0,0} };*/
-        int distancia[][] = { {0,1,2,3},
+        /*int distancia[][] = { {0,1,2,3},
 {1,0,1,2},
 {2,1,0,1},
 {3,2,1,0}
@@ -59,9 +59,11 @@ public class driverBranchBound {
                               {79,35,69,37,76,38,35,44,0,64,39,33},
                               {17,44,61,48,16,54,11,12,64,0,70,86},
                               {46,79,54,68,5,0,56,15,39,70,0,18},
-                              {95,36,63,85,76,34,37,80,33,86,18,0}*/ };   
+                              {95,36,63,85,76,34,37,80,33,86,18,0}*/
         
-        BranchBound bb = new BranchBound(estadisticas,distancia);
+        ctrlPersistencia cp = new ctrlPersistencia();
+        cp.leerJuegoDePrueba("/dades/josep.mercadal/linux/UPC/PROP/PropGithub/pruebas/PruebaQAP/src/prueba/1");
+        BranchBound bb = new BranchBound(cp.getAfin(), cp.getDist());
         for (int i = 0; i < bb.mejorSolucion.teclasAssignadas.length; i++) {
             System.out.print(bb.mejorSolucion.teclasAssignadas[i] + " ");
         }
