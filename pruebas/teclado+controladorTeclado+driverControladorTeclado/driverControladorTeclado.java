@@ -33,7 +33,7 @@ public class driverControladorTeclado {
             boolean out = false;
             boolean out1 = false;
             while (!out) {
-				/*System.out.println("Elige una opicion:");
+				System.out.println("Elige una opicion:");
 				System.out.println("\t 1) crearTeclado(formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones, teclas4Lados)");
 				System.out.println("\t 2) cambiarForma(tipoTeclado)");
 				System.out.println("\t 3) consultarForma()");
@@ -45,7 +45,7 @@ public class driverControladorTeclado {
 				System.out.println("\t 9) consultarTeclasDe4Lados()");
 				System.out.println("\t 10) cambiarNumeroPosiciones(numeroPosiciones)");
 				System.out.println("\t 11) consultarNumeroPosiciones()");
-				System.out.println("\t 0) Salir");*/
+				System.out.println("\t 0) Salir");
 				
 				
 				System.out.println();
