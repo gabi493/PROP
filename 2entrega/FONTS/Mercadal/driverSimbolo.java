@@ -53,31 +53,23 @@ public class driverSimbolo {
                             simbolo c = new simbolo();
                             break;
                         case "2":
-                            aux = palabras[1];
-                            dr = aux.charAt(0);
-                            simbolo d = new simbolo(dr);  
+                            simbolo d = new simbolo(palabras[1].charAt(0));  
                             System.out.println("Se ha creado el simbolo que contiene "+ d.getInfo());
                             break;
                         case "3":
-                            aux = palabras[1];
-                            dr = aux.charAt(0);
-                            simbolo auxi = new simbolo(dr);
+                            simbolo auxi = new simbolo(palabras[1].charAt(0));
                             simbolo e = new simbolo(auxi);
                             System.out.println("Simbolo original: " + auxi.getInfo());
                             System.out.println("Simbolo copia: " + e.getInfo());
                             break;
                         case "4": 
-                            aux = palabras[1];
-                            dr = aux.charAt(0);
-                            simbolo f = new simbolo(dr);
+                            simbolo f = new simbolo(palabras[1].charAt(0));
                             System.out.println("Caracter que contiene el simbolo: " + f.getInfo() + ".");
                             break;
                         case "5":
                             simbolo prueba = new simbolo('p');
                             System.out.println("Contenido del simbolo original: " + prueba.getInfo());
-                            aux = palabras[1];
-                            dr = aux.charAt(0);
-                            prueba.setInfo(dr);
+                            prueba.setInfo(palabras[1].charAt(0));
                             System.out.println("Contenido del simbolo modificado: " + prueba.getInfo());
                             break;
                         case "0":

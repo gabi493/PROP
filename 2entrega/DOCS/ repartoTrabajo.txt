@@ -10,10 +10,10 @@ Reparto del trabajo:
 			texto.java
 		Controladores:
 			controladorTeclado.java
-		Drivers:					
+		Drivers:			
+			driverControladorTeclado.java		
 			driverDistancia.java
 			driverDistanciaCluster.java
-			driverControladorTeclado.java
 			driverTecla.java
 			driverTeclado.java
 			driverTexto.java
@@ -33,12 +33,11 @@ Reparto del trabajo:
 			ctrPersistencia.java
 			estadisticas.java
 			texto.java
-		Drivers:
-			driverBranchBound.java
-			driverControladorConjuntoTexto.java
-			driverControladorTexto.java
 		Controladores:				
 			controladorTexto.java
+		Drivers:
+			driverBranchBound.java
+			driverControladorTexto.java
 		Juegos de Pruebas:		
 			driverBranchBound.in
 			driverControladorConjuntoTexto.in
@@ -48,13 +47,13 @@ Reparto del trabajo:
 		Clases:					
 			alfabeto.java
 			simbolo.java
+		Controladores:				
+			controladorAlfabeto.java
 		Drivers:
 			driverAfinidad.java
 			driverControladorAlfabeto.java
 			driverEstadisticas.java
 			driverSimbolo.java
-		Controladores:				
-			controladorAlfabeto.java
 		Juegos de Pruebas:
 			driverAfinidad.in
 			driverControladorAlfabeto.in

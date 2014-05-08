@@ -1,3 +1,6 @@
+
+
+
 package enunciadoteclado;
 
 
@@ -14,13 +17,25 @@ import java.io.IOException;
  * @author alex
  */
 public class estadisticas extends afinidad {
-
+    
+    int mida;
+    
+    /**
+     *
+     */
+    public estadisticas() {
+        super(0);
+        this.mida = 0;
+    }
+    
+    
     /**
      *
      * @param mida
      */
     public estadisticas(int mida) {
         super(mida);
+        this.mida = mida;
     }
   
     /**
@@ -29,10 +44,10 @@ public class estadisticas extends afinidad {
      * @param letra2
      * @param similitud
      */
-    public void insertarEstadistica (simbolo letra1,simbolo letra2,double similitud,alfabeto a) {
-      int i = a.getPosicion(letra1);
-      int j = a.getPosicion(letra2);
-      insertarAfinidad(i,j,1);
+    public void insertarEstadistica (int i,int j,double similitud) {
+      System.out.println("Se a insertado en la posicion "+ similitud );
+      insertarAfinidad(i,j,similitud);
+      
     }
 
     /**
@@ -41,11 +56,22 @@ public class estadisticas extends afinidad {
      * @param letra2
      * @return
      */
-    public double consultarEstadistica (simbolo letra1,simbolo letra2,alfabeto a) throws IOException{
-      int i = a.getPosicion(letra1);
-      int j = a.getPosicion(letra2);
+    public double consultarEstadistica (int i,int j) throws IOException{
       return consultarAfinidad(i,j);
     
+    }
+
+    /**
+     *
+     * @throws IOException
+     */
+    public void leerMatriz() throws IOException {
+        for(int i=0; i < mida; ++i) {
+            for (int j=0; j < mida; ++j) {
+                System.out.print (consultarEstadistica(i,j) + " ");
+            }
+            System.out.println("");
+        }
     }
     
 }

@@ -15,6 +15,8 @@ import java.io.IOException;
 public class afinidad {
     public double[][] afinidades;
     
+    
+   
     /**Constructora por defecto
      *
      * @param mida Mida que tendra la matriz de afinidades
@@ -30,15 +32,10 @@ public class afinidad {
      * @param afinidad valor que tomara la posicion [i][j]
      */
     public void insertarAfinidad(int i,int j,double afinidad) {
-        try {
             afinidades[i][j] += afinidad;
             afinidades[j][i] += afinidad;
-        }
-        catch(Exception e)  {
-            System.out.println("Error:Posicion erronia");
-        }
-    
     }
+    
     /**Consula la afinidad de una posicion de la matriz 
      *
      * @param i posicion de la matriz de afinidades
@@ -46,13 +43,22 @@ public class afinidad {
      * @return el valor que toma de la posicion [i][j] 
      * @throws IOException cuando la matriz no es simetrica
      */
-    public double consultarAfinidad(int i,int j) throws IOException {
-        if(afinidades[i][j] != afinidades[j][i]){
+    public double consultarAfinidad(int i,int j){
+        /*if(afinidades[i][j] != afinidades[j][i]){
             throw new IOException("Error:Matrices no simetricas");
-        }
+        }*/
         return afinidades[i][j];
     }
-}   
+    
+    public void escribirMatriz() {
+        for (int i = 0; i < afinidades.length; i++) {
+            for (int j = 0; j < afinidades.length; j++) {
+                System.out.print(consultarAfinidad(i, j) + "  ");
+            }
+        System.out.println();
+        }
+    }
+}
     
     
 
