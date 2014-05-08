@@ -30,7 +30,7 @@ public class driverBranchBound {
         ctrlPersistencia cp = new ctrlPersistencia();
         try {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-            
+            branchBound bb = new branchBound(0);
             boolean out = false; 
             while (!out) {
 				System.out.println("Elige una opicion:");
@@ -51,6 +51,7 @@ public class driverBranchBound {
                 linea = buffer.readLine();
                 palabras = linea.split(" ");
                 opcion = palabras[0];
+
 		                
                 try {
                     System.out.println("Opcion " + opcion + " seleccionada.");
@@ -69,13 +70,13 @@ public class driverBranchBound {
                             break;
                         case "5":   // Lee el juego de pruebas 
                             JFileChooser chooser = new JFileChooser();
-                            chooser.setCurrentDirectory(new java.io.File("."));
+                            chooser.setCurrentDirectory(new java.io.File("."));	
                             String ruta = chooser.getCurrentDirectory().getAbsolutePath();
-                            ruta += palabras[1];
+                            ruta +="//"+ palabras[1];
                             cp.leerJuegoDePrueba(ruta);
                             break;
                         case "6":   // Ejecuta el algoritmo
-                            branchBound bb = new branchBound(cp.getAfin() ,cp.getDist());
+                            bb = new branchBound(cp.getAfin() ,cp.getDist());
                             for (int i = 0; i < bb.mejorSolucion.teclasAssignadas.length; i++) {
                                 System.out.print(bb.mejorSolucion.teclasAssignadas[i] + " ");
                             }
@@ -83,12 +84,11 @@ public class driverBranchBound {
                              System.out.println("cost: "+bb.mejorCost);
                             break;
 			case "7":   // Guardo los resultados
-                            int[] res = new int [cp.getTam()];
                             chooser = new JFileChooser();
                             chooser.setCurrentDirectory(new java.io.File("."));
                             ruta = chooser.getCurrentDirectory().getAbsolutePath();
-                            ruta += palabras[1];
-                            cp.guardarResultado(res, ruta);
+                            ruta +="//"+ palabras[1];
+                            cp.guardarResultado(bb.mejorSolucion.teclasAssignadas, ruta);
                             
                             break;
 			case "0":
