@@ -3,11 +3,14 @@ con los ejecutables necesarios, los datos del juego de pruebas y
 la descripcion del mismo.
 
 Carpetas:
-	1.- distancia
-	2.- tecla
-	3.- teclado
-	4.- simbolo
-	5.- alfabeto
-	6.- estadisticas
-	7.- texto
-	8.- cjtoTextos
+	1.-  afinidad
+	2.-  alfabeto
+	3.-  branchBound
+	4.-  controladorTexto
+	5.-  distancia
+	6.-  estadisticas
+	7.-  simbolo
+	8.-  tecla
+	9.-  controladorTeclado
+	10.- teclado
+	11.- texto
