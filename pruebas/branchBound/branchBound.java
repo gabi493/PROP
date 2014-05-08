@@ -174,6 +174,7 @@ public class branchBound {
                             for(int m = 0; m < v1.size();++m) h1.add(v1.get(m));  //Copia las assignaciones pendientes del padre
                             h1.remove(i);
                             int pos = mida-v1.size();
+		            aux[pos] = v1.get(i);
                             double x = calcularCost(aux,pos,b.cost); // Calcula el coste del nodo     
                             Node c = new Node(h1,aux,x);                          
                             if(esMejor(c.cost)) {
