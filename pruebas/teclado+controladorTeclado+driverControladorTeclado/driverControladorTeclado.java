@@ -351,7 +351,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    m = Integer.parseInt(palabras[0]);
+                                                                                    mF = Integer.parseInt(palabras[0]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
@@ -364,7 +364,7 @@ public class driverControladorTeclado {
                                                             opcion = palabras[0];*/
                                                         }
                                                         if (!out) {
-                                                            System.out.println("numeroFilas = " + mF);
+                                                            System.out.println("numeroColumnas = " + mF);
                                                             cTec.cambiarNumeroColumnas(tec, mF);
                                                         }
                                                         break;
@@ -385,7 +385,7 @@ public class driverControladorTeclado {
                                                             opcion = palabras[0];
 
                                                             try {
-                                                                    switch(palabras[1]) {
+                                                                    switch(palabras[0]) {
                                                                             case "4":   //4 lados
                                                                                     bl = true;
                                                                                     out1 = true;
