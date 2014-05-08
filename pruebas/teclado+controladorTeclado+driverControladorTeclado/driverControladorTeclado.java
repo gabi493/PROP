@@ -59,16 +59,16 @@ public class driverControladorTeclado {
 
 				try {
 					System.out.println("Opcion " + opcion + " seleccionada.");
+                                        String formaTeclado = "noSeleccionado";
+                                        int numeroFilas = 0;
+                                        int numeroColumnas = 0;
+                                        int numeroPosiciones = 0;
+                                        boolean teclas4Lados = false;
+                                        
 					switch (opcion) {
-                                                String formaTeclado = "no seleccionado";
-                                                int numeroFilas = 0;
-                                                int numeroColumnas = 0;
-                                                int numeroPosiciones = 0;
-                                                boolean teclas4Lados = false;
+                                                
                                                 
 						case "1": //formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones, teclas4Lados
-                                                        
-
                                                         boolean out1 = false;
                                                         while (!out1) {
                                                             System.out.println("Escoger forma del teclado: ");
@@ -115,7 +115,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    n = Integer.parseInt(opcion[2]);
+                                                                                    n = Integer.parseInt(palabras[2]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
@@ -140,7 +140,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    m = Integer.parseInt(opcion[2]);
+                                                                                    m = Integer.parseInt(palabras[2]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
@@ -165,7 +165,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    p = Integer.parseInt(opcion[2]);
+                                                                                    p = Integer.parseInt(palabras[2]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
@@ -215,7 +215,7 @@ public class driverControladorTeclado {
                                                         else System.out.println("Ya he salido");
 							break;
 						case "2":   //cambiarForma(teclado, tipoTeclado)
-                                                        boolean out1 = false;
+                                                        out1 = false;
                                                         while (!out1) {
                                                             System.out.println("Escoger forma del teclado: ");
                                                             System.out.println("\t 1) rectangular");
@@ -254,10 +254,12 @@ public class driverControladorTeclado {
 							System.out.println("Forma = " + tec.getForma());
 							break;
 						case "4":   //cambiarNumeroFilas(teclado, tamano)
-                                                        boolean out1 = false;
+                                                        out1 = false;
+                                                        int nF = 0;
                                                         while (!out1) {
                                                             System.out.println("Introducir numero de filas del teclado: ");
                                                             System.out.println("\t 0) SALIR");
+                                                            
 
                                                             try {
                                                                     switch(palabras[1]) {
@@ -266,7 +268,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    n = Integer.parseInt(opcion[2]);
+                                                                                    nF = Integer.parseInt(palabras[2]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
@@ -276,15 +278,16 @@ public class driverControladorTeclado {
                                                             }
                                                         }
                                                         if (!out) {
-                                                            System.out.println("numeroFilas = " + n);
-                                                            cTec.cambiarNumeroFilas(tec, n);
+                                                            System.out.println("numeroFilas = " + nF);
+                                                            cTec.cambiarNumeroFilas(tec, nF);
                                                         }
                                                         break;
 						case "5":   //consultarNumeroFilas(teclado)
 							System.out.println("Numero Filas = " + tec.getNumeroFilas());
 							break;
 						case "6":   //cambiarNumeroColumnas(teclado, tamano)
-                                                        boolean out1 = false;
+                                                        out1 = false;
+                                                        int mF = 0;
                                                         while (!out1) {
                                                             System.out.println("Introducir numero de columnas del teclado: ");
                                                             System.out.println("\t 0) SALIR");
@@ -296,7 +299,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    m = Integer.parseInt(opcion[2]);
+                                                                                    m = Integer.parseInt(palabras[2]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
@@ -306,16 +309,16 @@ public class driverControladorTeclado {
                                                             }
                                                         }
                                                         if (!out) {
-                                                            System.out.println("numeroFilas = " + m);
-                                                            cTec.cambiarNumeroColumnas(tec, m);
+                                                            System.out.println("numeroFilas = " + mF);
+                                                            cTec.cambiarNumeroColumnas(tec, mF);
                                                         }
                                                         break;
 						case "7":   //consultarNumeroColumnas(teclado)
 							System.out.println("Numero Columnas = " + tec.getNumeroColumnas());
 							break;
 						case "8":   //cambiarTeclasDe4Lados(teclado, b)
-                                                        boolean out1 = false;
-                                                        boolean b = false;
+                                                        out1 = false;
+                                                        boolean bl = false;
                                                         while (!out1) {
                                                             System.out.println("Escoger numero de lados del teclado: ");
                                                             System.out.println("\t 4) 4 lados");
@@ -325,11 +328,11 @@ public class driverControladorTeclado {
                                                             try {
                                                                     switch(palabras[1]) {
                                                                             case "4":   //4 lados
-                                                                                    b = true;
+                                                                                    bl = true;
                                                                                     out1 = true;
                                                                                     break;
                                                                             case "6":   //6 lados
-                                                                                    b = false;
+                                                                                    bl = false;
                                                                                     out1 = true;
                                                                                     break;
                                                                             case "0":   //SALIR
@@ -346,8 +349,8 @@ public class driverControladorTeclado {
                                                             }
                                                         }
                                                         if (!out) {
-                                                            System.out.println("teclasDe4Lados? = " + b);
-                                                            cTec.cambiarTeclasDe4Lados(tec, b);
+                                                            System.out.println("teclasDe4Lados? = " + bl);
+                                                            cTec.cambiarTeclasDe4Lados(tec, bl);
                                                         }
                                                         break;
                                                         
@@ -357,8 +360,8 @@ public class driverControladorTeclado {
 							System.out.println("Tiene teclas de 4 lados? = " + tec.getTeclasDe4Lados());
 							break;
 						case "10":   //cambiarNumeroPosiciones(teclado, numeroPosiciones)
-                                                        boolean out1 = false;
-                                                        int p = 0;
+                                                        out1 = false;
+                                                        p = 0;
                                                         while (!out1) {
                                                             System.out.println("Introducir numero de posiciones del teclado: ");
                                                             System.out.println("\t 0) SALIR");
@@ -370,7 +373,7 @@ public class driverControladorTeclado {
                                                                                     out = out1 = true;
                                                                                     break;
                                                                             default:
-                                                                                    p = Integer.parseInt(opcion[2]);
+                                                                                    p = Integer.parseInt(palabras[2]);
                                                                                     out1 = true;
                                                                                     break;
                                                                     }
