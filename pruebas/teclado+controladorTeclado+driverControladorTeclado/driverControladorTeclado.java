@@ -61,7 +61,74 @@ public class driverControladorTeclado {
 					System.out.println("Opcion " + opcion + " seleccionada.");
 					switch (opcion) {
 						case "1": //formaTeclado, numeroFilas, numeroColumnas, numeroPosiciones, teclas4Lados
-							tec = cTec.crearTeclado(palabras[1], Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]), Integer.parseInt(palabras[4]), Boolean.parseBoolean(palabras[5]));
+                                                    
+                                                    
+                                                    String formaTeclado = "no seleccionado";
+                                                    int numeroFilas = 0;
+                                                    int numeroColumnas = 0;
+                                                    int numeroPosiciones = 0;
+                                                    boolean teclas4Lados = false;
+                                                    
+                                                    boolean out1 = false;
+                                                    while (!out1) {
+                                                        System.out.println("Escoger forma del teclado: ");
+                                                        System.out.println("\t 1) rectangular");
+                                                        System.out.println("\t 2) hexagonal");
+                                                        System.out.println("\t 0) SALIR");
+                                                        
+                                                        try {
+                                                            switch(palabras[1]) {
+                                                                case "1":   //rectangular
+                                                                        formaTeclado = "rectangular";
+                                                                        out1 = true;
+                                                                        break;
+                                                                case "2":   //hexagonal
+                                                                        formaTeclado = "hexagonal";
+                                                                        out1 = true;
+                                                                        break;
+                                                                case "0":   //SALIR
+                                                                        System.out.print("SALIENDO...");
+                                                                        out = out1 = true;
+                                                                        break;
+                                                                default: 
+                                                                        System.out.println("La opcion elegida no existe.");
+                                                                        break;
+                                                            }
+                                                        }
+                                                        catch (Exception e) {
+                                                            System.out.println(e.getMessage());
+                                                        }
+                                                    }
+                                                    if (!out) System.out.println("formaTeclado = " + formaTeclado);
+                                                    
+                                                    
+                                                    out1 = false;
+                                                    while (!out && !out1) {
+                                                        System.out.println("Introducir numero de filas del teclado: ");
+                                                        System.out.println("\t 0) SALIR");
+                                                        
+                                                        try {
+                                                            switch(palabras[2]) {
+                                                                case "0":   //SALIR
+                                                                        System.out.print("SALIENDO...");
+                                                                        out = out1 = true;
+                                                                        break;
+                                                                default:
+                                                                        int n = Integer.parseInt(opcion[2]);
+                                                                        System.out.println("La opcion elegida no existe.");
+                                                                        break;
+                                                            }
+                                                        }
+                                                        catch (Exception e) {
+                                                            System.out.println(e.getMessage());
+                                                        }
+                                                    }
+                                                    if (!out) System.out.println("formaTeclado = " + formaTeclado);
+                                                    
+                                                    
+                                                    
+                                                    
+                                                        tec = cTec.crearTeclado(palabras[1], Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]), Integer.parseInt(palabras[4]), Boolean.parseBoolean(palabras[5]));
 							break;
 						case "2":   //cambiarForma(teclado, tipoTeclado)
 							cTec.cambiarForma(tec, palabras[1]);
