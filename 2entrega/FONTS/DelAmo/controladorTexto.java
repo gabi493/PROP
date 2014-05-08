@@ -54,11 +54,10 @@ public class controladorTexto {
             chooser.setCurrentDirectory(new java.io.File("."));
             chooser.setDialogTitle("Abre,edita,lee");
             //Elegiremos archivos del directorio
-            
             chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
             chooser.setAcceptAllFileFilterUsed(true);
             //Si seleccionamos algún archivo retornaremos su directorio
-            if(accion == "abrir" || accion == "editar" || accion == "seleccionar") {
+            if(accion.equalsIgnoreCase("abrir") || accion.equalsIgnoreCase("editar") || accion.equalsIgnoreCase("seleccionar")) {
 
                 if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                     System.out.println("Directorio: " + chooser.getCurrentDirectory().getAbsolutePath());
@@ -96,7 +95,7 @@ public class controladorTexto {
                 else System.out.println("No seleccion ");
             
             }
-            else if(accion == "crear") {
+            else if(accion.equalsIgnoreCase("crear")) {
                 String rutaArchivo = ruta + nombre + ".txt";
                 System.out.println("La ruta del archivo es "+ rutaArchivo);
                 File texto = new File(rutaArchivo);
