@@ -21,7 +21,7 @@ public class NodeComparador implements Comparator<Node>
     public int compare(Node x, Node y)
     {
         // Compara los costes de los nodos y devuelve un valor 
-        // indicando si es major,menor o igual
+        // indicando si es mayor,menor o igual
         if (x.cost < y.cost)
         {
             return -1;

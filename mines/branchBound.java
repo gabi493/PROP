@@ -55,7 +55,8 @@ public class branchBound {
         Vector<Integer> v = new Vector<Integer> (estadistica[0].length);	//vector de teclas Pendientes
         mejorSolucion = new Node (v,h,0);				//Node (int[] teclasPendientes, int[] teclasAsignadas, double cost);
         anadirPendientes();            
-        nodes = new PriorityQueue<Node> (1,new NodeComparador());	//PriorityQueue (int initialCapacity, Comparator<super E> comparator) <------------------- 
+        nodes = new PriorityQueue<Node> (1,new NodeComparador());	//PriorityQueue (int initialCapacity, Comparator<super E> comparator) <---- 
+//						NodeComparador devuelve: -1: x < y, 0: x == y, 1: x > y  
         nodes.add(mejorSolucion);          
         greedy();
         solve();
