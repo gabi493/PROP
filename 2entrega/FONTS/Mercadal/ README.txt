@@ -1,10 +1,14 @@
-Esta carpeta contiene las clases y los drivers implementados por Josep Mercadal:
+Esta carpeta contiene las clases, los controladores y los drivers implementados por Josep Mercadal:
 
-Clases:
+Clases:					
 	1.- alfabeto.java
-	2.- algoritmos.java
-	3.- simbolo.java
+	2.- simbolo.java
+
+Controladores:				
+	1.- controladorAlfabeto.java
 
 Drivers:
-	1.- driverControladorAlfabeto.java
-	2.- driverSimbolo.java
+	1.- driverAfinidad.java
+	2.- driverControladorAlfabeto.java
+	3.- driverEstadisticas.java
+	4.- driverSimbolo.java

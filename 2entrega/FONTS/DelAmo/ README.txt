@@ -1,11 +1,16 @@
-Esta carpeta contiene las clases y los drivers implementados por Alejandro del Amo:
+Esta carpeta contiene las clases, los controladores y los drivers implementados por Alejandro del Amo:
 
-Clases:
+Clases:					
 	1.- afinidad.java
-	2.- conjuntoTexto.java
-	3.- estadisticas.java
-	4.- texto.java 
+	2.- branchBound.java
+	3.- conjuntoTexto.java
+	4.- ctrPersistencia.java
+	5.- estadisticas.java
+	6.- texto.java
+
+Controladores:				
+	1.- controladorTexto.java
 
 Drivers:
-	1.- driverAfinidad.java
-	2.- driverEstadistica.java
+	1.- driverBranchBound.java
+	2.- driverControladorTexto.java

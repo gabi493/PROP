@@ -43,7 +43,7 @@ public class texto {
      * @param titulo
      * @param numeroCaracteres
      */
-    public texto(String rt,String idi, String tit, int nC) {
+    public texto(String idi, String tit, int nC, String rt) {
         ruta = rt;
         idioma = idi;
         titulo = tit;
