@@ -58,6 +58,7 @@ public class branchBound {
         nodes = new PriorityQueue<> (1,new NodeComparador()); 
         nodes.add(mejorSolucion);          
         greedy();
+        
         solve();
 
         
