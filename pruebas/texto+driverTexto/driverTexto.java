@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-//package enunciadoteclado;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,6 +28,7 @@ public class driverTexto {
 			/*	System.out.println("Elige una opicion:");
 				System.out.println("\t 1) texto()");
 				System.out.println("\t 2) texto(idioma, titulo, numeroCaracteres)");
+				
 				System.out.println("\t 3) setIdioma(idioma)");
 				System.out.println("\t 4) getIdioma()");
 				System.out.println("\t 5) setTitulo(titulo)");

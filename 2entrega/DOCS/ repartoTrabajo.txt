@@ -8,7 +8,10 @@ Reparto del trabajo:
 			tecla.java
 			teclado.java
 			texto.java
-		Drivers:					
+		Controladores:
+			controladorTeclado.java
+		Drivers:			
+			driverControladorTeclado.java		
 			driverDistancia.java
 			driverDistanciaCluster.java
 			driverTecla.java
@@ -17,6 +20,7 @@ Reparto del trabajo:
 		Juegos de pruebas: 			
 			driverDistancia.in
 			driverDistanciaCluster.in
+			driverControladorTeclado.in
 			driverTecla.in
 			driverTeclado.in
 			driverTexto.in
@@ -24,32 +28,36 @@ Reparto del trabajo:
 •	Alejandro del Amo:
 		Clases:					
 			afinidad.java
-			algoritmos.java
+			branchBound.java
 			conjuntoTexto.java
+			ctrPersistencia.java
 			estadisticas.java
-			gilmore.java
-			greedy.java
 			texto.java
-		Drivers:					
-			driverAfinidad.java
-			driverEstadistica.java
 		Controladores:				
 			controladorTexto.java
-		Juegos de Pruebas:			
-			driverEstadistica.in
+		Drivers:
+			driverBranchBound.java
+			driverControladorTexto.java
+		Juegos de Pruebas:		
+			driverBranchBound.in
+			driverControladorConjuntoTexto.in
+			driverControladorTexto.in
 	
 •	Josep Mercadal:
 		Clases:					
 			alfabeto.java
-			algoritmos.java
 			simbolo.java
-		Drivers:					
-			driverControladorAlfabeto.java
-			driverSimbolo.java
 		Controladores:				
 			controladorAlfabeto.java
-		Juegos de Pruebas:			
+		Drivers:
+			driverAfinidad.java
+			driverControladorAlfabeto.java
+			driverEstadisticas.java
+			driverSimbolo.java
+		Juegos de Pruebas:
+			driverAfinidad.in
 			driverControladorAlfabeto.in
+			driverEstadisticas.in
 			driverSimbolo.in
 			driverControladorConjuntoTexto.in
  

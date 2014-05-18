@@ -22,7 +22,7 @@ import java.util.Random;
  * @author alex + gabriel
  */
 public class texto {
-
+    String ruta;
     String idioma;
     String titulo;
     int numeroCaracteres;
@@ -31,6 +31,7 @@ public class texto {
      * Creadora por defecto.
      */
     public texto(){
+        this.ruta = null;
 	this.idioma  = null;
 	this.titulo = null;
 	this.numeroCaracteres = 0;
@@ -42,7 +43,8 @@ public class texto {
      * @param titulo
      * @param numeroCaracteres
      */
-    public texto(String idi, String tit, int nC) {
+    public texto(String idi, String tit, int nC, String rt) {
+        ruta = rt;
         idioma = idi;
         titulo = tit;
         numeroCaracteres = nC;
@@ -104,5 +106,21 @@ public class texto {
     public int getNumeroCaracteres(){
         return numeroCaracteres;
     } 
-    
+
+    /**
+     *
+     * @param ruta
+     */
+    public void setRuta (String ruta) {
+        this.ruta = ruta;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getRuta() {
+        return ruta;
+    }
+     
 }

@@ -41,7 +41,7 @@ public class alfabeto {
         this();
         if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
         this.nombreAlfabeto = idioma;
-        this.numCaracteres = n;
+        this.alf = new ArrayList<simbolo>(n);
     }
     
     /**
@@ -90,9 +90,7 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
-        for (int i = 0; i < numCaracteres; i++) {
-            return s.getInfo() == this.alf.get(i).getInfo();
-        }
+        for (int i = 0; i < alf.size(); i++) if (s.getInfo() == alf.get(i).getInfo()) return true;
         return false;
     }
     
