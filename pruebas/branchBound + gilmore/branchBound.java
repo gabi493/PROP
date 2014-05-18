@@ -33,9 +33,9 @@ public class branchBound {
     public branchBound(int mida) {
         mejorCost = Integer.MAX_VALUE;
         double coste = 0;
-        int h[] = new int [mida];
-        Vector<Integer> v  = new Vector<Integer> ();
-        mejorSolucion = new Node(v,h,coste);
+        int asignados[] = new int [mida];
+        Vector<Integer> pendientes  = new Vector<Integer> ();
+        mejorSolucion = new Node(pendientes,asignados,coste);
         nodes = new PriorityQueue<Node> (1,new NodeComparador());
         nodes.add(mejorSolucion);
     }
@@ -51,14 +51,14 @@ public class branchBound {
         this.estadistica = estadistica;
         mejorCost = Integer.MAX_VALUE;  // Millor cost = infinit
         double coste = 0;
-        int h[] = new int [mida];
-        Vector<Integer> v = new Vector<Integer> (estadistica[0].length);
-        mejorSolucion = new Node (v,h,0);
+        int asignados[] = new int [mida];
+        Vector<Integer> pendientes = new Vector<Integer> (estadistica[0].length);
+        mejorSolucion = new Node (pendientes,asignados,0);
         anadirPendientes();            
         nodes = new PriorityQueue<> (1,new NodeComparador()); 
         nodes.add(mejorSolucion);          
         greedy();
-        
+       // gilmore g = new gilmore(estadistica,distancia);
         solve();
 
         
@@ -162,25 +162,25 @@ public class branchBound {
         Node a = nodes.peek();
         while(!nodes.isEmpty()){
             Node b = nodes.poll();                          // Saca un node 
-            Vector<Integer> v1 = b.getTeclasPendientes();    
+            Vector<Integer> pendientesPadre = b.getTeclasPendientes();    
             if(esMejor(b.cost)) {
-                if(v1.isEmpty()) {
+                if(pendientesPadre.isEmpty()) {
                     mejorSolucion = b;
                     mejorCost = b.cost;
                 }          
                 else {
-                    for(int i=0; i < v1.size(); ++i) {
-                            int aux [] = b.getTeclasAssginadas();  // Copia las assignaciones realizadas del padre
-                            Vector<Integer> h1 = new Vector<Integer>();
-                            for(int m = 0; m < v1.size();++m) h1.add(v1.get(m));  //Copia las assignaciones pendientes del padre
-                            h1.remove(i);
-                            int pos = mida-v1.size();
-		            aux[pos] = v1.get(i);
-                            double x = calcularCost(aux,pos,b.cost); // Calcula el coste del nodo     
-                            // double x = calcularCoste(h1,aux,pos)
-                            Node c = new Node(h1,aux,x);                          
+                    for(int i=0; i < pendientesPadre.size(); ++i) {
+                            int asignadosHijo [] = b.getTeclasAssginadas();  // Copia las assignaciones realizadas del padre
+                            Vector<Integer> pendientesHijo = new Vector<Integer>();
+                            for(int m = 0; m < pendientesPadre.size();++m) pendientesHijo.add(pendientesPadre.get(m));  //Copia las assignaciones pendientes del padre
+                            pendientesHijo.remove(i);
+                            int pos = mida-pendientesPadre.size();
+		            asignadosHijo[pos] = pendientesPadre.get(i);
+                            double x = calcularCost(asignadosHijo,pos,b.cost); // Calcula el coste del nodo     
+                            // double x = g.calcularCoste(h1,aux,pos) Llama al gilmore
+                            Node c = new Node(pendientesHijo,asignadosHijo,x);                          
                             if(esMejor(c.cost)) {
-                                if(v1.isEmpty()) {
+                                if(pendientesPadre.isEmpty()) {
                                     mejorSolucion = b;
                                     mejorCost = b.cost;
                                 }          

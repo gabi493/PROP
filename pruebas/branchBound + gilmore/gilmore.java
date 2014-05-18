@@ -12,6 +12,7 @@ import java.util.Vector;
  * @author alex
  */
 public class gilmore {
+    
     private int[][] estadisticas;
     private int[][] distancia;
     
