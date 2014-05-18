@@ -56,10 +56,12 @@ public class driverControladorTexto {
                             ct = new controladorTexto();
                             break;
                         case "2": //Realizar operaciones con los textos
-                            if(palabras[1] == "abrir" || palabras[1] == "editar" || palabras[1] == "seleccionar") {
-                                ct.realizarAccion(palabras[1],"");
-                            }
-                            if(palabras[1] == "crear") {
+                            System.out.println(palabras[1]);
+                            if(palabras[1].equalsIgnoreCase("abrir") || palabras[1].equalsIgnoreCase("editar") || palabras[1].equalsIgnoreCase("seleccionar")) {
+                                ct.realizarAccion(palabras[1],""); 
+                                System.out.println("entra dentro y hace "+palabras[1]); 
+                            } 
+                            else if(palabras[1].equalsIgnoreCase("crear")) {
                                 ct.realizarAccion(palabras[1], palabras[2]);
                             }
                             break;

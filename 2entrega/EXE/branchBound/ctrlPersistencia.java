@@ -43,8 +43,8 @@ public class ctrlPersistencia {
             tam = sc.nextInt();
             afin = new int[tam][tam];
             dist = new int[tam][tam];
-            for (int i = 0; i < tam; ++i)
-                for (int j = 0; j < tam; ++j)
+            for (int i = 0; i < tam; ++i) 
+                for (int j = 0; j < tam; ++j) 
                     afin[i][j] = sc.nextInt();
             for (int i = 0; i < tam; ++i)
                 for (int j = 0; j < tam; ++j)
