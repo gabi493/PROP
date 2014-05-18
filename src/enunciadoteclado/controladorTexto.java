@@ -1,4 +1,4 @@
-package enunciadoteclado;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -57,7 +57,7 @@ public class controladorTexto {
             chooser.setAcceptAllFileFilterUsed(true);
             //Si seleccionamos algún archivo retornaremos su directorio
             if(accion == "abrir" || accion == "editar" || accion == "seleccionar") {
-                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
                     System.out.println("Directorio: " + chooser.getCurrentDirectory().getAbsolutePath());
                     File textoSeleccionado = chooser.getSelectedFile();
                     System.out.println(textoSeleccionado);
