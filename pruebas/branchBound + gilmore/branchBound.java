@@ -114,7 +114,7 @@ public class branchBound {
      */
     public void greedy() {
         double costeParcial = 0;
-        for(int j =0; j < 3; ++j) {
+        for(int j =0; j < 100; ++j) {
             costeParcial=0;
             Vector<Integer> p = new Vector<Integer> ();
             for(int i=0; i< mida;++i) {
@@ -177,6 +177,7 @@ public class branchBound {
                             int pos = mida-v1.size();
 		            aux[pos] = v1.get(i);
                             double x = calcularCost(aux,pos,b.cost); // Calcula el coste del nodo     
+                            // double x = calcularCoste(h1,aux,pos)
                             Node c = new Node(h1,aux,x);                          
                             if(esMejor(c.cost)) {
                                 if(v1.isEmpty()) {

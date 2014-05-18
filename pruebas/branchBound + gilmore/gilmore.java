@@ -1,3 +1,6 @@
+
+import java.util.Vector;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,31 +19,31 @@ public class gilmore {
         this.estadisticas = estadistica;
         this.distancia = distancia;
     }
-    public int g(Node a, int pos) {
-        int cost = 0;
+    public double g(int[] asignado, int pos) {
+        double cost = 0;
         for(int i=0; i < pos;++i) {
             for(int j=0; j < pos; ++j) {
-                cost += estadisticas[a.teclasAssignadas[i]][a.teclasAssignadas[j]]*distancia[i][j];
-                cost += estadisticas[a.teclasAssignadas[j]][a.teclasAssignadas[i]]*distancia[j][i];   
+                cost += estadisticas[asignado[i]][asignado[j]]*distancia[i][j];
+                cost += estadisticas[asignado[j]][asignado[i]]*distancia[j][i];   
             }
             
         }
         return cost;
     }
-    public int[][] termino2(Node a, int pos) {
-        int [][] matriz2 = new int [a.teclasPendientes.size()][a.teclasPendientes.size()];
-        for(int i =0; i < a.teclasPendientes.size();++i) {
-            for(int j = 0; j < a.teclasPendientes.size();++j){
+    public int[][] termino2(Vector<Integer> pendiente, int[] asignado, int pos) {
+        int [][] matriz2 = new int [pendiente.size()][pendiente.size()];
+        for(int i =0; i < pendiente.size();++i) {
+            for(int j = 0; j < pendiente.size();++j){
                    for(int k = 0; k < pos; ++k) {
-                       matriz2[i][j] += estadisticas[a.teclasAssignadas[k]][a.teclasPendientes.get(i)] * distancia[k][j+pos+1];
+                       matriz2[i][j] += estadisticas[asignado[k]][pendiente.get(i)] * distancia[k][j+pos+1];
                    } 
             }
         }
         return matriz2;
     }
     
-    public int[][] termino3 (Node a, int pos) {
-        int [][] matriz3 = new int[a.teclasPendientes.size()][a.teclasPendientes.size()];
+    public int[][] termino3 (Vector<Integer> pendiente, int[] asignado, int pos) {
+        int [][] matriz3 = new int[pendiente.size()][pendiente.size()];
         return matriz3;
         
     }
@@ -48,9 +51,9 @@ public class gilmore {
     
     
     
-    public int h(Node a, int pos) {
-        int [][] matriz2 = termino2 (a,pos);
-        int [][] matriz3 = termino3 (a,pos);
+    public double h(Vector<Integer> pendiente, int[] asignado, int pos) {
+        int [][] matriz2 = termino2 (pendiente,asignado,pos);
+        int [][] matriz3 = termino3 (pendiente,asignado,pos);
         int [][] matriz = new int[matriz2[0].length][matriz2[0].length];
         
         
@@ -67,7 +70,7 @@ public class gilmore {
     }
     
     
-    public int calcularCoste(Node a, int pos) {
-        return g(a,pos)+ h(a,pos);   
+    public double calcularCoste(Vector<Integer> pendiente, int[] asignado, int pos) {
+        return g(asignado,pos)+ h(pendiente,asignado,pos);   
     }
 }
