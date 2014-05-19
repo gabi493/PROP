@@ -13,7 +13,7 @@ public class hungariano {
     
     public int calcularHungariano(int [][] matrix) {
         
-        for(int)
+        while(!todoCubierto())
         
         
         
@@ -30,7 +30,7 @@ public class hungariano {
     
     
     
-    public boolean todo_cubierto(int [] columnas) {
+    public boolean todoCubierto(int [] columnas) {
         for(int i=0; i < columnas.length;++i) {
             if(columnas[i] == 0) return false;
         }
