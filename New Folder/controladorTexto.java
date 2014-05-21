@@ -38,7 +38,7 @@ public class controladorTexto {
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
         ruta = chooser.getCurrentDirectory().getAbsolutePath();
-        ruta += "\\Documentacion\\";
+        ruta += "\\Textos\\";
         System.out.println("Ruta " + ruta);
     }
     

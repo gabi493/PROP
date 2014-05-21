@@ -28,13 +28,15 @@ public class driverTexto {
             while (!out) {
 				System.out.println("Elige una opicion:");
 				System.out.println("\t 1) texto()");
-				System.out.println("\t 2) texto(idioma, titulo, numeroCaracteres)");
+				System.out.println("\t 2) texto(ruta,idioma, titulo, numeroCaracteres)");
 				System.out.println("\t 3) setIdioma(idioma)");
 				System.out.println("\t 4) getIdioma()");
 				System.out.println("\t 5) setTitulo(titulo)");
 				System.out.println("\t 6) getTitulo()");
 				System.out.println("\t 7) setNumeroCaracteres(numeroCaracteres)");
 				System.out.println("\t 8) getNumeroCaracteres()");
+                                System.out.println("\t 9) setRuta (String ruta)");
+				System.out.println("\t 10) getRuta()");
 				System.out.println("\t 0) Salir");
 
 				System.out.println();
@@ -54,7 +56,7 @@ public class driverTexto {
                             text = new texto();
                             break;
                         case "2":
-                            text = new texto(palabras[1], palabras[2], Integer.parseInt(palabras[3]));
+                            text = new texto(palabras[1],palabras[2], palabras[3], Integer.parseInt(palabras[4]));
                             break;
                         case "3":   //setIdioma
                             text.setIdioma(palabras[1]);
@@ -68,15 +70,22 @@ public class driverTexto {
                         case "6":   //getTitulo
                             System.out.println("Titulo del texto = " + text.getTitulo());
                             break;
-						case "7":   //setNumeroCaracteres
+			case "7":   //setNumeroCaracteres
                             text.setNumeroCaracteres(Integer.parseInt(palabras[1]));
                             break;
                         case "8":   //getNumeroCaracteres
                             System.out.println("Numero de caracteres del texto = " + text.getNumeroCaracteres());
                             break;
-						case "0":
+                        case "9":   //getNumeroCaracteres
+                            text.setRuta(palabras[1]);
+                            break;   
+                        case "10":   //getNumeroCaracteres
+                            System.out.println("La ruta del texto es  = " + text.getRuta());
+                            break;
+			case "0":
                             out = true;
                             break;
+                                                    
                         default: 
                             System.out.println("La opcion elegida no existe.");
                             break;
