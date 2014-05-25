@@ -116,7 +116,7 @@ public class branchBound {
      */
     public void greedy() {
         double costeParcial = 0;
-        for(int j =0; j < 100; ++j) {
+        for(int j =0; j < 200; ++j) {
             costeParcial=0;
             Vector<Integer> p = new Vector<Integer> ();
             for(int i=0; i< mida;++i) {

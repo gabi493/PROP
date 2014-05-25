@@ -1,4 +1,4 @@
-package branchBound;
+package branchBoundGilmore;
 
 
 import java.util.Collections;
@@ -29,10 +29,15 @@ public class gilmore {
     
     public double g(int[] asignado, int pos) {
         double cost = 0;
-        for(int i=0; i <= pos;++i) {
-            for(int j=0; j <= pos; ++j) {
+        for(int i=0; i < asignado.length; ++i) {
+            for(int j=0; j < asignado.length; ++j) {
+               
                 cost += estadisticas[asignado[i]][asignado[j]]*distancia[i][j];
-                cost += estadisticas[asignado[j]][asignado[i]]*distancia[j][i];   
+                System.out.println("Coste parcial " + estadisticas[asignado[j]][asignado[i]]*distancia[j][i]+ " valor de i y j "+ i + " "+ j);
+                System.out.println("Valor de estadistica " + estadisticas[asignado[i]][asignado[j]] + " "+ asignado[i]+ " "+ asignado[j]);
+                System.out.println("Valor de distancia " + distancia[i][j]);
+
+
             }
             
         }
@@ -49,6 +54,7 @@ public class gilmore {
                    } 
             }
         }
+        System.out.println("Matriz creada del termino 2");
         return matriz2;
     }
     
@@ -82,6 +88,7 @@ public class gilmore {
             
            
         }
+        System.out.println("Matriz creada termino 3");
         return matriz3;
         
     }
