@@ -1,3 +1,5 @@
+package branchBound;
+
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,21 +19,24 @@ public class gilmore {
     
     private int[][] estadisticas;
     private int[][] distancia;
-    
+    public gilmore(){};
     public gilmore(int [][] estadistica, int [][] distancia){
         this.estadisticas = estadistica;
         this.distancia = distancia;
+        System.out.println("Inicializo el gilmore");
+
     }
     
     public double g(int[] asignado, int pos) {
         double cost = 0;
-        for(int i=0; i < pos;++i) {
-            for(int j=0; j < pos; ++j) {
+        for(int i=0; i <= pos;++i) {
+            for(int j=0; j <= pos; ++j) {
                 cost += estadisticas[asignado[i]][asignado[j]]*distancia[i][j];
                 cost += estadisticas[asignado[j]][asignado[i]]*distancia[j][i];   
             }
             
         }
+        System.out.println("Coste realizado " + cost);
         return cost;
     }
     
@@ -95,7 +100,8 @@ public class gilmore {
         }
         hung hung = new hung();
         double cost = hung.eje(matriz);
-        
+        System.out.println("Calculo del hungariano "+ cost);
+
         
         
         return cost;
@@ -103,6 +109,8 @@ public class gilmore {
     
     
     public double calcularCoste(Vector<Integer> pendiente, int[] asignado, int pos) {
-        return g(asignado,pos)+ h(pendiente,asignado,pos);   
+        double coste = g(asignado,pos)+ h(pendiente,asignado,pos);   
+        System.out.println("Calculo del node "+ coste);
+        return coste;
     }
 }
