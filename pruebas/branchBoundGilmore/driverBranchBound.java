@@ -1,4 +1,4 @@
-package branchBound;
+
 
 
 
@@ -74,7 +74,7 @@ public class driverBranchBound {
                             JFileChooser chooser = new JFileChooser();
                             chooser.setCurrentDirectory(new java.io.File("."));
                             String ruta = chooser.getCurrentDirectory().getAbsolutePath();
-                            ruta +="\\branchBound\\"+ palabras[1];
+                            ruta +="//"+ palabras[1];
                             cp.leerJuegoDePrueba(ruta);
                             break;
                         case "6":   // Ejecuta el algoritmo

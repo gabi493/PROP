@@ -1,4 +1,4 @@
-package branchBoundGilmore;
+
 
 
 import java.util.Collections;
@@ -19,6 +19,7 @@ public class gilmore {
     
     private int[][] estadisticas;
     private int[][] distancia;
+    
     public gilmore(){};
     public gilmore(int [][] estadistica, int [][] distancia){
         this.estadisticas = estadistica;
@@ -31,13 +32,7 @@ public class gilmore {
         double cost = 0;
         for(int i=0; i < asignado.length; ++i) {
             for(int j=0; j < asignado.length; ++j) {
-               
-                cost += estadisticas[asignado[i]][asignado[j]]*distancia[i][j];
-                System.out.println("Coste parcial " + estadisticas[asignado[j]][asignado[i]]*distancia[j][i]+ " valor de i y j "+ i + " "+ j);
-                System.out.println("Valor de estadistica " + estadisticas[asignado[i]][asignado[j]] + " "+ asignado[i]+ " "+ asignado[j]);
-                System.out.println("Valor de distancia " + distancia[i][j]);
-
-
+                cost += estadisticas[j][i]*distancia[asignado[j]][asignado[i]];
             }
             
         }
@@ -50,7 +45,7 @@ public class gilmore {
         for(int i =0; i < pendiente.size();++i) {
             for(int j = 0; j < pendiente.size();++j){
                    for(int k = 0; k < pos; ++k) {
-                       matriz2[i][j] += estadisticas[asignado[k]][pendiente.get(i)] * distancia[k][j+pos+1];
+                       matriz2[i][j] += estadisticas[k][pendiente.get(i)] * distancia[asignado[k]][asignado[j+pos+1]];
                    } 
             }
         }
@@ -69,7 +64,7 @@ public class gilmore {
             }
         }
 
-        Comparator comparator = Collections.reverseOrder();
+        Comparator<Integer> comparator = Collections.reverseOrder();
         for(int k=0; k < pendiente.size();++k) {
             Vector<Integer> flux = new Vector<Integer> ();
             Vector<Integer> distancia = new Vector<Integer> ();
@@ -99,15 +94,17 @@ public class gilmore {
     public double h(Vector<Integer> pendiente, int[] asignado, int pos) {
         double [][] matriz2 = termino2 (pendiente,asignado,pos);
         double [][] matriz3 = termino3 (pendiente,asignado,pos);
+        System.out.println("Mida de la matriz "+ matriz2.length);
         double [][] matriz = new double[matriz2[0].length][matriz2[0].length];
         for(int i = 0; i < matriz2[0].length; ++i) {
             for(int j = 0; j < matriz2[0].length;++j) {
                 matriz[i][j] = matriz2[i][j]+ matriz3[i][j];
             }
         }
-        hung hung = new hung();
-        double cost = hung.eje(matriz);
-        System.out.println("Calculo del hungariano "+ cost);
+        System.out.println("Calculo del hungariano ");
+        hungar hungaro = new hungar();
+        double cost = hungaro.eje(matriz);
+        System.out.println("Salgo del calculo"+cost);
 
         
         
@@ -116,8 +113,10 @@ public class gilmore {
     
     
     public double calcularCoste(Vector<Integer> pendiente, int[] asignado, int pos) {
-        double coste = g(asignado,pos)+ h(pendiente,asignado,pos);   
-        System.out.println("Calculo del node "+ coste);
-        return coste;
+        double costeReal = g(asignado,pos); 
+        double costeAprox=0;
+        if(!pendiente.isEmpty()) costeAprox = h(pendiente,asignado,pos);   
+        System.out.println("Calculo del node "+ costeReal+costeAprox);
+        return costeReal+costeAprox;
     }
 }

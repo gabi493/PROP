@@ -4,7 +4,7 @@ import java.util.*;
 
 
 
-public class hung {
+public class hungar {
     
    
     private boolean[] filinicub;
@@ -15,7 +15,7 @@ public class hung {
     private int[] colselec;
     private int a;
 
-    public hung() {
+    public hungar() {
         filinicub = null;
         colinicub = null;
         filcub = null;
