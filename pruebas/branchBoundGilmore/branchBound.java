@@ -155,8 +155,14 @@ public class branchBound {
      * @return true, si es una possible solucio i false, si no ho es
      */
     public boolean esMejor(double a) {
-        if(a <= mejorCost) return true;
-        else return false; 
+        if(a <= mejorCost) {
+		System.out.println("Es mejor el node");
+		return true;
+	   }
+        else {
+           System.out.println("El node no es mejor");
+		return false; 
+	   }
     }
         
     /**

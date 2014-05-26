@@ -30,8 +30,8 @@ public class gilmore {
     
     public double g(int[] asignado, int pos) {
         double cost = 0;
-        for(int i=0; i < asignado.length; ++i) {
-            for(int j=0; j < asignado.length; ++j) {
+        for(int i=0; i <= pos; ++i) {
+            for(int j=0; j <= pos; ++j) {
                 cost += estadisticas[j][i]*distancia[asignado[j]][asignado[i]];
             }
             
@@ -116,7 +116,7 @@ public class gilmore {
         double costeReal = g(asignado,pos); 
         double costeAprox=0;
         if(!pendiente.isEmpty()) costeAprox = h(pendiente,asignado,pos);   
-        System.out.println("Calculo del node "+ costeReal+costeAprox);
+        System.out.println("Calculo del node "+ costeReal+" "+ costeAprox);
         return costeReal+costeAprox;
     }
 }
