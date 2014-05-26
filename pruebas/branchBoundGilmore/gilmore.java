@@ -44,7 +44,7 @@ public class gilmore {
         double [][] matriz2 = new double [pendiente.size()][pendiente.size()];
         for(int i =0; i < pendiente.size();++i) {
             for(int j = 0; j < pendiente.size();++j){
-                   for(int k = 0; k < pos; ++k) {
+                   for(int k = 0; k <= pos; ++k) {
                        matriz2[i][j] += estadisticas[k][pendiente.get(i)] * distancia[asignado[k]][asignado[j+pos+1]];
                    } 
             }
