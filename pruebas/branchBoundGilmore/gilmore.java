@@ -77,8 +77,13 @@ public class gilmore {
         int [][] distancias = new int [pendiente.size()] [pendiente.size()];
         for(int i=0; i < pendiente.size();++i) {
             for(int j = 0; j < pendiente.size();++j) {
+<<<<<<< HEAD
                 flujo[i][j] = estadisticas[i][j];
                 distancias[i][j] = distancia [i+pos+1][j+pos+1];
+=======
+                flujo[i][j] = estadisticas[pendiente.get(i)][pendiente.get(j)];
+                distancias[i][j] = distancia [asignado[i+pos+1]][asignado[j+pos+1]];
+>>>>>>> 348fa33f76f4529a5e33ca76e02182807ac4651e
             }
         }
 
