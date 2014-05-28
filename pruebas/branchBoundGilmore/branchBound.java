@@ -58,7 +58,8 @@ public class branchBound {
         Vector<Integer> pendientes = new Vector<Integer> (estadistica[0].length);
         mejorSolucion = new Node (pendientes,asignados,0);
         anadirPendientes();            
-        nodes = new PriorityQueue<> (1,new NodeComparador()); 
+        
+        nodes = new PriorityQueue<Node> (1,new NodeComparador()); 
         nodes.add(mejorSolucion);          
         greedy();
         g = new gilmore(estadistica,distancia);

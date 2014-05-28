@@ -60,7 +60,7 @@ public class gilmore {
         for(int i=0; i < pendiente.size();++i) {
             for(int j = 0; j < pendiente.size();++j) {
                 flujo[i][j] = estadisticas[pendiente.get(i)][pendiente.get(j)];
-                distancias[i][j] = distancia [i+pos+1][j+pos+1];
+                distancias[i][j] = distancia [asignado[i+pos+1]][asignado[j+pos+1]];
             }
         }
 
