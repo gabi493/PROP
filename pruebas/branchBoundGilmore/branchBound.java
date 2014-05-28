@@ -55,6 +55,7 @@ public class branchBound {
         mejorCost = Integer.MAX_VALUE;  // Millor cost = infinit
         double coste = 0;
         int asignados[] = new int [mida];
+        for(int i=0; i < asignados.length;++i) asignados[i] = -1;
         Vector<Integer> pendientes = new Vector<Integer> (estadistica[0].length);
         mejorSolucion = new Node (pendientes,asignados,0);
         anadirPendientes();            

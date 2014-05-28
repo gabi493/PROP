@@ -17,16 +17,16 @@ import javax.swing.JFileChooser;
  */
 public class driverHung {
     public static void main (String[] args) {
-        int [] asignado = {6,4,11,1,0,2,8,10,9,5,7,3};
+        int [] asignado = {4,6,0,9,10,2,3,1,8,5,11,7};
+        //int [] asignado = {6,4,11,1,0,2,8,10,9,5,7,3};
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
         String ruta = chooser.getCurrentDirectory().getAbsolutePath();
-        ruta +="//" + 1;
+        ruta +="//" + "chr12b";
         ctrlPersistencia cp = new ctrlPersistencia();
         cp.leerJuegoDePrueba(ruta);
         gilmore g = new gilmore(cp.getAfin(),cp.getDist());
-        
-        double cost = g.g(asignado,asignado.length-1);
+        double cost = g.g(asignado);
         
         
         double [][] matrix = { /*{250,400,350},
