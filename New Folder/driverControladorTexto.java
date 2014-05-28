@@ -34,7 +34,7 @@ public class driverControladorTexto {
         alf.addSimbolo(b);
         simbolo c = new simbolo('c');
         alf.addSimbolo(c);
-       System.out.println(alf.getNumCaracteres());
+        System.out.println(alf.getNumCaracteres());
         alf.escribirAlfabeto();
         ct.leerParDeLetras(e,alf);
         e.leerMatriz();
