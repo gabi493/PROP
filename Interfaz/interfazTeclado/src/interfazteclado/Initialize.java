@@ -5,7 +5,7 @@
  */
 
 package interfazteclado;
-
+//git sucks
 /**
  *
  * @author josep
@@ -52,7 +52,11 @@ public class Initialize extends javax.swing.JFrame {
         btTecla = new javax.swing.JButton();
         btTeclado = new javax.swing.JButton();
         btVisualizacion = new javax.swing.JButton();
+<<<<<<< HEAD
         lAlfabetoName = new javax.swing.JLabel();
+=======
+        btCerrar = new javax.swing.JButton();
+>>>>>>> f756535f355e908c0d5c413abd0e290d8de7d81d
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(530, 378));
@@ -98,6 +102,13 @@ public class Initialize extends javax.swing.JFrame {
 
         btVisualizacion.setText("VISUALIZACIÓN");
 
+        btCerrar.setText("Cerrar");
+        btCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,12 +118,29 @@ public class Initialize extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bNuevoTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGap(1, 1, 1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btAlfabeto)
+                                    .addComponent(btCjtoTextos)
+                                    .addComponent(btTecla)
+                                    .addComponent(btTeclado))
+                                .addGap(168, 168, 168))
+>>>>>>> f756535f355e908c0d5c413abd0e290d8de7d81d
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
+<<<<<<< HEAD
                                 .addComponent(bNuevoTeclado))
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -126,6 +154,13 @@ public class Initialize extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lAlfabetoName)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                                .addComponent(btVisualizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btCerrar)
+                                .addGap(99, 99, 99)))))
+                .addContainerGap())
+>>>>>>> f756535f355e908c0d5c413abd0e290d8de7d81d
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +184,28 @@ public class Initialize extends javax.swing.JFrame {
                 .addComponent(btTecla)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btTeclado)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bNuevoTeclado)
+                                .addGap(64, 64, 64))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btVisualizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                                .addGap(57, 57, 57))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btCerrar)
+                        .addGap(31, 31, 31))))
+>>>>>>> f756535f355e908c0d5c413abd0e290d8de7d81d
         );
 
         pack();
@@ -186,10 +240,15 @@ public class Initialize extends javax.swing.JFrame {
 
     private void btTecladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTecladoActionPerformed
         configurarTeclado confTeclado = new configurarTeclado(Initialize.this);
+		confTeclado.inicializar();
 		Initialize.this.setVisible(false);
 		confTeclado.setVisible(true);
 
     }//GEN-LAST:event_btTecladoActionPerformed
+
+    private void btCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,6 +288,7 @@ public class Initialize extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bNuevoTeclado;
     private javax.swing.JButton btAlfabeto;
+    private javax.swing.JButton btCerrar;
     private javax.swing.JButton btCjtoTextos;
     private javax.swing.JButton btTecla;
     private javax.swing.JButton btTeclado;
