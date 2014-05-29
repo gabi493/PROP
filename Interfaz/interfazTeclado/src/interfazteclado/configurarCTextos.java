@@ -17,7 +17,8 @@ public class configurarCTextos extends javax.swing.JFrame {
     alfabeto alfabetoElegido = new alfabeto();
     DefaultListModel modeloFrom = new DefaultListModel();
     DefaultListModel modeloTo = new DefaultListModel();
-    configurarAlfabeto cAlf = new configurarAlfabeto();
+    //configurarAlfabeto cAlf = new configurarAlfabeto();
+    Initialize ini = new Initialize();
     texto tSeleccionadoLista1 = new texto();
     texto tSeleccionadoLista2 = new texto();
     int index;
@@ -28,9 +29,8 @@ public class configurarCTextos extends javax.swing.JFrame {
         initComponents();
     }
     
-    public configurarCTextos(alfabeto alf, configurarAlfabeto cAlf) {
-        this.alfabetoElegido = alf;
-        this.cAlf = cAlf;
+    public configurarCTextos(Initialize ini) {
+        this.ini = ini;
         initComponents();
     }
     
@@ -70,7 +70,7 @@ public class configurarCTextos extends javax.swing.JFrame {
         }
         jList2 = new JList(modeloTo);
         bAnadir = new javax.swing.JButton();
-        bSiguiente = new javax.swing.JButton();
+        bAceptar = new javax.swing.JButton();
         bAtras = new javax.swing.JButton();
         bNuevoTexto = new javax.swing.JButton();
         bEliminar = new javax.swing.JButton();
@@ -104,10 +104,10 @@ public class configurarCTextos extends javax.swing.JFrame {
             }
         });
 
-        bSiguiente.setText("Siguente");
-        bSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSiguienteActionPerformed(evt);
+                bAceptarActionPerformed(evt);
             }
         });
 
@@ -151,7 +151,7 @@ public class configurarCTextos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(bSiguiente))
+                                .addComponent(bAceptar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(121, 121, 121)
                                 .addComponent(bEliminar)))
@@ -190,7 +190,7 @@ public class configurarCTextos extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bSiguiente)
+                            .addComponent(bAceptar)
                             .addComponent(bAtras)
                             .addComponent(bNuevoTexto)))
                     .addGroup(layout.createSequentialGroup()
@@ -204,13 +204,14 @@ public class configurarCTextos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSiguienteActionPerformed
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         // TODO add your handling code here:
-        formaTeclado formaT = new formaTeclado(configurarCTextos.this);
-        formaT.setVisible(true);
+        //formaTeclado formaT = new formaTeclado(configurarCTextos.this);
+        //formaT.setVisible(true);
         configurarCTextos.this.setVisible(false);
+        ini.setVisible(true);
         
-    }//GEN-LAST:event_bSiguienteActionPerformed
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bNuevoTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoTextoActionPerformed
         configurarCTextos.this.setVisible(false);
@@ -221,7 +222,7 @@ public class configurarCTextos extends javax.swing.JFrame {
     private void bAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtrasActionPerformed
         // TODO add your handling code here:
         configurarCTextos.this.setVisible(false);
-        cAlf.setVisible(true);
+        ini.setVisible(true);
     }//GEN-LAST:event_bAtrasActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
@@ -285,11 +286,11 @@ public class configurarCTextos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
     private javax.swing.JButton bAnadir;
     private javax.swing.JButton bAtras;
     private javax.swing.JButton bEliminar;
     private javax.swing.JButton bNuevoTexto;
-    private javax.swing.JButton bSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList jList1;

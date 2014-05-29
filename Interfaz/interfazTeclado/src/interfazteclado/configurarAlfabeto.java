@@ -65,7 +65,7 @@ public class configurarAlfabeto extends javax.swing.JFrame {
         }
         tLista = new JList(modeloLista);
         bCrearNuevo = new javax.swing.JButton();
-        bSiguiente = new javax.swing.JButton();
+        bAceptar = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
         lAlfabetoElegido = new javax.swing.JLabel();
 
@@ -96,10 +96,10 @@ public class configurarAlfabeto extends javax.swing.JFrame {
             }
         });
 
-        bSiguiente.setText("Siguiente");
-        bSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSiguienteActionPerformed(evt);
+                bAceptarActionPerformed(evt);
             }
         });
 
@@ -117,12 +117,6 @@ public class configurarAlfabeto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(bCancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(bSiguiente)
-                        .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,10 +127,15 @@ public class configurarAlfabeto extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
                                 .addComponent(lAlfabetoElegido)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bCrearNuevo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bCrearNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(bCancelar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -154,15 +153,15 @@ public class configurarAlfabeto extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addComponent(bCrearNuevo)
-                        .addGap(164, 164, 164)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bSiguiente)
-                            .addComponent(bCancelar))
-                        .addContainerGap())
+                        .addGap(164, 164, 164))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(lAlfabetoElegido)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bCancelar)
+                    .addComponent(bAceptar))
+                .addContainerGap())
         );
 
         pack();
@@ -190,11 +189,13 @@ public class configurarAlfabeto extends javax.swing.JFrame {
   
     }//GEN-LAST:event_tListaValueChanged
 
-    private void bSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSiguienteActionPerformed
-        configurarCTextos cct = new configurarCTextos(alfabetoElegido, configurarAlfabeto.this);
-        cct.setVisible(true);
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        //configurarCTextos cct = new configurarCTextos(alfabetoElegido, configurarAlfabeto.this);
+        //cct.setVisible(true);
+        init.setAlfabetoElegido(alfabetoElegido);
         configurarAlfabeto.this.setVisible(false);
-    }//GEN-LAST:event_bSiguienteActionPerformed
+        init.setVisible(true);
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -229,9 +230,9 @@ public class configurarAlfabeto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bCrearNuevo;
-    private javax.swing.JButton bSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
