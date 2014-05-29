@@ -31,7 +31,12 @@ public class configurarTeclado extends javax.swing.JFrame {
 		this.jtColumnas.setText("");
 		this.jtFilas.setText("");
 		this.jtPosiciones.setText("");
-		this.lbMens.setVisible(false);
+		this.lbMens.setText("");
+		//this.lbMens.setVisible(false);
+	}
+	
+	public void inicializar() {	//limpiar todos los campos al cargar
+		limpiarCampos();
 	}
 	
 	configurarTeclado(Initialize init) {
@@ -71,6 +76,11 @@ public class configurarTeclado extends javax.swing.JFrame {
         btAtras.setText("Atrás");
 
         btGuardar.setText("Guardar");
+        btGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGuardarActionPerformed(evt);
+            }
+        });
 
         lbMens.setBackground(new java.awt.Color(255, 51, 51));
         lbMens.setText("jLabel1");
@@ -184,6 +194,22 @@ public class configurarTeclado extends javax.swing.JFrame {
         limpiarCampos();
 		
     }//GEN-LAST:event_btResetValoresActionPerformed
+
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
+        try {
+			int columnas = Integer.parseInt(this.jtColumnas.getText());
+			int filas = Integer.parseInt(this.jtFilas.getText());
+			int posiciones = Integer.parseInt(this.jtPosiciones.getText());
+			
+			teclado tec = new teclado(forma, filas, columnas, posiciones, lados);
+			limpiarCampos();
+			
+			this.lbMens.setText("Teclado guardado");
+
+		} catch (Exception e) {
+			this.lbMens.setText("Error de guardado");
+		}
+    }//GEN-LAST:event_btGuardarActionPerformed
 
 	/**
 	 * @param args the command line arguments
