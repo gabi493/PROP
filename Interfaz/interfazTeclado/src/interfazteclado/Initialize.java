@@ -168,19 +168,9 @@ public class Initialize extends javax.swing.JFrame {
 
     private void btTecladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTecladoActionPerformed
         configurarTeclado confTeclado = new configurarTeclado(Initialize.this);
-		confTeclado.setVisible(true);
 		Initialize.this.setVisible(false);
-				
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		confTeclado.setVisible(true);
+
     }//GEN-LAST:event_btTecladoActionPerformed
 
     /**
