@@ -21,10 +21,11 @@ public class configurarTeclado extends javax.swing.JFrame {
 	 */
 	
 	public configurarTeclado() {
-		limpiarCampos();
-		
 		initComponents();
+		limpiarCampos();
 	}
+
+
 	
 	public void limpiarCampos() {
 		this.jtColumnas.setText("");
@@ -73,10 +74,16 @@ public class configurarTeclado extends javax.swing.JFrame {
         cbFormaTeclado = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 51));
 
         lbTitulo.setText("Editar teclado:");
 
         btAtras.setText("Atrás");
+        btAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtrasActionPerformed(evt);
+            }
+        });
 
         btGuardar.setText("Guardar");
         btGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,8 +246,11 @@ public class configurarTeclado extends javax.swing.JFrame {
 			if (errorCampoVacio) {
 				mostrarMensaje("Debe escoger todos los campos");
 			}
-			
-			teclado tec = new teclado(forma, filas, columnas, posiciones, lados);
+			tecladoEscogido.setForma(forma);
+			tecladoEscogido.setNumeroFilas(filas);
+			tecladoEscogido.setNumeroColumnas(columnas);
+			tecladoEscogido.setNumeroPosiciones(posiciones);
+			tecladoEscogido.setTeclasDe4Lados(lados);
 			limpiarCampos();
 			
 			mostrarMensaje("Teclado guardado");
@@ -249,6 +259,11 @@ public class configurarTeclado extends javax.swing.JFrame {
 			mostrarMensaje("Error de guardado");
 		}
     }//GEN-LAST:event_btGuardarActionPerformed
+
+    private void btAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtrasActionPerformed
+		configurarTeclado.this.setVisible(false);
+		init.setVisible(true);
+    }//GEN-LAST:event_btAtrasActionPerformed
 
 	/**
 	 * @param args the command line arguments
