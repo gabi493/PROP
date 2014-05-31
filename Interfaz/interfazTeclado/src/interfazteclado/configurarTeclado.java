@@ -6,12 +6,6 @@
  */
 package interfazteclado;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-
 public class configurarTeclado extends javax.swing.JFrame {
 	teclado tecladoEscogido = new teclado();
 	Initialize init = new Initialize();
@@ -45,7 +39,6 @@ public class configurarTeclado extends javax.swing.JFrame {
 		this.init = init;
 		
 		initComponents();
-		//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	/**

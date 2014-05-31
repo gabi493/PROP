@@ -1,4 +1,4 @@
-package interfazteclado;
+package enunciadoteclado;
 
 import java.util.ArrayList;
 
@@ -133,10 +133,5 @@ public class alfabeto {
      */
     public void escribirAlfabeto() {
         for (int i = 0; i < numCaracteres; i++) System.out.println (this.alf.get(i).getInfo() + " ");
-    }
-    
-    @Override
-    public String toString() {
-        return nombreAlfabeto;
     }
 }
