@@ -102,7 +102,6 @@
           <Color blue="33" green="cc" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="VISUALIZACI&#xd3;N"/>
-        <Property name="opaque" type="boolean" value="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btSalir">

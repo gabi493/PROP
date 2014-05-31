@@ -7,7 +7,7 @@
 package interfazteclado;
 
 public class configurarTeclado extends javax.swing.JFrame {
-	controladorTeclado conTeclado = new controladorTeclado();
+	//controladorTeclado conTeclado = new controladorTeclado();
 	teclado tec = new teclado();
 	Initialize init = new Initialize();
 	
@@ -20,7 +20,8 @@ public class configurarTeclado extends javax.swing.JFrame {
 		limpiarCampos();
 	}
 	
-	public configurarTeclado(Initialize init) {
+	public configurarTeclado(Initialize init, teclado tec) {
+                this.tec = tec;
 		this.init = init;
 		initComponents();
 		limpiarCampos();
@@ -37,6 +38,8 @@ public class configurarTeclado extends javax.swing.JFrame {
 		this.cbLadosTeclas.setSelectedIndex(0);
 		//this.lbMens.setVisible(false);
 	}
+        
+     
 	
 	
 	/**
@@ -237,10 +240,14 @@ public class configurarTeclado extends javax.swing.JFrame {
 			if (errorCampoVacio) {
 				mostrarMensaje("Debe escoger todos los campos");
 			}
-			tec.crearTeclado(forma, filas, columnas, posiciones, lados);
+			tec = new teclado(forma, filas, columnas, posiciones, lados);
 			limpiarCampos();
 			
+                        init.recibirTeclado(tec);
+                        
 			mostrarMensaje("Teclado guardado");
+                        
+                        
 
 		} catch (Exception e) {
 			mostrarMensaje("Error de guardado");

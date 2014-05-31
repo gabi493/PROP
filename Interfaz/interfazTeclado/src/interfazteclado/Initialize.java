@@ -15,14 +15,19 @@ public class Initialize extends javax.swing.JFrame {
 	/**
 	 * Creates new form Initialize
 	 */
-	
-	teclado tec = new teclado();
+    
+    teclado tec = new teclado();
+    
 	
 	
 	public Initialize() {
 		
 		initComponents();
 	}
+        
+        public void recibirTeclado(teclado tec) {
+            this.tec = tec;
+        }
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -146,7 +151,7 @@ public class Initialize extends javax.swing.JFrame {
 
     private void mnTecladoMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_mnTecladoMenuSelected
    		Initialize.this.setVisible(false);
-		configurarTeclado confTeclado = new configurarTeclado(Initialize.this);
+		configurarTeclado confTeclado = new configurarTeclado(Initialize.this, tec);
 		confTeclado.setVisible(true);
     }//GEN-LAST:event_mnTecladoMenuSelected
 

@@ -1,4 +1,4 @@
-package enunciadoteclado;
+package interfazteclado;
 import java.io.IOException;
 import java.util.LinkedList ;
 import java.util.ArrayList;
