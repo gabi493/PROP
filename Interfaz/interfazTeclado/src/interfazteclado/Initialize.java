@@ -22,15 +22,22 @@ public class Initialize extends javax.swing.JFrame {
 	
 	
 	public Initialize() {
-		
+		//lbMsg.setText("");
 		initComponents();
+		inicializarCampos();
 	}
-        
-        public void recibirTeclado(teclado tec) {
-            this.tec = tec;
-            System.out.println(tec.getNumeroColumnas());
-             System.out.println(tec.getNumeroFilas());
-        }
+    
+	public void inicializarCampos() {
+		this.lbMsg.setText("");
+	}
+	
+    public void recibirTeclado(teclado tec) {
+        this.tec = tec;
+    }
+	
+	public void recibirMsg(String s) {
+		this.lbMsg.setText(s);
+	}
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -44,6 +51,7 @@ public class Initialize extends javax.swing.JFrame {
         lbTitulo = new javax.swing.JLabel();
         btVisualizacion = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
+        lbMsg = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnAlfabeto = new javax.swing.JMenu();
         mnCjtoTextos = new javax.swing.JMenu();
@@ -64,50 +72,52 @@ public class Initialize extends javax.swing.JFrame {
             }
         });
 
+        lbMsg.setText("jLabel1");
+
         mnAlfabeto.setText("ALFABETO");
         mnAlfabeto.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnAlfabetoMenuSelected(evt);
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnAlfabetoMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
         });
         jMenuBar1.add(mnAlfabeto);
 
         mnCjtoTextos.setText("CJTO TEXTOS");
         mnCjtoTextos.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnCjtoTextosMenuSelected(evt);
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnCjtoTextosMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
         });
         jMenuBar1.add(mnCjtoTextos);
 
         mnTecla.setText("TECLA");
         mnTecla.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnTeclaMenuSelected(evt);
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnTeclaMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
         });
         jMenuBar1.add(mnTecla);
 
         mnTeclado.setText("TECLADO");
         mnTeclado.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnTecladoMenuSelected(evt);
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnTecladoMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
         });
         mnTeclado.addActionListener(new java.awt.event.ActionListener() {
@@ -125,8 +135,11 @@ public class Initialize extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btSalir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -140,7 +153,9 @@ public class Initialize extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(btVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(btSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSalir)
+                    .addComponent(lbMsg))
                 .addGap(23, 23, 23))
         );
 
@@ -218,6 +233,7 @@ public class Initialize extends javax.swing.JFrame {
     private javax.swing.JButton btSalir;
     private javax.swing.JButton btVisualizacion;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbMsg;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JMenu mnAlfabeto;
     private javax.swing.JMenu mnCjtoTextos;

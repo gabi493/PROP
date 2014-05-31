@@ -6,6 +6,8 @@
  */
 package interfazteclado;
 
+import javax.swing.ComboBoxModel;
+
 public class configurarTeclado extends javax.swing.JFrame {
 	//controladorTeclado conTeclado = new controladorTeclado();
 	teclado tec = new teclado();
@@ -21,10 +23,36 @@ public class configurarTeclado extends javax.swing.JFrame {
 	}
 	
 	public configurarTeclado(Initialize init, teclado tec) {
-                this.tec = tec;
+        this.tec = tec;
 		this.init = init;
 		initComponents();
 		limpiarCampos();
+		if (tec.getNumeroPosiciones() != 0)inicializarCampos();
+	}
+	
+	
+	public void inicializarCampos() {
+		this.jtColumnas.setText(String.valueOf(tec.getNumeroColumnas()));
+		this.jtFilas.setText(String.valueOf(tec.getNumeroFilas()));
+		this.jtPosiciones.setText(String.valueOf(tec.getNumeroPosiciones()));
+		
+		ComboBoxModel cbm = this.cbFormaTeclado.getModel();
+		for (int i = 0; i < cbm.getSize(); ++i) {
+			if (cbm.getElementAt(i).toString().equals(tec.getForma())) {
+				this.cbFormaTeclado.setSelectedItem(i);
+				return;
+			}
+		}
+		ComboBoxModel cbmod = this.cbLadosTeclas.getModel();
+		int pos = 0;
+		if (tec.getTeclasDe4Lados()) pos = 1;
+		for (int i = 0; i < cbmod.getSize(); ++i) {
+			if (cbmod.getElementAt(i).equals(pos)) {
+				this.cbLadosTeclas.setSelectedItem(i);
+				return;
+			}
+		}
+		this.lbMens.setText("Valores anteriores");
 	}
 
 
@@ -243,12 +271,14 @@ public class configurarTeclado extends javax.swing.JFrame {
 			tec = new teclado(forma, filas, columnas, posiciones, lados);
 			limpiarCampos();
 			
-                        init.recibirTeclado(tec);
-                        
+            init.recibirTeclado(tec);
+			init.recibirMsg("Teclado guardado");
 			mostrarMensaje("Teclado guardado");
-                        
-                        
-
+			
+			configurarTeclado.this.setVisible(false);
+			this.dispose();
+			init.setVisible(true);
+			
 		} catch (Exception e) {
 			mostrarMensaje("Error de guardado");
 		}
@@ -256,6 +286,8 @@ public class configurarTeclado extends javax.swing.JFrame {
 
     private void btAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtrasActionPerformed
 		configurarTeclado.this.setVisible(false);
+		init.inicializarCampos();
+		this.dispose();
 		init.setVisible(true);
     }//GEN-LAST:event_btAtrasActionPerformed
 
