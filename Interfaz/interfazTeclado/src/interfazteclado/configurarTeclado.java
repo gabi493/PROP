@@ -7,7 +7,8 @@
 package interfazteclado;
 
 public class configurarTeclado extends javax.swing.JFrame {
-	teclado tecladoEscogido = new teclado();
+	controladorTeclado conTeclado = new controladorTeclado();
+	teclado tec = new teclado();
 	Initialize init = new Initialize();
 	
 	/**
@@ -15,6 +16,12 @@ public class configurarTeclado extends javax.swing.JFrame {
 	 */
 	
 	public configurarTeclado() {
+		initComponents();
+		limpiarCampos();
+	}
+	
+	public configurarTeclado(Initialize init) {
+		this.init = init;
 		initComponents();
 		limpiarCampos();
 	}
@@ -31,16 +38,7 @@ public class configurarTeclado extends javax.swing.JFrame {
 		//this.lbMens.setVisible(false);
 	}
 	
-	public void inicializar() {	//limpiar todos los campos al cargar
-		limpiarCampos();
-	}
 	
-	configurarTeclado(Initialize init) {
-		this.init = init;
-		
-		initComponents();
-	}
-
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
@@ -239,11 +237,7 @@ public class configurarTeclado extends javax.swing.JFrame {
 			if (errorCampoVacio) {
 				mostrarMensaje("Debe escoger todos los campos");
 			}
-			tecladoEscogido.setForma(forma);
-			tecladoEscogido.setNumeroFilas(filas);
-			tecladoEscogido.setNumeroColumnas(columnas);
-			tecladoEscogido.setNumeroPosiciones(posiciones);
-			tecladoEscogido.setTeclasDe4Lados(lados);
+			tec.crearTeclado(forma, filas, columnas, posiciones, lados);
 			limpiarCampos();
 			
 			mostrarMensaje("Teclado guardado");
