@@ -18,6 +18,7 @@ public class Initialize extends javax.swing.JFrame {
     
     teclado tec = new teclado();
     
+    
 	
 	
 	public Initialize() {
@@ -27,6 +28,8 @@ public class Initialize extends javax.swing.JFrame {
         
         public void recibirTeclado(teclado tec) {
             this.tec = tec;
+            System.out.println(tec.getNumeroColumnas());
+             System.out.println(tec.getNumeroFilas());
         }
 
 	/**
@@ -53,7 +56,6 @@ public class Initialize extends javax.swing.JFrame {
 
         btVisualizacion.setBackground(new java.awt.Color(0, 204, 51));
         btVisualizacion.setText("VISUALIZACIÓN");
-        btVisualizacion.setOpaque(true);
 
         btSalir.setText("Salir");
         btSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -64,48 +66,48 @@ public class Initialize extends javax.swing.JFrame {
 
         mnAlfabeto.setText("ALFABETO");
         mnAlfabeto.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnAlfabetoMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnAlfabetoMenuSelected(evt);
             }
         });
         jMenuBar1.add(mnAlfabeto);
 
         mnCjtoTextos.setText("CJTO TEXTOS");
         mnCjtoTextos.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnCjtoTextosMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnCjtoTextosMenuSelected(evt);
             }
         });
         jMenuBar1.add(mnCjtoTextos);
 
         mnTecla.setText("TECLA");
         mnTecla.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnTeclaMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnTeclaMenuSelected(evt);
             }
         });
         jMenuBar1.add(mnTecla);
 
         mnTeclado.setText("TECLADO");
         mnTeclado.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                mnTecladoMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnTecladoMenuSelected(evt);
             }
         });
         mnTeclado.addActionListener(new java.awt.event.ActionListener() {
