@@ -12,22 +12,23 @@ public class configurarTeclado extends javax.swing.JFrame {
 	//controladorTeclado conTeclado = new controladorTeclado();
 	teclado tec = new teclado();
 	Initialize init = new Initialize();
+
 	
 	/**
 	 * Creates new form configurarTeclado
 	 */
 	
 	public configurarTeclado() {
-		initComponents();
-		limpiarCampos();
+            initComponents();
+            limpiarCampos();
 	}
 	
 	public configurarTeclado(Initialize init, teclado tec) {
-        this.tec = tec;
-		this.init = init;
-		initComponents();
-		limpiarCampos();
-		if (tec.getNumeroPosiciones() != 0)inicializarCampos();
+            this.tec = tec;
+            this.init = init;
+            initComponents();
+            limpiarCampos();
+            if (tec.getNumeroPosiciones() != 0) inicializarCampos();
 	}
 	
 	
@@ -244,17 +245,17 @@ public class configurarTeclado extends javax.swing.JFrame {
 		
     }//GEN-LAST:event_btResetValoresActionPerformed
 
-	void mostrarMensaje(String mens) {
-		this.lbMens.setText(mens);
+    public void mostrarMensaje(String mens) {
+            this.lbMens.setText(mens);
 	}
 	
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         try {
-			int columnas = Integer.parseInt(this.jtColumnas.getText());
-			int filas = Integer.parseInt(this.jtFilas.getText());
-			int posiciones = Integer.parseInt(this.jtPosiciones.getText());
-			String forma = (String)cbFormaTeclado.getSelectedItem();
-			boolean lados = false;
+            int columnas = Integer.parseInt(this.jtColumnas.getText());
+            int filas = Integer.parseInt(this.jtFilas.getText());
+            int posiciones = Integer.parseInt(this.jtPosiciones.getText());
+            String forma = (String)cbFormaTeclado.getSelectedItem();
+            boolean lados = false;
 			if (cbLadosTeclas.getSelectedIndex() == 1) lados = true;
 			if (cbLadosTeclas.getSelectedIndex() == 2) lados = false;
 			
@@ -262,8 +263,8 @@ public class configurarTeclado extends javax.swing.JFrame {
 			if ("".equals(columnas))	errorCampoVacio = true;
 			if ("".equals(filas))		errorCampoVacio = true;
 			if ("".equals(posiciones))	errorCampoVacio = true;
-			if (cbLadosTeclas.getSelectedIndex() == 0)	errorCampoVacio = true;
-			if (cbFormaTeclado.getSelectedIndex() == 0)	errorCampoVacio = true;
+			if (cbLadosTeclas.getSelectedIndex() < 1)	errorCampoVacio = true;
+			if (cbFormaTeclado.getSelectedIndex() < 1)	errorCampoVacio = true;
 			
 			if (errorCampoVacio) {
 				mostrarMensaje("Debe escoger todos los campos");
@@ -273,7 +274,6 @@ public class configurarTeclado extends javax.swing.JFrame {
 			
             init.recibirTeclado(tec);
 			init.recibirMsg("Teclado guardado");
-			mostrarMensaje("Teclado guardado");
 			
 			configurarTeclado.this.setVisible(false);
 			this.dispose();
