@@ -36,8 +36,11 @@ public class Initialize extends javax.swing.JFrame {
             this.tec = tec;
             int np = tec.getNumeroPosiciones();
             matrizDistancias = new int[np][np];
+            this.dist = new distancia(tec.getForma(), tec.getNumeroFilas(), tec.getNumeroColumnas(), tec.getNumeroPosiciones());
+//--------->      this.dist.setPrimeraPosicionForma(numeroFila, posicion);
             if ("Rectangular".equals(tec.getForma())) matrizDistanciasRect(np);
             else if ("Hexagonal".equals(tec.getForma())) matrizDistanciasHex(np);
+            
         }
         
         public void matrizDistanciasHex(int np) {
