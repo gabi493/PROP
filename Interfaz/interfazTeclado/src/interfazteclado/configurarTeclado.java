@@ -106,7 +106,6 @@ public class configurarTeclado extends javax.swing.JFrame {
         cbFormaTeclado = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 204, 51));
 
         lbTitulo.setText("Editar teclado:");
 
