@@ -268,6 +268,9 @@ public class configurarTeclado extends javax.swing.JFrame {
 			if ("".equals(columnas))	errorCampoVacio = true;
 			if ("".equals(filas))		errorCampoVacio = true;
 			if ("".equals(posiciones))	errorCampoVacio = true;
+                        if (columnas == 0)	errorCampoVacio = true;
+			if (filas == 0)		errorCampoVacio = true;
+			if (posiciones == 0)	errorCampoVacio = true;
 			if (cbLadosTeclas.getSelectedIndex() == 0)	errorCampoVacio = true;
 			if (cbFormaTeclado.getSelectedIndex() == 0)	errorCampoVacio = true;
 			
