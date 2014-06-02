@@ -293,8 +293,7 @@ public class configurarTeclado extends javax.swing.JFrame {
                             
                                 else {
                                         tec = new teclado(forma, filas, columnas, posiciones, lados);
-                                        limpiarCampos();
-
+										limpiarCampos();
                                         init.recibirTeclado(tec);
                                         init.recibirMsg("Teclado guardado");
                                         init.setVisible(true);

@@ -35,8 +35,9 @@ public class Initialize extends javax.swing.JFrame {
 	
         public void recibirTeclado(teclado tec) {
             this.tec = tec;
-            int np = tec.getNumeroPosiciones();
+            int np = this.tec.getNumeroPosiciones();
             matrizDistancias = new int[np][np];
+			primerasPosicionesForma = new int[tec.getNumeroFilas()];
             this.dist = new distancia(tec.getForma(), tec.getNumeroFilas(), tec.getNumeroColumnas(), tec.getNumeroPosiciones());
             if ("Rectangular".equals(tec.getForma())) matrizDistanciasRect(np);
             else if ("Hexagonal".equals(tec.getForma())) matrizDistanciasHex(np);
@@ -50,16 +51,57 @@ public class Initialize extends javax.swing.JFrame {
         public void matrizDistanciasRect(int np) {
             int filas = tec.getNumeroFilas();
             int columnas = tec.getNumeroColumnas();
+			System.out.println("filas = " + filas + "	columnas = " + columnas);
             for (int filaI = 0; filaI < filas; ++filaI) {
                 this.dist.setPrimeraPosicionForma(filaI, filaI*columnas);
             }
             for (int filaI = 0; filaI < filas; ++filaI) {
                 this.primerasPosicionesForma[filaI] = this.dist.getPrimeraPosicionForma(filaI);
             }
-            rellenarMatrizDistancias(np);
+            //rellenarMatrizDistancias(np);
+			rellenarMatrizDistanciasCuadradas(np);
             
         }
         
+		public void rellenarMatrizDistanciasCuadradas(int np) {
+			int filas = tec.getNumeroFilas();
+			int columnas = tec.getNumeroColumnas();
+			for (int i = 0; i < np; ++i) {
+				for (int j = i; j < np; ++j) {
+					this.matrizDistancias[i][j] = i*j - i*i;
+					this.matrizDistancias[j][i] = i*j - i*i;
+					
+				}
+			}
+			
+			for (int i = 0; i < np; ++i) {
+				System.out.println();
+				for (int j = 0; j < np; ++j) {
+					System.out.print(matrizDistancias[i][j] + " ");
+					if (matrizDistancias[i][j] < 10) System.out.print(" ");
+				}
+			}
+			System.out.println();
+        }
+		
+		/*
+			0	1	2			0	1	2	3	4	5
+		 ------------		 ------------------------
+		0|	0	1	2		0|	0	1	2	1	2	3
+		 |					 |						
+		1|	3	4	5		1|	1	0	1	2	1	2
+							 |						
+							2|	2	1	0	3	2	1
+							 |						
+							3|	1	2	3	0	1	2
+							 |						
+							4|	2	1	2	1	0	1
+							 |						
+							5|	3	2	1	2	1	0
+		
+		
+		*/
+		
         public void rellenarMatrizDistancias(int np) {
         /*    for (int i = 0; i < np; ++i) {
                 for (int j = 0; j < np; ++j) {
