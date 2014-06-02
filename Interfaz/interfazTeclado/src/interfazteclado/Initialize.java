@@ -18,6 +18,7 @@ public class Initialize extends javax.swing.JFrame {
     
     teclado tec = new teclado();
     int matrizDistancias[][];
+    int primerasPosicionesForma[];
     distancia dist = new distancia();
     
     
@@ -37,7 +38,6 @@ public class Initialize extends javax.swing.JFrame {
             int np = tec.getNumeroPosiciones();
             matrizDistancias = new int[np][np];
             this.dist = new distancia(tec.getForma(), tec.getNumeroFilas(), tec.getNumeroColumnas(), tec.getNumeroPosiciones());
-//--------->      this.dist.setPrimeraPosicionForma(numeroFila, posicion);
             if ("Rectangular".equals(tec.getForma())) matrizDistanciasRect(np);
             else if ("Hexagonal".equals(tec.getForma())) matrizDistanciasHex(np);
             
@@ -50,6 +50,23 @@ public class Initialize extends javax.swing.JFrame {
         public void matrizDistanciasRect(int np) {
             int filas = tec.getNumeroFilas();
             int columnas = tec.getNumeroColumnas();
+            for (int filaI = 0; filaI < filas; ++filaI) {
+                this.dist.setPrimeraPosicionForma(filaI, filaI*columnas);
+            }
+            for (int filaI = 0; filaI < filas; ++filaI) {
+                this.primerasPosicionesForma[filaI] = this.dist.getPrimeraPosicionForma(filaI);
+            }
+            rellenarMatrizDistancias(np);
+            
+        }
+        
+        public void rellenarMatrizDistancias(int np) {
+        /*    for (int i = 0; i < np; ++i) {
+                for (int j = 0; j < np; ++j) {
+                    this.matrizDistancias[i][j] = -1;
+                    
+                }
+            }*/
         }
         
 	public void recibirMsg(String s) {

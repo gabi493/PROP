@@ -97,43 +97,43 @@ public class driverDistancia {
                         case "12":   //getPrimeraPosicionForma
                             System.out.println("Primera posicion fila[" + Integer.parseInt(palabras[1]) + "] = " + dist.getPrimeraPosicionForma(Integer.parseInt(palabras[1])));
                             break;
-						case "13":   //setTodasPrimerasPosicionesForma
-						    int n = dist.getNumeroFilas();
-						    for (int j = 0; j < n; ++j) {
-								dist.setPrimeraPosicionForma(j, Integer.parseInt(palabras[j + 1]));
-						    }
+			case "13":   //setTodasPrimerasPosicionesForma
+			    int n = dist.getNumeroFilas();
+			    for (int j = 0; j < n; ++j) {
+				dist.setPrimeraPosicionForma(j, Integer.parseInt(palabras[j + 1]));
+			    }
                             break;
-						case "14":   //getTodasPrimerasPosicionesForma
-						    System.out.println("Primeras posiciones = [");
-						    int m = dist.getNumeroFilas();
-						    for (int j = 0; j < m - 1; ++j) {
-								System.out.print(dist.getPrimeraPosicionForma(j) + ", ");
-						    }
-						    System.out.println(dist.getPrimeraPosicionForma(m - 1) + "]");
+			case "14":   //getTodasPrimerasPosicionesForma
+			    System.out.println("Primeras posiciones = [");
+			    int m = dist.getNumeroFilas();
+			    for (int j = 0; j < m - 1; ++j) {
+				System.out.print(dist.getPrimeraPosicionForma(j) + ", ");
+			    }
+			    System.out.println(dist.getPrimeraPosicionForma(m - 1) + "]");
                             break;
-						case "15":   //setDistanciaMatriz
+			case "15":   //setDistanciaMatriz
                             dist.setDistanciaMatriz(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2]), Integer.parseInt(palabras[3]));
                             break;
                         case "16":   //getDistanciaMatriz
                             System.out.println("Numero de filas = " + dist.getDistanciaMatriz(Integer.parseInt(palabras[1]), Integer.parseInt(palabras[2])));
                             break;
-						case "17":   //setTodasDistanciasMatriz
-						    int p = dist.getNumeroPosiciones();
-						    for (int j = 0; j < p; ++j) {
-								for (int k = 0; k < p; ++k) {
-								    dist.setDistanciaMatriz(j, k, Integer.parseInt(palabras[j*p + k + 1]));
-								}
-						    }
+			case "17":   //setTodasDistanciasMatriz
+			    int p = dist.getNumeroPosiciones();
+			    for (int j = 0; j < p; ++j) {
+				for (int k = 0; k < p; ++k) {
+				    dist.setDistanciaMatriz(j, k, Integer.parseInt(palabras[j*p + k + 1]));
+				}
+			    }
                             break;
                         case "18":   //getTodasDistanciasMatriz
-						    int np = dist.getNumeroPosiciones();
-						    System.out.println("Distancias matriz: ");
-						    for (int j = 0; j < np; ++j) {
-								for (int k = 0; k < np; ++k) {
-								    System.out.print( dist.getDistanciaMatriz(j, k) + " ");
-								}
-								System.out.println();
-						    }
+			    int np = dist.getNumeroPosiciones();
+			    System.out.println("Distancias matriz: ");
+			    for (int j = 0; j < np; ++j) {
+				for (int k = 0; k < np; ++k) {
+				    System.out.print( dist.getDistanciaMatriz(j, k) + " ");
+				}
+				System.out.println();
+			    }
                             break;
                         case "0":
                             out = true;
