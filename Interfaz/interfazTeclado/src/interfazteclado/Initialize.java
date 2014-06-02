@@ -22,7 +22,6 @@ public class Initialize extends javax.swing.JFrame {
 	
 	
 	public Initialize() {
-		//lbMsg.setText("");
 		initComponents();
 		inicializarCampos();
 	}
