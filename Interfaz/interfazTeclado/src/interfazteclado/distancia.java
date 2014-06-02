@@ -43,10 +43,10 @@ public class distancia extends distanciaCluster {
      * @param fT:	forma del teclado
      */
     public void setFormaTeclado(String fT) {
-		if (!(fT).equals("rectangular") && !(fT).equals("hexagonal") && !(fT).equals("dosHexagonos")) {
+		/*if (!(fT).equals("rectangular") && !(fT).equals("hexagonal") && !(fT).equals("dosHexagonos")) {
 			throw new IllegalArgumentException("Error en el nombre del teclado:" + 
 					" rectangular || hexagonal || dosHexagonos");
-		}
+		}*/
 		formaTeclado = fT;
     }
     
@@ -66,12 +66,12 @@ public class distancia extends distanciaCluster {
      * @param posicion		posicion que se quiere asignar al numero de fila
      */
     public void setPrimeraPosicionForma(int numeroFila, int posicion) {
-		if (numeroFila < 0 || numeroFila > getNumeroFilas() - 1) {
+		/*if (numeroFila < 0 || numeroFila > getNumeroFilas() - 1) {
 				throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: nF < 0 || nF > numeroFilas -> " + (getNumeroFilas() - 1));
 			}
 		if (posicion < 0 || posicion > getNumeroPosiciones() - 1) {
 				throw new IllegalArgumentException("Error al asignar la primera posicion de una fila: pos < 0 || pos > numeroPosiciones -> " + (getNumeroPosiciones() - 1));
-			}
+			}*/
 		primerasPosicionesForma[numeroFila] = posicion;
 	}
     

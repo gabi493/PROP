@@ -18,6 +18,7 @@ public class Initialize extends javax.swing.JFrame {
     
     teclado tec = new teclado();
     int matrizDistancias[][];
+    distancia dist = new distancia();
     
     
 	

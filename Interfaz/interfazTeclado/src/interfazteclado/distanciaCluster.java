@@ -32,7 +32,7 @@ public class distanciaCluster {
      * @param nP:   numero de posiciones de la matriz
      */
     public distanciaCluster(int nF, int nC, int nP){
-		matrizDistancias = new int[nP][nP];
+	matrizDistancias = new int[nP][nP];
         setNumeroFilas(nF);
         setNumeroColumnas(nC);
         setNumeroPosiciones(nP);
@@ -44,9 +44,9 @@ public class distanciaCluster {
      * @param nF        numero de filas de la matriz
      */
     public void setNumeroFilas(int nF) {
-		if (nF < 0) {
+	/*	if (nF < 0) {
             throw new IllegalArgumentException("Error al asignar las filas: numeroFilas < 0");
-        }
+        }*/
         numeroFilas = nF;
     }
     
@@ -65,9 +65,9 @@ public class distanciaCluster {
      * @param nC            numero de columnas de la matriz
      */
     public void setNumeroColumnas(int nC) {
-		if (nC < 0) {
+		/*if (nC < 0) {
 			throw new IllegalArgumentException("Error al asignar las columnas: numeroColumnas < 0");
-		}
+		}*/
 		numeroColumnas = nC;
     }
     
@@ -86,9 +86,9 @@ public class distanciaCluster {
      * @param nP            numero de posiciones de la matriz
      */
     public void setNumeroPosiciones(int nP) {
-		if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
+	/*	if (nP < 0 || nP > getNumeroFilas()*getNumeroColumnas()) {
             throw new IllegalArgumentException("Error al asignar las posiciones: numeroPosiciones < 0 || numeroPosiciones > numeroFilas*numeroColumnas");
-        }
+        }*/
         numeroPosiciones = nP;
     }
     
@@ -108,7 +108,7 @@ public class distanciaCluster {
      * @param distancia:    distancia entre las posiciones
      */
     public void setDistanciaMatriz(int posicionA, int posicionB, int distancia) {
-		if (posicionA < 0) {
+		/*if (posicionA < 0) {
 			throw new IllegalArgumentException("Error al asignar la posicionA: posicionA < 0");
 		}
 		if (posicionA > (getNumeroPosiciones() - 1)) {
@@ -122,7 +122,7 @@ public class distanciaCluster {
 		}
 		if (distancia < 0) {
 			throw new IllegalArgumentException("Error al asignar la distancia: distancia < 0");
-		}
+		}*/
 		matrizDistancias[posicionA][posicionB] = distancia;
 		matrizDistancias[posicionB][posicionA] = distancia;
     }
