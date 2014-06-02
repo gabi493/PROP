@@ -17,6 +17,7 @@ public class Initialize extends javax.swing.JFrame {
 	 */
     
     teclado tec = new teclado();
+    int matrizDistancias[][];
     
     
 	
@@ -30,10 +31,23 @@ public class Initialize extends javax.swing.JFrame {
 		this.lbMsg.setText("");
 	}
 	
-    public void recibirTeclado(teclado tec) {
-        this.tec = tec;
-    }
+        public void recibirTeclado(teclado tec) {
+            this.tec = tec;
+            int np = tec.getNumeroPosiciones();
+            matrizDistancias = new int[np][np];
+            if ("Rectangular".equals(tec.getForma())) matrizDistanciasRect(np);
+            else if ("Hexagonal".equals(tec.getForma())) matrizDistanciasHex(np);
+        }
+        
+        public void matrizDistanciasHex(int np) {
+            
+        }
 	
+        public void matrizDistanciasRect(int np) {
+            int filas = tec.getNumeroFilas();
+            int columnas = tec.getNumeroColumnas();
+        }
+        
 	public void recibirMsg(String s) {
 		this.lbMsg.setText(s);
 	}

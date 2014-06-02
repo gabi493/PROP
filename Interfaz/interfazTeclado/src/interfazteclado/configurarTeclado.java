@@ -281,7 +281,12 @@ public class configurarTeclado extends javax.swing.JFrame {
                             if (errorPosiciones) {
                                 mostrarMensaje("filas*columnas HA DE SER >= posiciones");
                             }
-
+                            
+                            boolean errorHexagonal = false;
+                            if (cbFormaTeclado.getSelectedIndex() == 2 && filas%2 == 0) errorHexagonal = true;
+                            if (errorHexagonal) {
+                                mostrarMensaje("Teclado HEXAGONAL requiere filas impares");
+                            }
                             else {
                                     tec = new teclado(forma, filas, columnas, posiciones, lados);
                                     limpiarCampos();
