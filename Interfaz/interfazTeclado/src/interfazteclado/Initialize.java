@@ -128,12 +128,12 @@ public class Initialize extends javax.swing.JFrame {
 		
 		public void dibujarMatrizTeclado(int filas, int columnas) {
 			for (int i = 0; i < filas; ++i) {
-				System.out.println();
 				for (int j = 0; j < columnas; ++j) {
 					int num = matrizTeclado[i][j];
 					System.out.print(num + " ");
 					if (num < 10) System.out.print(" ");
 				}
+				System.out.println();
 			}
 			System.out.println();
 		}
@@ -166,12 +166,12 @@ public class Initialize extends javax.swing.JFrame {
 		
 		public void dibujarMatrizDistancias(int np) {
 			for (int i = 0; i < np; ++i) {
-				System.out.println();
 				for (int j = 0; j < np; ++j) {
 					int num = matrizDistancias[i][j];
 					System.out.print(num + " ");
 					if (num < 10) System.out.print(" ");
 				}
+				System.out.println();
 			}
 			System.out.println();
 		}
