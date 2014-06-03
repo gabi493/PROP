@@ -49,9 +49,58 @@ public class Initialize extends javax.swing.JFrame {
         }
         
         public void matrizDistanciasHex(int np) {
-            
+            int filas = tec.getNumeroFilas();
+            int columnas = tec.getNumeroColumnas();
+			System.out.println("filas = " + filas + "	columnas = " + columnas + "	posiciones = " + tec.getNumeroPosiciones());
+			
+			crearMatrizTecladoHexagonal (filas);
+			dibujarMatrizTeclado(filas, columnas);
+			
         }
-	
+		
+		void crearMatrizTecladoHexagonal (int filas) {
+			int nPos = filas/2;
+			int valorDescartado = -1;
+            rellenarDescartados (filas, nPos, valorDescartado);
+			rellenarResto(valorDescartado);
+		}
+		
+		void rellenarResto(int valorDescartado) {
+			int filas = tec.getNumeroFilas();
+            int columnas = tec.getNumeroColumnas();
+			int valor = 0;
+			for (int i = 0; i < filas; ++i) {
+				for (int j = 0; j < columnas; ++j) {
+					if (matrizTeclado[i][j] != valorDescartado) {
+						matrizTeclado[i][j] = valor;
+						++valor;
+					}
+				}
+			}
+			tec.setNumeroPosiciones(valor);
+		}
+		
+		void rellenarDescartados (int filas, int nPos, int valorDescartado) {
+			for (int filaI = 0; filaI < filas/2; ++filaI) {
+				rellenaPpioFin(filaI, nPos, valorDescartado);
+				--nPos;
+			}
+			nPos = filas/2;
+            for (int filaI = filas - 1; filaI > filas/2; --filaI) {
+				rellenaPpioFin(filaI, nPos, valorDescartado);
+				--nPos;
+			}
+		}
+		
+		void rellenaPpioFin(int filaI, int nPos, int valorDescartado) {
+			int columnas = tec.getNumeroColumnas();
+			for (int j = 0; j < nPos; ++j) {
+				matrizTeclado[filaI][j] = valorDescartado;
+				matrizTeclado[filaI][columnas - (j+1)] = valorDescartado;
+			}
+		}
+		
+		
         public void matrizDistanciasRect(int np) {
             int filas = tec.getNumeroFilas();
             int columnas = tec.getNumeroColumnas();
@@ -71,7 +120,7 @@ public class Initialize extends javax.swing.JFrame {
 			int filas = tec.getNumeroFilas();
 			int columnas = tec.getNumeroColumnas();
 			
-			crearMatrizTeclado(filas, columnas);
+			crearMatrizTecladoRectangular(filas, columnas);
 			dibujarMatrizTeclado(filas, columnas);
 			
 			crearMatrizDistancias(filas, columnas, np);
@@ -117,7 +166,7 @@ public class Initialize extends javax.swing.JFrame {
 			matrizDistancias[columna][fila] = distancia;
 		}
 		
-		public void crearMatrizTeclado(int filas, int columnas) {
+		public void crearMatrizTecladoRectangular(int filas, int columnas) {
 			for (int i = 0; i < filas; ++i) {
 				for (int j = 0; j < columnas; ++j) {
 					matrizTeclado[i][j] = i*columnas + j;
@@ -132,7 +181,9 @@ public class Initialize extends javax.swing.JFrame {
 					int num = matrizTeclado[i][j];
 					System.out.print(num + " ");
 					if (num < 10) System.out.print(" ");
+					if (num >= 0) System.out.print(" ");
 				}
+				System.out.println();
 				System.out.println();
 			}
 			System.out.println();
@@ -153,12 +204,6 @@ public class Initialize extends javax.swing.JFrame {
 		
 					int dm = distFilas + distColumnas;
 					setDist(i, j, dm);
-					
-					/*int num = (j - i)%(columnas);
-					num += (j - i)/columnas;
-					if ((i%columnas == columnas - 1)&&(j%columnas == 0)) num = columnas + j%filas - 1;
-					this.matrizDistancias[i][j] = num;
-					this.matrizDistancias[j][i] = num;*/
 					
 				}
 			}

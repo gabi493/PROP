@@ -280,7 +280,6 @@ public class configurarTeclado extends javax.swing.JFrame {
                         else {
                             boolean errorPosiciones = false;
                             if (posiciones > filas*columnas) errorPosiciones = true;
-
                             if (errorPosiciones) {
                                 mostrarMensaje("filas*columnas HA DE SER >= posiciones");
                             }
@@ -290,15 +289,19 @@ public class configurarTeclado extends javax.swing.JFrame {
                                 if (errorHexagonal) {
                                     mostrarMensaje("Teclado HEXAGONAL requiere filas impares");
                                 }
-                            
-                                else {
-                                        tec = new teclado(forma, filas, columnas, posiciones, lados);
-										limpiarCampos();
-                                        init.recibirTeclado(tec);
-                                        init.recibirMsg("Teclado guardado");
-                                        init.setVisible(true);
-                                        this.setVisible(false);
-                                }
+								else {
+									boolean errorFilasDistintoColumnas = false;
+									if (cbFormaTeclado.getSelectedIndex() == 2 && (columnas <= filas || filas < 3)) errorFilasDistintoColumnas = true;
+									if (errorFilasDistintoColumnas) mostrarMensaje("teclado HEX requiere columnas > filas >= 3");
+									else {
+											tec = new teclado(forma, filas, columnas, posiciones, lados);
+											limpiarCampos();
+											init.recibirTeclado(tec);
+											init.recibirMsg("Teclado guardado");
+											init.setVisible(true);
+											this.setVisible(false);
+									}
+								}
                             }
                         }
 		} catch (Exception e) {
