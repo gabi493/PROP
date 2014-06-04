@@ -258,18 +258,17 @@ public class configurarTeclado extends javax.swing.JFrame {
         try {
             int columnas = Integer.parseInt(this.jtColumnas.getText());
             int filas = Integer.parseInt(this.jtFilas.getText());
-            int posiciones = Integer.parseInt(this.jtPosiciones.getText());
+            int posiciones = filas*columnas;	//Integer.parseInt(this.jtPosiciones.getText());
             String forma = (String)cbFormaTeclado.getSelectedItem();
             boolean lados = false;
 			if (cbLadosTeclas.getSelectedIndex() == 1) lados = true;
-			//if (cbLadosTeclas.getSelectedIndex() == 2) lados = false;
 			
 			boolean errorCampoVacio = false;
 			if ("".equals(columnas))	errorCampoVacio = true;
 			if ("".equals(filas))		errorCampoVacio = true;
 			if ("".equals(posiciones))	errorCampoVacio = true;
-                        if (columnas == 0)	errorCampoVacio = true;
-			if (filas == 0)		errorCampoVacio = true;
+			if (columnas == 0)		errorCampoVacio = true;
+			if (filas == 0)			errorCampoVacio = true;
 			if (posiciones == 0)	errorCampoVacio = true;
 			if (cbLadosTeclas.getSelectedIndex() == 0)	errorCampoVacio = true;
 			if (cbFormaTeclado.getSelectedIndex() == 0)	errorCampoVacio = true;
@@ -281,7 +280,7 @@ public class configurarTeclado extends javax.swing.JFrame {
                             boolean errorPosiciones = false;
                             if (posiciones > filas*columnas) errorPosiciones = true;
                             if (errorPosiciones) {
-                                mostrarMensaje("filas*columnas HA DE SER >= posiciones");
+                                mostrarMensaje("posiciones HA DE SER <= filas*columnas");
                             }
                             else {
                                 boolean errorHexagonal = false;
