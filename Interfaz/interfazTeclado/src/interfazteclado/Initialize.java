@@ -19,6 +19,7 @@ public class Initialize extends javax.swing.JFrame {
     teclado tec = new teclado();
 	int valorDescartado;
 	int np;
+	int nuevoNp;
     int matrizDistancias[][];
 	int matrizDistanciasCompacta[][];
 	int matrizTeclado[][];
@@ -53,10 +54,10 @@ public class Initialize extends javax.swing.JFrame {
         }
         
         public void matrizDistanciasHex() {
-			System.out.println("entra en matrizDistanciasHex");
+			//System.out.println("entra en matrizDistanciasHex");
             int filas = tec.getNumeroFilas();
             int columnas = tec.getNumeroColumnas();
-			System.out.println("filas = " + filas + "	columnas = " + columnas + "	posiciones = " + tec.getNumeroPosiciones());
+			//System.out.println("filas = " + filas + "	columnas = " + columnas + "	posiciones = " + tec.getNumeroPosiciones());
 			
 			crearMatrizTecladoHexagonal(filas);
 			dibujarMatrizTeclado(filas, columnas);
@@ -68,7 +69,7 @@ public class Initialize extends javax.swing.JFrame {
         }
 		
 		void crearMatrizTecladoHexagonal (int filas) {
-			System.out.println("entra en crearMatrizTecladoHex");
+			//System.out.println("entra en crearMatrizTecladoHex");
 			int nPos = filas/2;
             rellenarDescartados (filas, nPos);
 			rellenarResto();
@@ -78,6 +79,7 @@ public class Initialize extends javax.swing.JFrame {
 			int filas = tec.getNumeroFilas();
             int columnas = tec.getNumeroColumnas();
 			int valor = 0;
+			//System.out.println("np antes = " + np);
 			for (int i = 0; i < filas; ++i) {
 				for (int j = 0; j < columnas; ++j) {
 					if (matrizTeclado[i][j] != valorDescartado) {
@@ -86,8 +88,9 @@ public class Initialize extends javax.swing.JFrame {
 					}
 				}
 			}
-			tec.setNumeroPosiciones(valor);
-			this.np = valor;
+			//tec.setNumeroPosiciones(valor);
+			this.nuevoNp = valor;
+			//System.out.println("nuevoNp = " + nuevoNp);
 		}
 		
 		void rellenarDescartados (int filas, int nPos) {
@@ -115,7 +118,7 @@ public class Initialize extends javax.swing.JFrame {
             int filas = tec.getNumeroFilas();
             int columnas = tec.getNumeroColumnas();
 			tec.setNumeroPosiciones(filas*columnas);
-			System.out.println("filas = " + filas + "	columnas = " + columnas + "	posiciones = " + tec.getNumeroPosiciones());
+			//System.out.println("filas = " + filas + "	columnas = " + columnas + "	posiciones = " + tec.getNumeroPosiciones());
             for (int filaI = 0; filaI < filas; ++filaI) {
                 this.dist.setPrimeraPosicionForma(filaI, filaI*columnas);
             }
@@ -171,7 +174,7 @@ public class Initialize extends javax.swing.JFrame {
 		}
 		
 		public void crearMatrizTecladoRectangular(int filas, int columnas) {
-			System.out.println("entra en crearMatrizTecladoRectangular");
+			//System.out.println("entra en crearMatrizTecladoRectangular");
 			for (int i = 0; i < filas; ++i) {
 				for (int j = 0; j < columnas; ++j) {
 					matrizTeclado[i][j] = i*columnas + j;
@@ -217,7 +220,7 @@ public class Initialize extends javax.swing.JFrame {
         }*/
 		
 		public void crearMatrizDistancias(int filas, int columnas) {
-			System.out.println("entra en crearMatrizDistancias con np = " + np);
+			//System.out.println("entra en crearMatrizDistancias con np = " + np);
 			for (int i = 0; i < np; ++i) {
 				for (int j = i; j < np; ++j) {
 					int iF = getFila(i, columnas);
@@ -242,36 +245,34 @@ public class Initialize extends javax.swing.JFrame {
         }
 		
 		void compactarMatrizDistancias(int filas, int columnas) {
-			System.out.println("entra en compactarMatrizDistancias");
-			matrizDistanciasCompacta = new int[np][np];
+			//System.out.println("entra en compactarMatrizDistancias");
+			matrizDistanciasCompacta = new int[nuevoNp][nuevoNp];		//int[np][np];
 			int iC = 0;
 			int jC = 0;
-			for (int i = 0; i < filas*columnas; ++i) {
-				for (int j = 0; j < filas*columnas; ++j) {
-					if (i != 0 && j != 0) {
-						if (matrizDistancias[i][j] != 0 || i == j) {
+			boolean b = true;
+			for (int i = 1; i < np; ++i) {								//empezaba en i = 0;
+				for (int j = 1; j < np; ++j) {							//empezaba en j = 0;
+					if ((iC == jC) || (matrizDistancias[i][j] != 0)) {	//(matrizDistancias[i][j] != 0) || (i == j)
+						if (b) {			//if ((i != 0) && (j != 0)) {
 							matrizDistanciasCompacta[iC][jC] = matrizDistancias[i][j];
+							//System.out.println("matrizDistanciasCompacta[" + iC + "][" + jC + "] = " + matrizDistanciasCompacta[iC][jC]);
 							++jC;
-							if (jC == np) {
+							if (jC == nuevoNp) {		//np) {
 								++iC;
 								jC = 0;
-								if (iC == np) iC = 0;
+								if (iC == nuevoNp) b = false;
 							}
 						}
 					}
 				}
 			}
-			//tec.setNumeroPosiciones(iC);
-			//this.np = iC;
-			//matrizDistancias = new int[np][np];
-			//matrizDistancias = matrizDistanciasCompacta;
 		}
 		
 		public void dibujarMatrizDistanciasCompacta() {
 			System.out.println("entra en dibujarMatrizDistanciasCompacta");
 			System.out.println();
-			for (int i = 0; i < np; ++i) {
-				for (int j = 0; j < np; ++j) {
+			for (int i = 0; i < nuevoNp; ++i) {
+				for (int j = 0; j < nuevoNp; ++j) {
 					int num = matrizDistanciasCompacta[i][j];
 					System.out.print(num + " ");
 					if (num < 10) System.out.print(" ");
@@ -279,6 +280,8 @@ public class Initialize extends javax.swing.JFrame {
 				System.out.println();
 			}
 			System.out.println();
+			np = nuevoNp;
+			tec.setNumeroPosiciones(np);
 		}
 		
 		public void dibujarMatrizDistancias() {
