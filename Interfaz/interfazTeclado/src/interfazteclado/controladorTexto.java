@@ -1,3 +1,5 @@
+package interfazteclado;
+
 
 
 /*
@@ -10,11 +12,14 @@ import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.Random;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -37,8 +42,6 @@ public class controladorTexto {
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
         ruta = chooser.getCurrentDirectory().getAbsolutePath();
-        ruta += "\\Documentacion\\";
-        System.out.println("Ruta " + ruta);
     }
     
     /**
@@ -47,7 +50,7 @@ public class controladorTexto {
      * @param nombre En caso de Opcion == crear, nombre que le quieres dar
      * @throws IOException Cuando hay un problema con la salida o la entrada
      */
-    public void realizarAccion(String accion,String nombre) throws IOException {
+    /*public void realizarAccion(String accion,String nombre) throws IOException {
         JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Textos", "txt");
             chooser.setFileFilter(filter);
@@ -167,6 +170,19 @@ public class controladorTexto {
         }
     }
     
+    
+    /**
+     * Metodo para abrir un archivo
+     * @param ruta String con la direccion del archivo que quiero abrir
+     */
+    public void abrirArchivo(String ruta) throws FileNotFoundException {
+        archivo = new File(ruta); 
+        if(!archivo.exists()) {
+            throw new FileNotFoundException("Error: El archivo no existe");
+        }
+    }
+    
+    
     /**
      * Devuelve la ruta del controlador
      * @return el valor de ruta del controlador
@@ -195,7 +211,69 @@ public class controladorTexto {
         Flee.readLine();
         return Flee.readLine();
     }
- 
+    
+    /**
+     * Metodo que devuelve el texto
+     * @return un string con el texto 
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public String getTexto() throws FileNotFoundException, IOException {
+        if(archivo == null) throw new FileNotFoundException("Error: El archivo no existe");
+        BufferedReader Flee = new BufferedReader(new FileReader(archivo));
+        String linia = null;
+        while((linia += Flee.readLine()) != null);
+        return linia;
+        
+    }
+    public void crearTexto(texto t,String cuerpoTexto) throws IOException {
+            archivo = new File(t.ruta);
+            if(!archivo.exists()) archivo.createNewFile();
+            BufferedWriter bw = new BufferedWriter (new FileWriter(t.ruta));
+            bw.append(t.getTitulo());
+            bw.flush();
+            bw.newLine();
+            bw.newLine();
+            bw.append(cuerpoTexto);
+            bw.flush();
+        
+    }
+    public boolean existeTexto(String ruta) {
+        archivo = new File(ruta);
+        System.out.println("Existe texto");
+        if(archivo.exists()) return true;
+        else return false;
+    }
+    public void fileCopy(String origen, String destino) {
+	System.out.println("Desde: " + origen);
+	System.out.println("Hacia: " + destino);
+
+	try {
+            
+            File inFile = new File(origen);
+            File outFile = new File(destino);
+
+            FileInputStream in = new FileInputStream(inFile);
+            FileOutputStream out = new FileOutputStream(outFile);
+            File eliminar = new File("");
+            String ruta = archivo.getAbsolutePath() +"/Textos/.txt";
+            eliminar = new File(ruta);
+            eliminar.delete();
+            System.out.println(ruta);
+           
+            int c;
+            while( (c = in.read() ) != -1)
+            out.write(c);
+
+            in.close();
+            out.close();
+	} 
+        catch(IOException e) {
+            System.err.println("Hubo un error de entrada/salida!!!");
+	}
+    }
+
+    
     
 }
 

@@ -1,6 +1,9 @@
 package interfazteclado;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -13,32 +16,39 @@ public class configurarAlfabeto extends javax.swing.JFrame {
     //JList tList = new JList(modeloLista);
     alfabeto alfabetoElegido = new alfabeto();
     Initialize init = new Initialize();
+    Vector<String>ficheros = new Vector < String> ();
     
-    public configurarAlfabeto() {
-        alfabeto catala = new alfabeto("catala", 27);
-        alfabeto castellano = new alfabeto("castellano", 27);
-        alfabeto english = new alfabeto("english", 26);
-        modeloLista.addElement(catala);
-        modeloLista.addElement(castellano);
-        modeloLista.addElement(english);
-        
+    
+    public configurarAlfabeto() {        
         initComponents();
     }
     
-    public configurarAlfabeto(Initialize init) {
+    public configurarAlfabeto(Initialize init, alfabeto alf) {
+        this.alfabetoElegido = alf;
         this.init = init;
-        alfabeto catala = new alfabeto("catala", 27);
-        alfabeto castellano = new alfabeto("castellano", 27);
-        alfabeto english = new alfabeto("english", 26);
-        modeloLista.addElement(catala);
-        modeloLista.addElement(castellano);
-        modeloLista.addElement(english);
-        
+        inicializarLista();
         initComponents(); 
+    }
+    
+    public void inicializarLista() {
+        modeloLista.removeAllElements();
+        File f = new File("Alfabetos");
+        if (f.exists()) {
+            File [] archivos = f.listFiles();
+            for (int i = 0; i < archivos.length; i++) {
+                ficheros.add(archivos[i].getName());
+                alfabeto alf = new alfabeto(archivos[i].getName());
+                setNewAlfabeto(alf);
+            }
+            repaint();
+            validate();           
+        }
     }
     
     public void setNewAlfabeto(alfabeto nuevo) {
         modeloLista.addElement(nuevo);
+        repaint();
+        validate();
         
         /*for (int i = 0; i < modeloLista.getSize(); i++) {
             System.out.println(modeloLista.get(i));
@@ -181,7 +191,10 @@ public class configurarAlfabeto extends javax.swing.JFrame {
     private void tListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tListaMouseClicked
         int index = tLista.getSelectedIndex();
         alfabetoElegido = (alfabeto)modeloLista.getElementAt(index);
-        lAlfabetoElegido.setText(alfabetoElegido.getNombreAlfabeto());   
+        lAlfabetoElegido.setText(alfabetoElegido.getNombreAlfabeto()); 
+        for (int i = 0; i < alfabetoElegido.getNumCaracteres(); i++) {
+            System.out.println(alfabetoElegido.getSimbolo(i).getInfo());
+        }
         
     }//GEN-LAST:event_tListaMouseClicked
 
@@ -192,7 +205,14 @@ public class configurarAlfabeto extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         //configurarCTextos cct = new configurarCTextos(alfabetoElegido, configurarAlfabeto.this);
         //cct.setVisible(true);
-        init.setAlfabetoElegido(alfabetoElegido);
+        
+        controladorAlfabeto controladorA = new controladorAlfabeto();
+        try {
+            alfabetoElegido = controladorA.cargarAlfabeto(alfabetoElegido.getNombreAlfabeto());
+        } catch (IOException ex) {
+            Logger.getLogger(configurarAlfabeto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        init.recibirAlfabeto(alfabetoElegido);
         configurarAlfabeto.this.setVisible(false);
         init.setVisible(true);
     }//GEN-LAST:event_bAceptarActionPerformed
