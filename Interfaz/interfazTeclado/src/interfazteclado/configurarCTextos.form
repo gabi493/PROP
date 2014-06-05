@@ -90,6 +90,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="bAnadir" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="55" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -99,10 +100,7 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="bEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bAnadir" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="bEliminar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -136,14 +134,14 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList1">
+        <Component class="javax.swing.JList" name="listaIzquierda">
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jList1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listaIzquierdaMouseClicked"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CodeGeneration" type="java.lang.Integer" value="1"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="jList1 = new JList(modeloTo);"/>
-            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="configurarCTextos_jList1"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="listaIzquierda = new JList(modeloIzquierda);"/>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="configurarCTextos_listaIzquierda"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -155,14 +153,14 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList2">
+        <Component class="javax.swing.JList" name="listaDerecha">
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jList2MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listaDerechaMouseClicked"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CodeGeneration" type="java.lang.Integer" value="1"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="jList2 = new JList(modeloTo);"/>
-            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="configurarCTextos_jList2"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="listaDerecha = new JList(modeloDerecha);"/>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="configurarCTextos_listaDerecha"/>
           </AuxValues>
         </Component>
       </SubComponents>

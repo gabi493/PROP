@@ -57,8 +57,8 @@ public class conjuntoTexto {
     public void leerTextos() throws IOException{
         controladorTexto Ct = new controladorTexto();
         for(int i=0; i < conjunto.size();++i){
-            Ct.abrirTexto(conjunto.get(i).titulo + ".txt");
-            Ct.leerTexto();    
+            Ct.abrirArchivo(conjunto.get(i).titulo + ".txt");
+            //Ct.leerTexto();    
         }
     }
     

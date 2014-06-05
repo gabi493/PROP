@@ -4,8 +4,15 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+package interfazteclado;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +21,7 @@ import java.util.ArrayList;
  */
 public class controladorAlfabeto {
     private alfabeto alfabetoControlador;
+    private File archivo;
     
     /**
      * Creadoras.
@@ -23,7 +31,8 @@ public class controladorAlfabeto {
      * Creadora por defecto. Crea un alfabeto cuando el usuario quiere añadir un alfabeto.
      */
     public controladorAlfabeto() {
-        alfabetoControlador = new alfabeto();        
+        alfabetoControlador = new alfabeto();
+        archivo = null;
     }
     
     /**
@@ -32,9 +41,8 @@ public class controladorAlfabeto {
      * @param n 
      * @throws IllegalArgumentException.
      */
-    public controladorAlfabeto (String idioma, int n) {
-        if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1"); 
-        alfabetoControlador = new alfabeto(idioma, n);
+    public controladorAlfabeto (String idioma) {
+        alfabetoControlador = new alfabeto(idioma);
     }
     
     /**
@@ -57,6 +65,32 @@ public class controladorAlfabeto {
         alfabetoControlador.addSimbolo(newsimbolo);
     }
     
+    public void leerAlfabeto(String alf) {
+        for (int i = 0; i < alf.length(); i++) {
+            simbolo add = new simbolo(alf.charAt(i));
+            alfabetoControlador.addSimbolo(add);
+        }
+    }
+    
+    public alfabeto cargarAlfabeto(String nombre) throws FileNotFoundException, IOException {
+        alfabeto ret = new alfabeto();
+        File archivo = new File("");
+        String ruta = archivo.getAbsolutePath() + "/Alfabetos/" + nombre;
+        
+        archivo = new File(ruta);
+        BufferedReader bf = new BufferedReader (new FileReader(archivo));
+        String titulo = bf.readLine();
+        ret.setNombreAlfabeto(titulo);
+        bf.readLine();
+        String cuerpo = bf.readLine();
+        for (int i = 0; i < cuerpo.length(); i++) {
+            simbolo a = new simbolo(cuerpo.charAt(i));
+            ret.addSimbolo(a);
+        }        
+        return ret;
+    }
+    
+    
     /**
      * Escritoras.
      */
@@ -67,4 +101,31 @@ public class controladorAlfabeto {
     public void escribirAlfabeto() {
         alfabetoControlador.escribirAlfabeto();
     }
+    
+    public void crearAlfabeto(String nombreAlf, String ruta, String body) throws FileNotFoundException, IOException {
+        archivo = new File(ruta);
+        System.out.println(ruta);
+        if (!archivo.exists()) {
+            archivo.createNewFile();
+            System.out.println("archivo creado!");
+            BufferedWriter bw = new BufferedWriter (new FileWriter(ruta));
+            bw.append(nombreAlf);
+            bw.flush();
+            bw.newLine();
+            bw.newLine();
+            bw.append(body);
+            bw.flush();
+        }
+    }
+    public boolean existeAlfabeto (String nombre) {
+        File archivo = new File("");
+        String ruta = archivo.getAbsolutePath() + "/Alfabetos/" + nombre + ".txt";
+        System.out.println(ruta);
+        archivo = new File(ruta);
+        if(archivo.exists()) return true;
+        else return false;
+    }
+    
+    
+    
 }

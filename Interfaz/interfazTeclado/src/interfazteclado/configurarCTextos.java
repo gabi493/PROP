@@ -6,6 +6,8 @@
 
 package interfazteclado;
 
+import java.io.File;
+import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
@@ -15,9 +17,14 @@ import javax.swing.JList;
  */
 public class configurarCTextos extends javax.swing.JFrame {
     alfabeto alfabetoElegido = new alfabeto();
-    DefaultListModel modeloFrom = new DefaultListModel();
-    DefaultListModel modeloTo = new DefaultListModel();
+    DefaultListModel modeloIzquierda = new DefaultListModel();
+    DefaultListModel modeloDerecha = new DefaultListModel();
     //configurarAlfabeto cAlf = new configurarAlfabeto();
+        
+
+    
+    Vector<String> ficheros = new Vector<String> ();
+    
     Initialize ini = new Initialize();
     texto tSeleccionadoLista1 = new texto();
     texto tSeleccionadoLista2 = new texto();
@@ -29,13 +36,41 @@ public class configurarCTextos extends javax.swing.JFrame {
         initComponents();
     }
     
-    public configurarCTextos(Initialize ini) {
+    public configurarCTextos(Initialize ini, alfabeto alfabetoElegido) {
+        this.alfabetoElegido = alfabetoElegido;
         this.ini = ini;
+        refreshLista();
         initComponents();
+        repaint();
+        validate();
     }
     
     public void setNewTexto(texto nuevo) {
-        modeloFrom.addElement(nuevo);
+        modeloIzquierda.addElement(nuevo);
+
+    }
+    
+    public void vaciarLista() {
+       modeloIzquierda.removeAllElements();
+    }
+    
+    public void inicializarLista() {
+        File f = new File("Textos");
+        if (f.exists()) {
+            File [] archivos = f.listFiles();
+            for (int i = 0; i < archivos.length; i++) {
+                ficheros.add(archivos[i].getName());
+                texto t = new texto(alfabetoElegido.getNombreAlfabeto(), archivos[i].getName(), archivos[i].getAbsolutePath());
+                setNewTexto(t);
+            }
+            repaint();
+            validate();           
+        }
+    }
+    
+    public void refreshLista() {
+        vaciarLista();
+        inicializarLista();
     }
 
     /**
@@ -53,22 +88,22 @@ public class configurarCTextos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         try {
-            jList1 =(javax.swing.JList)java.beans.Beans.instantiate(getClass().getClassLoader(), "interfazteclado.configurarCTextos_jList1");
+            listaIzquierda =(javax.swing.JList)java.beans.Beans.instantiate(getClass().getClassLoader(), "interfazteclado.configurarCTextos_listaIzquierda");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
-        jList1 = new JList(modeloTo);
+        listaIzquierda = new JList(modeloIzquierda);
         jScrollPane2 = new javax.swing.JScrollPane();
         try {
-            jList2 =(javax.swing.JList)java.beans.Beans.instantiate(getClass().getClassLoader(), "interfazteclado.configurarCTextos_jList2");
+            listaDerecha =(javax.swing.JList)java.beans.Beans.instantiate(getClass().getClassLoader(), "interfazteclado.configurarCTextos_listaDerecha");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
-        jList2 = new JList(modeloTo);
+        listaDerecha = new JList(modeloDerecha);
         bAnadir = new javax.swing.JButton();
         bAceptar = new javax.swing.JButton();
         bAtras = new javax.swing.JButton();
@@ -83,19 +118,19 @@ public class configurarCTextos extends javax.swing.JFrame {
 
         jLabel2.setText("Textos seleccionados");
 
-        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        listaIzquierda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList1MouseClicked(evt);
+                listaIzquierdaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaIzquierda);
 
-        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+        listaDerecha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList2MouseClicked(evt);
+                listaDerechaMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(listaDerecha);
 
         bAnadir.setText("Añadir");
         bAnadir.addActionListener(new java.awt.event.ActionListener() {
@@ -187,16 +222,15 @@ public class configurarCTextos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bAnadir))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bAceptar)
                             .addComponent(bAtras)
                             .addComponent(bNuevoTexto)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bEliminar)
-                            .addComponent(bAnadir))
+                        .addComponent(bEliminar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -225,29 +259,29 @@ public class configurarCTextos extends javax.swing.JFrame {
         ini.setVisible(true);
     }//GEN-LAST:event_bAtrasActionPerformed
 
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+    private void listaIzquierdaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaIzquierdaMouseClicked
         // TODO add your handling code here:
-        index = jList1.getSelectedIndex();
-        tSeleccionadoLista1 = (texto)modeloFrom.getElementAt(index);
+        index = listaIzquierda.getSelectedIndex();
+        tSeleccionadoLista1 = (texto)modeloIzquierda.getElementAt(index);
         //lAlfabetoElegido.setText(alfabetoElegido.getNombreAlfabeto());   
-    }//GEN-LAST:event_jList1MouseClicked
+    }//GEN-LAST:event_listaIzquierdaMouseClicked
 
-    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
+    private void listaDerechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaDerechaMouseClicked
         // TODO add your handling code here:
-        index2 = jList2.getSelectedIndex();
-        tSeleccionadoLista2 = (texto)modeloTo.getElementAt(index2);
-    }//GEN-LAST:event_jList2MouseClicked
+        index2 = listaDerecha.getSelectedIndex();
+        tSeleccionadoLista2 = (texto)modeloDerecha.getElementAt(index2);
+    }//GEN-LAST:event_listaDerechaMouseClicked
 
     private void bAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirActionPerformed
         // TODO add your handling code here:
-        modeloTo.addElement(tSeleccionadoLista1);
-        modeloFrom.removeElementAt(index);
+        modeloDerecha.addElement(tSeleccionadoLista1);
+        modeloIzquierda.removeElementAt(index);
     }//GEN-LAST:event_bAnadirActionPerformed
 
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
         // TODO add your handling code here:
-        modeloFrom.addElement(tSeleccionadoLista2);
-        modeloTo.removeElementAt(index2);
+        modeloIzquierda.addElement(tSeleccionadoLista2);
+        modeloDerecha.removeElementAt(index2);
     }//GEN-LAST:event_bEliminarActionPerformed
 
     /**
@@ -293,11 +327,11 @@ public class configurarCTextos extends javax.swing.JFrame {
     private javax.swing.JButton bNuevoTexto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lConfigurar;
+    private javax.swing.JList listaDerecha;
+    private javax.swing.JList listaIzquierda;
     // End of variables declaration//GEN-END:variables
 }

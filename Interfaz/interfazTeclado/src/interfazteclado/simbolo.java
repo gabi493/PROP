@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+package interfazteclado;
 
 /**
  *
  * @author josep
  */
 public class simbolo {
-    private char caracter; 
+    private char caracter;
     
     /**
      * Constructoras.

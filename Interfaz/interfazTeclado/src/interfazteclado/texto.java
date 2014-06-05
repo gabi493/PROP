@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package enunciadoteclado;
+package interfazteclado;
 
 /*import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -43,11 +43,11 @@ public class texto {
      * @param titulo
      * @param numeroCaracteres
      */
-    public texto(String idi, String tit, int nC, String rt) {
+    public texto(String idi, String tit, String rt) {
         ruta = rt;
         idioma = idi;
         titulo = tit;
-        numeroCaracteres = nC;
+        //numeroCaracteres = nC;
     }
 
     /**
@@ -92,20 +92,20 @@ public class texto {
     *
     * @param n
     */
-    public void setNumeroCaracteres(int n) {
+    /*public void setNumeroCaracteres(int n) {
 	if (n < 1) {
 		throw new IllegalArgumentException("Error en el numero de caracteres: numeroCaracteres < 1");
 	}
         numeroCaracteres = n;
-    }
+    }*/
 		
     /**
      *
      * @return
      */
-    public int getNumeroCaracteres(){
+    /*public int getNumeroCaracteres(){
         return numeroCaracteres;
-    } 
+    } */
 
     /**
      *
@@ -121,6 +121,12 @@ public class texto {
      */
     public String getRuta() {
         return ruta;
+    }
+    
+    
+        @Override
+    public String toString() {
+        return titulo;
     }
      
 }

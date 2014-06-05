@@ -1,4 +1,5 @@
-package enunciadoteclado;
+package interfazteclado;
+
 
 import java.util.ArrayList;
 
@@ -35,11 +36,11 @@ public class alfabeto {
      * @param n Número de simbolos del alfabeto. 
      * @throws IllegalArgumentException.
      */
-    public alfabeto(String idioma, int n) throws IllegalArgumentException {
+    public alfabeto(String idioma) throws IllegalArgumentException {
         this();
-        if (n < 1) throw new IllegalArgumentException("Error al crear alfabeto: n < 1");
+        this.numCaracteres = 0;
         this.nombreAlfabeto = idioma;
-        this.alf = new ArrayList<simbolo>(n);
+        this.alf = new ArrayList<simbolo>();
     }
     
     /**
@@ -59,6 +60,12 @@ public class alfabeto {
     /**
      * Consultora del nombre del alfabeto del parámetro implícito.
      */
+    
+    public void setNombreAlfabeto(String nombre) {
+        this.nombreAlfabeto = nombre;
+    }
+    
+    
     public String getNombreAlfabeto() {
         return this.nombreAlfabeto;
     }
@@ -67,7 +74,7 @@ public class alfabeto {
      * Consultora del numero de carácteres del alfabeto del parámetro implícito.
      */
     public int getNumCaracteres() {
-        return this.numCaracteres;
+        return alf.size();
     }
     
     /**
@@ -77,8 +84,6 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public simbolo getSimbolo(int pos) {
-        if (pos < 0) throw new IllegalArgumentException("Error al consultar: n < 1");
-        if (pos > numCaracteres) throw new IllegalArgumentException("Error al consultar: pos > numCaracteres");
         return this.alf.get(pos);
     }
     
@@ -88,7 +93,10 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public boolean boolSimbolo (simbolo s) {
-        for (int i = 0; i < alf.size(); i++) if (s.getInfo() == alf.get(i).getInfo()) return true;
+        for (int i = 0; i < alf.size(); i++) { 
+            char mayus = (char) (alf.get(i).getInfo() - 32);
+            if (s.getInfo() == alf.get(i).getInfo() || s.getInfo() == mayus) return true;            
+        }
         return false;
     }
     
@@ -115,13 +123,9 @@ public class alfabeto {
      * @throws IllegalArgumentException.
      */
     public void addSimbolo (simbolo newsimbolo) {
-        /*for (int i = 0; i < numCaracteres; i++) {
-            if (newsimbolo.getInfo() == this.alf.get(i).getInfo()) {
-                throw new IllegalArgumentException("Error: El simbolo ya está en el alfabeto.");
-            }
-        }*/
         this.alf.add(newsimbolo);
         ++numCaracteres;
+        System.out.println("num carac  "  +numCaracteres);
     }
        
     /**
@@ -133,5 +137,10 @@ public class alfabeto {
      */
     public void escribirAlfabeto() {
         for (int i = 0; i < numCaracteres; i++) System.out.println (this.alf.get(i).getInfo() + " ");
+    }
+    
+       @Override
+    public String toString() {
+        return nombreAlfabeto;
     }
 }

@@ -258,50 +258,54 @@ public class configurarTeclado extends javax.swing.JFrame {
         try {
             int columnas = Integer.parseInt(this.jtColumnas.getText());
             int filas = Integer.parseInt(this.jtFilas.getText());
-            int posiciones = Integer.parseInt(this.jtPosiciones.getText());
+            int posiciones = filas*columnas;	//Integer.parseInt(this.jtPosiciones.getText());
             String forma = (String)cbFormaTeclado.getSelectedItem();
             boolean lados = false;
-			if (cbLadosTeclas.getSelectedIndex() == 1) lados = true;
-			//if (cbLadosTeclas.getSelectedIndex() == 2) lados = false;
+            if (cbLadosTeclas.getSelectedIndex() == 1) lados = true;
 			
-			boolean errorCampoVacio = false;
-			if ("".equals(columnas))	errorCampoVacio = true;
-			if ("".equals(filas))		errorCampoVacio = true;
-			if ("".equals(posiciones))	errorCampoVacio = true;
-			if (cbLadosTeclas.getSelectedIndex() == 0)	errorCampoVacio = true;
-			if (cbFormaTeclado.getSelectedIndex() == 0)	errorCampoVacio = true;
-			
-			if (errorCampoVacio) {
-				mostrarMensaje("Debe escoger todos los campos");
+            boolean errorCampoVacio = false;
+            if ("".equals(columnas))	errorCampoVacio = true;
+            if ("".equals(filas))		errorCampoVacio = true;
+            if ("".equals(posiciones))	errorCampoVacio = true;
+            if (columnas == 0)		errorCampoVacio = true;
+            if (filas == 0)			errorCampoVacio = true;
+            if (posiciones == 0)	errorCampoVacio = true;
+            if (cbLadosTeclas.getSelectedIndex() == 0)	errorCampoVacio = true;
+            if (cbFormaTeclado.getSelectedIndex() == 0)	errorCampoVacio = true;
+		
+            if (errorCampoVacio) {
+		mostrarMensaje("Debe escoger todos los campos");
+            }
+            else {
+                boolean errorPosiciones = false;
+                if (posiciones > filas*columnas) errorPosiciones = true;
+                if (errorPosiciones) {
+                    mostrarMensaje("posiciones HA DE SER <= filas*columnas");
+                }
+                else {
+                    boolean errorHexagonal = false;
+                    if (cbFormaTeclado.getSelectedIndex() == 2 && filas%2 == 0) errorHexagonal = true;
+                    if (errorHexagonal) {
+                        mostrarMensaje("Teclado HEXAGONAL requiere filas impares");
+                    }
+                    else {
+			boolean errorFilasDistintoColumnas = false;
+			if (cbFormaTeclado.getSelectedIndex() == 2 && (columnas <= filas || filas < 3)) errorFilasDistintoColumnas = true;
+			if (errorFilasDistintoColumnas) mostrarMensaje("teclado HEX requiere columnas > filas >= 3");
+			else {
+                            tec = new teclado(forma, filas, columnas, posiciones, lados);
+                            limpiarCampos();
+                            init.recibirTeclado(tec);
+                            init.recibirMsg("Teclado guardado");
+                            init.setVisible(true);
+                            this.setVisible(false);
 			}
-                        else {
-                            boolean errorPosiciones = false;
-                            if (posiciones > filas*columnas) errorPosiciones = true;
-
-                            if (errorPosiciones) {
-                                mostrarMensaje("filas*columnas HA DE SER >= posiciones");
-                            }
-                            else {
-                                boolean errorHexagonal = false;
-                                if (cbFormaTeclado.getSelectedIndex() == 2 && filas%2 == 0) errorHexagonal = true;
-                                if (errorHexagonal) {
-                                    mostrarMensaje("Teclado HEXAGONAL requiere filas impares");
-                                }
-                            
-                                else {
-                                        tec = new teclado(forma, filas, columnas, posiciones, lados);
-                                        limpiarCampos();
-
-                                        init.recibirTeclado(tec);
-                                        init.recibirMsg("Teclado guardado");
-                                        init.setVisible(true);
-                                        this.setVisible(false);
-                                }
-                            }
-                        }
-		} catch (Exception e) {
-			mostrarMensaje("Error de guardado");
-		}
+                    }
+                }
+            }
+	} catch (Exception e) {
+            mostrarMensaje("Error de guardado");
+	}
     }//GEN-LAST:event_btGuardarActionPerformed
 
     private void btAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtrasActionPerformed

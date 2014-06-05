@@ -1,10 +1,16 @@
 package interfazteclado;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class agregarAlfabeto extends javax.swing.JFrame {
     private alfabeto nuevo = new alfabeto();
     private configurarAlfabeto ca = new configurarAlfabeto();
+    private controladorAlfabeto controladorA = new controladorAlfabeto();
 
     public agregarAlfabeto() {
         initComponents();
@@ -13,6 +19,25 @@ public class agregarAlfabeto extends javax.swing.JFrame {
     public agregarAlfabeto(configurarAlfabeto confAlf) {
         this.ca = confAlf;
         initComponents();
+    }
+    public void error (String texto) {
+        JOptionPane.showMessageDialog(null, texto, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    public void comprobarLetras(String Alf) {
+        boolean repetidas = false;
+        for(int i=0; i < Alf.length() && !repetidas;++i) {
+            for(int j=0; j < Alf.length() && !repetidas;++j) {
+                if(Alf.charAt(i) == Alf.charAt(j) && i != j) {
+                    System.out.println("Letras " +Alf.charAt(i)+ " " + Alf.charAt(j));
+                    error("letras repetidas");
+                    repetidas = true;
+                    
+                }
+            }
+        }
+    }
+    public void comprobarAlfabeto (String Alf) {
+        if(controladorA.existeAlfabeto(Alf)) error("Ya hay un alfabeto con ese nombre");
     }
     
     @SuppressWarnings("unchecked")
@@ -133,12 +158,24 @@ public class agregarAlfabeto extends javax.swing.JFrame {
     private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
         tCaracteres.setText("");
         tNombreAlfabeto.setText("");
+        
     }//GEN-LAST:event_bLimpiarActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        comprobarLetras(tCaracteres.getText());
+        comprobarAlfabeto(tNombreAlfabeto.getText());
         nuevo = new alfabeto(tNombreAlfabeto.getText(), tCaracteres.getWidth());
+        //controladorA.leerAlfabeto(tCaracteres.getText());
+        File archivo = new File("");
+        String ruta = archivo.getAbsolutePath() + "/Alfabetos/";        
+        try {
+            controladorA.crearAlfabeto(tNombreAlfabeto.getText(), ruta +tNombreAlfabeto.getText()+ ".txt", tCaracteres.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(agregarAlfabeto.class.getName()).log(Level.SEVERE, null, ex);
+        }  
         ca.setNewAlfabeto(nuevo);
         agregarAlfabeto.this.setVisible(false);
+        ca.inicializarLista();
         ca.setVisible(true);
     }//GEN-LAST:event_bAceptarActionPerformed
 
